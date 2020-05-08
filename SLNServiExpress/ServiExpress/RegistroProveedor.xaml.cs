@@ -54,6 +54,10 @@ namespace ServiExpress
                 {
                     case MessageDialogResult.Affirmative:
                         prov.Modificar();
+                        Cargar();
+                        txtrutprov.IsEnabled = true;
+                        Limpiar();
+
                         await this.ShowMessageAsync("Informacion", "El Proveedor ha sido modificado.", style: MessageDialogStyle.Affirmative);
 
                         break;
@@ -66,7 +70,7 @@ namespace ServiExpress
             }
             catch (Exception ex)
             {
-
+                desplegarMensaje(ex,ex.Message);
             }
         }
 
@@ -111,25 +115,23 @@ namespace ServiExpress
                
                 prov.Rubro = (Rubros)cmbrubro.SelectedIndex;
                 prov.Agregar();
+                Cargar();
+                Limpiar();
                 await this.ShowMessageAsync("Informacion", "El Proveedor ha sido registrado.", style: MessageDialogStyle.Affirmative);
             }
             catch (Exception ex)
             {
 
-                await this.ShowMessageAsync("Informacion", "Ha ocurrido un error revise los datos", style: MessageDialogStyle.Affirmative);
+                desplegarMensaje(ex ,ex.Message);
                 Console.WriteLine("Error : " + ex.Message);
             }
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //se cargan el comboBox con los datos de enum Rubros de proveedorBLL
-            var rubros = (Rubros[])Enum.GetValues(typeof(Rubros));
-            cmbrubro.ItemsSource = rubros;
-            cmbrubro.SelectedIndex = 1;
-            //cargar datos de provedores en la dataGrid
-            dgProveedor.ItemsSource = prov.listarTodos();
-            dgProveedor.IsReadOnly = true;
+            Cargar();
+
+
         }
 
         private void btncerrar_Click(object sender, RoutedEventArgs e)
@@ -150,10 +152,7 @@ namespace ServiExpress
                 rutPro = prov.buscarRut(rutPro); 
                 if (!string.IsNullOrEmpty(txtrutprov.Text))
                 {
-
                     listado = prov.listaRutProveedor();
-
-
                 }
                 else
                 {
@@ -161,41 +160,32 @@ namespace ServiExpress
                 }
 
             }
-            catch
+            catch(Exception error)
             {
-
+                desplegarMensaje(error, "ha ocurrido un error, verifique los datos") ;
             }
 
+        }
+        void Cargar()
+        {
+            //se cargan el comboBox con los datos de enum Rubros de proveedorBLL
+            var rubros = (Rubros[])Enum.GetValues(typeof(Rubros));
+            cmbrubro.ItemsSource = rubros;
+            cmbrubro.SelectedIndex = 1;
+            //cargar datos de provedores en la dataGrid
+            dgProveedor.ItemsSource = prov.listarTodos();
+            dgProveedor.IsReadOnly = true;
         }
 
         private void Limpiar()
         {
             txtrutprov.Text = string.Empty;
+            txtnombreprov.Text = string.Empty;
+            txtapellidosprov.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            txttelefonprov.Text = string.Empty;
         }
 
-        private void cmbListaRut_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        { // no es este evento
-
-           
-            ProveedorBLL editar = new ProveedorBLL();
-           
-            try
-            {
-                string rutBsucar = txtrutprov.Text;
-                editar = editar.buscarPorRut(rutBsucar);
-                txtapellidosprov.Text = editar.Apellido;
-                txtnombreprov.Text = editar.Nombre;
-                txttelefonprov.Text = editar.Tel.ToString();
-                txtCorreo.Text = editar.Correo;
-                cmbrubro.SelectedItem = editar.Rubro;
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("No hay nada");
-            }
-
-        }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -212,7 +202,7 @@ namespace ServiExpress
                 {
                     case MessageDialogResult.Affirmative:
 
-
+                        txtrutprov.IsEnabled = false;
                         txtrutprov.Text = proveedor.Rut;
                         txtnombreprov.Text = proveedor.Nombre;
                         txtapellidosprov.Text = proveedor.Apellido;

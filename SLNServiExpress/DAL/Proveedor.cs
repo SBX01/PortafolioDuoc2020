@@ -69,7 +69,7 @@ namespace DAL
                 pro.Nombre = reader.GetString(1);
                 pro.Apellido = reader.GetString(2);
                 pro.Correo = reader.GetString(3);
-                pro.Telefono = reader.GetInt32(4);
+                pro.Telefono = int.Parse(reader.GetValue(4).ToString());
                 pro.Rubro = reader.GetString(5);
                 encontrado = pro;
             }
@@ -179,5 +179,19 @@ namespace DAL
             return lista;
 
         }
+        public void EliminarProveedor(string aBorrar)
+        {
+            conexion.Conectar(); // se conecta a la base de datos
+            cmd = new OracleCommand("ELIMINAR_PROVEDOR", conexion.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("rut_borrar", OracleDbType.Varchar2, ParameterDirection.Input).Value = aBorrar;
+
+
+            cmd.ExecuteNonQuery();
+
+            Console.WriteLine("DAL: Se Eliminó proveedor");
+        }
+
     }
 }

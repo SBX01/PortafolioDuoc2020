@@ -36,7 +36,7 @@
                 <ImageBrush ImageSource="imagenes/agregar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btneditprov" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="276,467,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.251,2.312" Click="Btneditprov_Click">
+        <Button x:Name="btneditprov" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="276,467,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.251,2.312" Click="Btneditprov_Click" ToolTip="Para Editar un proveedor haga Doble click en uno de los proveedores de la tabla">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>

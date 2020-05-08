@@ -9,3 +9,15 @@ C:\Users\Seba\Desktop\SLNServiExpress\BLL\obj\Debug\BLL.csproj.CoreCompileInputs
 C:\Users\Seba\Desktop\SLNServiExpress\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Seba\Desktop\SLNServiExpress\BLL\obj\Debug\BLL.dll
 C:\Users\Seba\Desktop\SLNServiExpress\BLL\obj\Debug\BLL.pdb
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\BLL.dll
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\BLL.pdb
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\DAL.dll
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\Validaciones.dll
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\DAL.pdb
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\DAL.dll.config
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.dll
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.pdb

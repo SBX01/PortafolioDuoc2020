@@ -37,7 +37,7 @@ namespace ServiExpress
             modulo.ShowDialog();
         }
 
-        private async void Btneditcli_Click(object sender, RoutedEventArgs e)
+        private async void Btneditcli_Click(object sender, RoutedEventArgs e) 
         {
             try
             {
@@ -57,7 +57,9 @@ namespace ServiExpress
                     throw new Exception("numero no corresponde ");
                 }
                 cli.Modificar();
-                await this.ShowMessageAsync("informacion", "Agregado");
+                CargarDatos();
+                txtrutcl.IsEnabled = true;
+                await this.ShowMessageAsync("informacion", "Cliente Modificado");
             }
             catch (Exception ex)
             {
@@ -65,6 +67,7 @@ namespace ServiExpress
                 Console.WriteLine("error :" + ex.Message);
 
             }
+            Limpiar();
         }
 
         private void Btnelimcli_Click(object sender, RoutedEventArgs e)
@@ -110,7 +113,8 @@ namespace ServiExpress
                 }
                 cli.idusuario = id;
                 cli.Agregar();
-                await this.ShowMessageAsync("informacion", "Agregado");
+                CargarDatos();
+                await this.ShowMessageAsync("Informacion", "Agregado");
             }
             catch (Exception ex)
             {
@@ -130,6 +134,7 @@ namespace ServiExpress
             txtcorreocl.Text = string.Empty;
             txtdirecl.Text = string.Empty;
             txtnombrescl.Text = string.Empty;
+            txtapellidoscl.Text = string.Empty;
             txtrutcl.Text = string.Empty;
             txttelefonocl.Text = string.Empty;
             txtusercl.Text = string.Empty;
@@ -171,7 +176,7 @@ namespace ServiExpress
                 {
                     case MessageDialogResult.Affirmative:
 
-
+                        txtrutcl.IsEnabled = false;
                         txtrutcl.Text = cliente.Rut;
                         txtnombrescl.Text = cliente.Nombre;
                         txtapellidoscl.Text = cliente.apellidos;
@@ -197,6 +202,12 @@ namespace ServiExpress
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
+            dgcliente.ItemsSource = null;
             dgcliente.ItemsSource = cli.listartodos();
             dgcliente.IsReadOnly = true;
         }

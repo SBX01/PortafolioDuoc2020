@@ -5,20 +5,142 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using Validaciones;
 
 namespace BLL
 {
     public class ProveedorBLL
     {
+        Validacion val = new Validacion();
         Conexion conexion = new Conexion();
-        public string Rut { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Correo { get; set; }
-        public int Tel { get; set; }
-        public Rubros Rubro { get; set; }
 
-        
+        string _rut;
+        string _nombre;
+        string _apellido;
+        string _correo;
+        int _telefono;
+
+
+
+        public Rubros Rubro { get; set; }
+        public string Rut 
+        { 
+            get
+            {
+             return _rut;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    if (val.validarRut(value))
+                    {
+                        _rut = value;
+                    }
+                    else
+                    {
+                        throw new Exception("El rut ingresado no es válido");
+                    }
+                }
+                else
+                {
+                    throw new Exception("El rut se encuentra vacio");
+                }
+            }
+                
+        }
+        public string Nombre
+        {
+            get
+            {
+                return _nombre;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _nombre = value;
+                }
+                else
+                {
+                    throw new Exception("El nombre se encuentra vacio");
+                }
+            }
+        }
+        public string Apellido
+        {
+            get
+            {
+                return _apellido;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                     _apellido = value;
+                }
+                else
+                {
+                    throw new Exception("El apellido se encuentra vacio");
+                }
+            }
+        }
+        public string Correo
+        {
+            get
+            {
+                return _correo;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    if (val.emailValido(value))
+                    {
+                        _correo = value;
+                    }
+                    else
+                    {
+                        throw new Exception("El email ingresado no es válido");
+                    }
+                }
+                else
+                {
+                    throw new Exception("El Email se encuentra vacio");
+                }
+            }
+        }
+        public int Tel
+        {
+            get
+            {
+                return _telefono;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value.ToString()))
+                {
+                    if (val.telefonoValido(value.ToString()))
+                    {
+                        _telefono = value;
+                    }
+                    else
+                    {
+                        throw new Exception("El telefono ingresado no es válido");
+                    }
+                }
+                else
+                {
+                    throw new Exception("El telefono se encuentra vacio");
+                }
+            }
+        }
+
         public ProveedorBLL(){}
 
         public ProveedorBLL(Proveedor nuevo)
@@ -159,7 +281,21 @@ namespace BLL
 
         }
 
+        public void Eliminar(string rut)
+        {
+            ProveedorBLL abuscar = new ProveedorBLL();
+            Proveedor borrado = new Proveedor();
+            abuscar = abuscar.buscarPorRut(rut);
+            if (abuscar != null)
+            {
+                borrado.EliminarProveedor(rut);
+            }
+            else
+            {
+                throw new Exception("El proveedor no se ha encontrado");
+            }
 
+        }
 
     }
     public enum Rubros 
