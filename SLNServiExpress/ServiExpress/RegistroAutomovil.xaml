@@ -1,0 +1,98 @@
+﻿<Controls:MetroWindow x:Class="ServiExpress.RegistroAutomovil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiExpress"
+        mc:Ignorable="d"
+       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="SERVIEXPRESS" Background="#002542" Height="571.871" Width="801.005">
+    <Grid>
+
+        <Label Content=" Registro  De Automoviles " HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="456" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+
+        <Label x:Name="lblrutcl" Content="Rut Cliente:" HorizontalAlignment="Left" Margin="19,91,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <ComboBox x:Name="cborutcliente" HorizontalAlignment="Left" Margin="175,99,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblpatente" Content="Patente:" HorizontalAlignment="Left" Margin="19,164,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <TextBox x:Name="txtpatente" HorizontalAlignment="Left" Height="23" Margin="157,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblmodel" Content="Modelo:" HorizontalAlignment="Left" Margin="19,224,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <TextBox x:Name="txtmodelo" HorizontalAlignment="Left" Height="23" Margin="157,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblanno" Content="Año:" HorizontalAlignment="Left" Margin="360,91,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <TextBox x:Name="txtanno" HorizontalAlignment="Left" Height="23" Margin="459,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblmarc" Content="Marca:" HorizontalAlignment="Left" Margin="347,164,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <ComboBox  x:Name="cbomarca" Margin="459,172,143,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnagregarauto" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="56,325,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/agregar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Label Content=" Agregar Auto  " HorizontalAlignment="Left" Margin="19,407,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="213" FontSize="22"/>
+        <Label Content=" Editar Auto  " HorizontalAlignment="Left" Margin="191,407,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="213" FontSize="22" RenderTransformOrigin="1.385,-0.297"/>
+        <Label Content=" Eliminar Auto  " HorizontalAlignment="Left" Margin="370,407,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="213" FontSize="22" RenderTransformOrigin="0.28,2.392"/>
+        <Label Content=" Listar Auto  " HorizontalAlignment="Left" Margin="580,407,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="213" FontSize="22"/>
+
+        <Button x:Name="btneditaut" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="224,327,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37" Click="btneditaut_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="-0.152" Y="0.877"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/modi.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="btnelimauto" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="416,336,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249" Click="Btnelimauto_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="-0.915" Y="-0.028"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/eliminar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="717,473,0,0" VerticalAlignment="Top" Width="55" Height="53" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="0.898" Y="-0.1"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnlistaraut" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="604,339,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="Btnlistaraut_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/list.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>

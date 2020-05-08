@@ -1,0 +1,109 @@
+﻿<Controls:MetroWindow x:Class="ServiExpress.RegistroClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiExpress"
+        mc:Ignorable="d"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="SERVIEXPRESS" Background="#002456" Height="669.587" Width="868.041" Loaded="MetroWindow_Loaded">
+    <Grid Margin="0,0,2,-21">
+        <Label Content=" Registro  De Clientes " HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="456" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+
+        <Label x:Name="lblrut" Content="Rut                         :" HorizontalAlignment="Left" Margin="19,91,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <Label x:Name="lblnombres" Content="Nombres                :" HorizontalAlignment="Left" Margin="15,152,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" FontWeight="Bold" Height="36" Width="189" FontSize="22"/>
+        <Label Content="Apellidos                :" HorizontalAlignment="Left" Margin="19,203,0,0" VerticalAlignment="Top" Height="46" Width="190" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.479,0.263"/>
+        <Label x:Name="lbltelefono" Content="Teléfono        :" HorizontalAlignment="Left" Margin="14,269,0,0" VerticalAlignment="Top" Height="41" Width="195" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
+        <Label x:Name="lblcorreo" Content="Correo       :" HorizontalAlignment="Left" Margin="479,103,0,0" VerticalAlignment="Top" Height="41" Width="195" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
+        <TextBox x:Name="txtrutcl" HorizontalAlignment="Left" Height="23" Margin="234,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtnombrescl" HorizontalAlignment="Left" Height="23" Margin="226,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <TextBox x:Name="txtapellidoscl" HorizontalAlignment="Left" Height="23" Margin="234,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <TextBox x:Name="txttelefonocl" HorizontalAlignment="Left" Height="23" Margin="234,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <TextBox x:Name="txtcorreocl" HorizontalAlignment="Left" Height="23" Margin="617,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" RenderTransformOrigin="0.666,0.902"/>
+        <Label Content="Direccion         :" HorizontalAlignment="Left" Margin="15,328,0,0" VerticalAlignment="Top" Height="46" Width="190" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.479,0.263"/>
+        <TextBox x:Name="txtdirecl" HorizontalAlignment="Left" Height="23" Margin="234,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <Button x:Name="btnagregarcli" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="109,512,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="btnagregarcli_Click">
+
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/agregar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <DataGrid x:Name="dgcliente" HorizontalAlignment="Left" Height="108" Margin="95,382,0,0" VerticalAlignment="Top" Width="641" MouseDoubleClick="dgcliente_MouseDoubleClick" />
+        <Label Content=" Agregar Cliente  " HorizontalAlignment="Left" Margin="38,588,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="38" Width="213" FontSize="22"/>
+        <Label Content=" Editar Cliente  " HorizontalAlignment="Left" Margin="222,588,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="38" Width="213" FontSize="22" RenderTransformOrigin="1.385,-0.297"/>
+        <Label Content=" Eliminar Cliente  " HorizontalAlignment="Left" Margin="414,588,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="38" Width="213" FontSize="22" RenderTransformOrigin="0.28,2.392"/>
+        <Label Content=" Listar Cliente  " HorizontalAlignment="Left" Margin="607,588,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="38" Width="213" FontSize="22"/>
+
+        <Button x:Name="btneditcli" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="260,514,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37" Click="Btneditcli_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="-0.152" Y="0.877"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/modi.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="btnelimcli" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="437,512,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249" Click="Btnelimcli_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="-0.915" Y="-0.028"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/eliminar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="761,535,0,0" VerticalAlignment="Top" Width="55" Height="53" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="0.898" Y="-0.1"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnlistar" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="626,512,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="Btnlistar_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/list.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
+        <Label x:Name="lbluserc" Content="Username :                        " HorizontalAlignment="Left" Margin="479,163,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <Label x:Name="lblpass" Content="Contraseña:                        " HorizontalAlignment="Left" Margin="474,219,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22"/>
+        <TextBox x:Name="txtusercl" HorizontalAlignment="Left" Height="23" Margin="621,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" RenderTransformOrigin="0.423,4.038"/>
+        <Label x:Name="lblconfp" Content=" Confirmar&#xD;&#xA;Contraseña" HorizontalAlignment="Left" Margin="474,258,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="76" Width="134" FontSize="22"/>
+        <PasswordBox x:Name="txtContra" HorizontalAlignment="Left" Margin="621,235,0,0" VerticalAlignment="Top" Width="171" Height="23"/>
+        <PasswordBox x:Name="txtConfirmarPass" HorizontalAlignment="Left" Margin="621,291,0,0" VerticalAlignment="Top" Width="171" Height="23" KeyUp="txtConfirmarPass_KeyUp"/>
+        <Label x:Name="lbMensaje" Content="Verifique contraseña" HorizontalAlignment="Left" Margin="634,269,0,0" VerticalAlignment="Top" Foreground="#FFEA3939" FontWeight="Bold" FontFamily="Lucida Console" FontSize="11"/>
+    </Grid>
+</Controls:MetroWindow>

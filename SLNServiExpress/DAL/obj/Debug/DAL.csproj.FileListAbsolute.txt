@@ -1,0 +1,10 @@
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\bin\Debug\DAL.dll.config
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\bin\Debug\DAL.dll
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\bin\Debug\DAL.pdb
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\obj\Debug\DAL.dll
+C:\Users\Seba\Desktop\SLNServiExpress\DAL\obj\Debug\DAL.pdb

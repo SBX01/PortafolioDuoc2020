@@ -1,0 +1,115 @@
+﻿<Controls:MetroWindow x:Class="ServiExpress.ModuloRegistros"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiExpress"
+        mc:Ignorable="d"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="SERVIEXPRESS" Background="Gray" Height="521.404" Width="739.029">
+
+    <Grid Margin="0,0,2,9">
+        <Image HorizontalAlignment="Left" Source="imagenes/fondo1.png" Width="740" RenderTransformOrigin="0.5,0.5" Margin="-7,2,-4,-12">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.411"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="1.704"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="btnRegistrarClientes" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="23,103,0,0" VerticalAlignment="Top" Width="90" Height="86" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="BtnRegistrarClientes_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/clientes.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRegistroProveedor" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="325,96,0,0" VerticalAlignment="Top" Width="90" Height="86" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.073,0.605" Click="BtnRegistroProveedor_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="0.165" Y="0.67"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/proveedor.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRegistroEmpleado" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="28,217,0,0" VerticalAlignment="Top" Width="90" Height="86" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="BtnRegistroEmpleado_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/empleado.png" Stretch="Uniform"/>
+            </Button.Background>
+
+        </Button>
+
+        <Button x:Name="btnRegistroServicio" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="28,327,0,0" VerticalAlignment="Top" Width="90" Height="86" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="BtnRegistroServicio_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/servicio.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRegistroProductos" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="309,330,0,0" VerticalAlignment="Top" Width="90" Height="86" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="BtnRegistroProductos_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/productos.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRegistroAuto" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="352,217,0,0" VerticalAlignment="Top" Width="90" Height="86" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="BtnRegistroAuto_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/auto.png" Stretch="Uniform"/>
+            </Button.Background>
+
+        </Button>
+
+        <Label x:Name="lbltitulo" Content="Modulo Registro" Grid.Column="5" HorizontalAlignment="Left" Margin="217,36,0,0" VerticalAlignment="Top" Height="78" Width="417" FontSize="36" Foreground="Black" FontStyle="Italic" FontFamily="Times New Roman" Background="Transparent" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <Label Content=" Registro&#xA; De Clientes" HorizontalAlignment="Left" Margin="125,102,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content=" Registro&#xA; De Proveedor" HorizontalAlignment="Left" Margin="436,114,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content=" Registro&#xA; De Empleado" HorizontalAlignment="Left" Margin="158,234,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content=" Registro&#xA; De Servicio" HorizontalAlignment="Left" Margin="125,336,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content=" Registro&#xA; De Productos" HorizontalAlignment="Left" Margin="405,336,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content=" Registro&#xA; De Automovil" HorizontalAlignment="Left" Margin="461,234,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
+        <Button x:Name="btncerrar"  Content="Cerrar Sesiòn" Background="#51d1f6" HorizontalAlignment="Left" Margin="533,13,0,0" VerticalAlignment="Top" Width="169" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Height="37" Click="btncerrar_Click"/>
+    </Grid>
+</Controls:MetroWindow>

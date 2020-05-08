@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55A45200-CF53-4D28-B3CB-5545012C31C6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ServiExpress</RootNamespace>
+    <AssemblyName>ServiExpress</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Connected Services\LoginService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Data.cs" />
+    <Compile Include="EliminarAutomovil.xaml.cs">
+      <DependentUpon>EliminarAutomovil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarCliente.xaml.cs">
+      <DependentUpon>EliminarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarEmpleado.xaml.cs">
+      <DependentUpon>EliminarEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProducto.xaml.cs">
+      <DependentUpon>EliminarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProveedor.xaml.cs">
+      <DependentUpon>EliminarProveedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarServicio.xaml.cs">
+      <DependentUpon>EliminarServicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListarAutomoviles.xaml.cs">
+      <DependentUpon>ListarAutomoviles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListarClientes.xaml.cs">
+      <DependentUpon>ListarClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEmpleado.xaml.cs">
+      <DependentUpon>ListarEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListarProducto.xaml.cs">
+      <DependentUpon>ListarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListarProveedor.xaml.cs">
+      <DependentUpon>ListarProveedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListarServicio.xaml.cs">
+      <DependentUpon>ListarServicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloRegistros.xaml.cs">
+      <DependentUpon>ModuloRegistros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroAutomovil.xaml.cs">
+      <DependentUpon>RegistroAutomovil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroClientes.xaml.cs">
+      <DependentUpon>RegistroClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroEmpleado.xaml.cs">
+      <DependentUpon>RegistroEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroProducto.xaml.cs">
+      <DependentUpon>RegistroProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroProveedor.xaml.cs">
+      <DependentUpon>RegistroProveedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroServicio.xaml.cs">
+      <DependentUpon>RegistroServicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SaludoUsuario.xaml.cs">
+      <DependentUpon>SaludoUsuario.xaml</DependentUpon>
+    </Compile>
+    <Page Include="EliminarAutomovil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EliminarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EliminarEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EliminarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EliminarProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EliminarServicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarAutomoviles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarServicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ModuloRegistros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroAutomovil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroServicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SaludoUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Connected Services\LoginService\LoginService.wsdl" />
+    <None Include="Connected Services\LoginService\LoginService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoginService\ServiExpress.LoginService.getRolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\LoginService\ServiExpress.LoginService.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\agregar.png" />
+    <Resource Include="Imagenes\atraas.png" />
+    <Resource Include="Imagenes\atras.png" />
+    <Resource Include="Imagenes\botonbúsqueda.png" />
+    <Resource Include="Imagenes\clientes.png" />
+    <Resource Include="Imagenes\coch.png" />
+    <Resource Include="Imagenes\eliminar.png" />
+    <Resource Include="Imagenes\empleado.png" />
+    <Resource Include="Imagenes\fond.png" />
+    <Resource Include="Imagenes\fonddo.png.jpeg" />
+    <Resource Include="Imagenes\fondo.png" />
+    <Resource Include="Imagenes\fondo1.png" />
+    <Resource Include="Imagenes\foto.png" />
+    <Resource Include="Imagenes\foto2.png" />
+    <Resource Include="Imagenes\foto3.png" />
+    <Resource Include="Imagenes\foto34.png" />
+    <Resource Include="Imagenes\foto4.png" />
+    <Resource Include="Imagenes\foto5.png" />
+    <Resource Include="Imagenes\icobusc.png" />
+    <Resource Include="Imagenes\list.png" />
+    <Resource Include="Imagenes\logo.png" />
+    <Resource Include="Imagenes\me.png" />
+    <Resource Include="Imagenes\mec.png" />
+    <Resource Include="Imagenes\mm.png" />
+    <Resource Include="Imagenes\modi.png" />
+    <Resource Include="Imagenes\productos.png" />
+    <Resource Include="Imagenes\proveedor.png" />
+    <Resource Include="Imagenes\servicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\foto44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\auto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\LoginService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LoginService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LoginService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LoginService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{8e2b6698-e915-4640-bb06-fa47d34be4f8}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

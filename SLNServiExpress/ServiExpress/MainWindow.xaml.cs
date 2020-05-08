@@ -1,0 +1,171 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs; // se le agregan los dialogos
+using BLL;
+using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System.Configuration;
+using System.Data;
+
+
+namespace ServiExpress
+{
+    /// <summary>
+    /// Lógica de interacción para MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : MetroWindow
+    {
+
+        /* 
+         * El web service esta en ServiExpress/Connected Services/LoginService
+         * tiene que estar funcionando el proyecto de web para que funcione el login,
+         * si no desplegará el mensaje de "NO CONECTADO"
+         */
+
+        UsuarioBLL user = new UsuarioBLL();
+
+        LoginService.LoginServiceClient login = new LoginService.LoginServiceClient(); // se crea la instancia 
+
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            Data.NombreUser = "";
+        }
+
+
+        private void Btnregistro_Click(object sender, RoutedEventArgs e)
+        {
+            Data.EstaLogeado = false;
+            RegistroEmpleado    registrar = new RegistroEmpleado();
+            this.Close();
+            registrar.ShowDialog();
+
+        }
+
+        private async void Btningresar_Click(object sender, RoutedEventArgs e) // el async es para los mensajes de dialogo de mahapss
+        {
+
+ 
+            string username = txtusuario.Text;
+            string password = pbcontra.Password;
+            try
+            {   // Se guardan las variables de nombre de usuario y la pass
+
+
+                if (login.login(username, password))//se llama la funcion "login(u,p)" del web service y se le ingresan los parametros
+                {
+                    //si son correctos se retorna el rol del usuario
+                    string result = login.getRol(username); // se llama la funcion getrol(u) del web service y se le asigna el mismo parametro
+                    
+                    switch (result) //segun el resultado guardado se hara lo siguiente
+                    {
+                        case "cli": // si es cliente desplegará un mensaje de que no puede ingresar aca con el mensaje de  mahapps
+                            await this.ShowMessageAsync("Lo sentimos!", "usted no tiene permiso para acceder.", style: MessageDialogStyle.Affirmative);
+                            Limpiar();
+                            break;
+                        case "no esta": // en el caso que el rol este mal escrito entrará a este punto
+                            await this.ShowMessageAsync("Lo sentimos!", "Su cuenta presenta un error.", style: MessageDialogStyle.Affirmative);
+                            Limpiar();
+                            break;
+
+                        case "error": // si hay un error pasa aca, el error viene desde el web service
+                            await this.ShowMessageAsync("Lo sentimos!", "Su cuenta presenta un error.", style: MessageDialogStyle.Affirmative);
+                            Limpiar();
+                            break;
+                        default: // si es "emp"(empleado) o "adm"(administrador) entrará aca donde abre la ventana
+                            if (result.Equals("adm"))
+                            {
+                                Data.EsAdmin = true;
+                            }
+                            else
+                            {
+                                Data.EsAdmin = false;
+                            }
+                            Data.EstaLogeado = true;
+                            Data.NombreUser = username;
+                            Console.WriteLine("Nombre: "+Data.NombreUser);
+                            SaludoUsuario saludo = new SaludoUsuario();
+                            this.Close();
+                            saludo.ShowDialog();
+                            break;
+
+                    }
+
+                }
+                else // si los datos no estan en la base de datos desplegará este error
+                {
+                    
+                    await this.ShowMessageAsync("Usuario incorrecto", "verifique que su usuario o clave sean los correctos.", style: MessageDialogStyle.Affirmative);
+                }
+            }
+            catch (Exception ex) // si hay problemas de coneccion con la web service entra aca
+            {
+
+                Console.WriteLine("No conecado en webService" + ex.Message);
+                // intenta conectarse desde la base de datos
+                if (user.TryLogin(username, password))
+                {
+                    
+                    string result = user.GetRolUsuario(username); ;
+                    switch (result) 
+                    {
+                        case "cli": 
+                            await this.ShowMessageAsync("Lo sentimos!", "usted no tiene permiso para acceder.", style: MessageDialogStyle.Affirmative);
+                            Limpiar();
+                            break;
+
+                        case "Error":
+                            await this.ShowMessageAsync("Lo sentimos!", "Su cuenta presenta un error.", style: MessageDialogStyle.Affirmative);
+                            Limpiar();
+                            break;
+                        default:
+                            if (result.Equals("adm"))
+                            {
+                                Data.EsAdmin = true;
+                            }
+                            else
+                            {
+                                Data.EsAdmin = false;
+                            }
+                            Data.EstaLogeado = true;
+                            Data.NombreUser = username;
+                            Console.WriteLine("Nombre: " + Data.NombreUser);
+                            SaludoUsuario saludo = new SaludoUsuario();
+                            this.Close();
+                            saludo.ShowDialog();
+                            break;
+
+                    }
+                }
+                else
+                {
+                    
+                    await this.ShowMessageAsync("Lo sentimos!", "El usuario ingresado no existe.", style: MessageDialogStyle.Affirmative);
+                }
+
+            }
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            txtusuario.Clear();
+            pbcontra.Clear();
+        }
+    }
+}

@@ -1,0 +1,30 @@
+﻿<Controls:MetroWindow x:Class="ServiExpress.ListarClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiExpress"
+        mc:Ignorable="d"
+       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="SERVIEXPRESS" Background="#002456" Height="546.897" Width="809.278" Loaded="MetroWindow_Loaded">
+    <Grid>
+        <Label Content=" Listar Clientes " HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="456" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="714,443,0,0" VerticalAlignment="Top" Width="48" Height="49" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="Btnatras_Click_1"    >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <DataGrid x:Name="dtgclientes" HorizontalAlignment="Left" Height="206" Margin="42,200,0,0" VerticalAlignment="Top" Width="726"/>
+        <Button x:Name="btnlistarcl" Content="Listar Clientes" Background="#51d1f6" HorizontalAlignment="Left" Margin="284,111,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="0.153,-0.056" FontSize="20" Click="btnlistarcl_Click"/>
+    </Grid>
+</Controls:MetroWindow>

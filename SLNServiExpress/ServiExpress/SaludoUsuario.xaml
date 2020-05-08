@@ -1,0 +1,34 @@
+﻿<Controls:MetroWindow x:Class="ServiExpress.SaludoUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiExpress"
+        mc:Ignorable="d"
+         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="SERVIEXPRESS" Background="#002456" Height="567.609" Width="1040.849">
+    <Grid>
+        <Button  x:Name="btncerrar"    Content="Cerrar Sesiòn" Background="#51d1f6" HorizontalAlignment="Left" Margin="760,21,0,0" VerticalAlignment="Top" Width="169" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Click="Btncerrar_Click"/>
+        <Label x:Name="lblbienvenido" Content="Bienvenido Usuario               " HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="34" Width="248" FontSize="22"/>
+        <DataGrid HorizontalAlignment="Left" Height="299" Margin="159,109,0,0" VerticalAlignment="Top" Width="608"/>
+        <Button  x:Name="btninfoedi"    Content="Editar informacion" Background="#51d1f6" HorizontalAlignment="Left" Margin="34,456,0,0" VerticalAlignment="Top" Width="195" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Click="Btninfoedi_Click"/>
+        <Button  x:Name="btnmodulore"    Content="Modulo Registros" Background="#51d1f6" HorizontalAlignment="Left" Margin="267,456,0,0" VerticalAlignment="Top" Width="195" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Click="Btnmodulore_Click"/>
+        <Button  x:Name="btnmoduadm"    Content="Modulos Administracion" Background="#51d1f6" HorizontalAlignment="Left" Margin="495,456,0,0" VerticalAlignment="Top" Width="241" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display"/>
+        <Button  x:Name="btnhacerpedido"    Content="Hacer Pedido Producto" Background="#51d1f6" HorizontalAlignment="Left" Margin="760,456,0,0" VerticalAlignment="Top" Width="241" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display"/>
+        <Button x:Name="btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="896,383,0,0" VerticalAlignment="Top" Width="44" Height="43" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="2.877,3.977" Click="Btnatras_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="3.073" Y="-2.35"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>
