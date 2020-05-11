@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ClienteBLL.cs" />
     <Compile Include="EmpleadoBLL.cs" />
+    <Compile Include="ProductoBLL.cs" />
     <Compile Include="ProveedorBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

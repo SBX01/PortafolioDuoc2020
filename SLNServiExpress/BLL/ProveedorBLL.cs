@@ -12,8 +12,7 @@ namespace BLL
     public class ProveedorBLL
     {
         Validacion val = new Validacion();
-        Conexion conexion = new Conexion();
-
+        #region Propiedades
         string _rut;
         string _nombre;
         string _apellido;
@@ -34,6 +33,7 @@ namespace BLL
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+                    
                     if (val.validarRut(value))
                     {
                         _rut = value;
@@ -140,7 +140,7 @@ namespace BLL
                 }
             }
         }
-
+        #endregion
         public ProveedorBLL(){}
 
         public ProveedorBLL(Proveedor nuevo)
