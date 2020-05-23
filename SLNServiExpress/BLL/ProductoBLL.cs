@@ -89,21 +89,54 @@ namespace BLL
         public List<ProductoBLL> ListarTodo()
         {
             List<ProductoBLL> listaRetorno = new List<ProductoBLL>();
+            List<Producto> lista = new Producto().ListarProductos();
 
-
+            foreach (var producto in lista)
+            {
+                listaRetorno.Add(new ProductoBLL(producto));
+            }
             return listaRetorno;
         }
 
 
-        long Crearid_producto(string rutProveedor, int familiaProd, DateTime fechaVen, int tipoProd)
+        long Crearid_producto(string rutProveedor, int familiaProd, DateTime? fechaVen, int tipoProd)
         {
             string famProd = familiaProd.ToString();
-            string vencimiento = fechaVen.ToShortDateString();
+            string vencimiento = fechaVen.ToString();
             string tipo = tipoProd.ToString();
             string idPro;
+
+            if (famProd.Length == 2)
+            {
+                famProd = "0" + famProd;
+            }
+            if (famProd.Length == 1)
+            {
+                famProd = "00" + famProd;
+            }
+            if (tipo.Length == 2)
+            {
+                tipo = "0" + tipo;
+            }
+            if (tipo.Length == 1)
+            {
+                tipo = "00" + tipo;
+            }
             string fecha = vencimiento.Replace("/", "");
-            fecha = vencimiento.Replace("-", "");
+            fecha = fecha.Replace("-", "");
+            fecha = fecha.Replace(":", "");
+
+            if (string.IsNullOrEmpty(vencimiento))
+            {
+                fecha = "00000000";
+            }
+            else
+            {
+                fecha = fecha.Substring(0, 8);
+            }
+            Console.WriteLine(rutProveedor.Substring(0, 3) + famProd.Substring(0, 3) + fecha + tipo.Substring(0, 3));
             idPro = rutProveedor.Substring(0, 3) + famProd.Substring(0, 3) + fecha + tipo.Substring(0, 3);
+
             return long.Parse(idPro);
         }
     }

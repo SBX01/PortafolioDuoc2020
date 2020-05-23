@@ -146,12 +146,13 @@ C:\Users\Seba\Desktop\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.csproj
 C:\Users\Seba\Desktop\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.csproj.CopyComplete
 C:\Users\Seba\Desktop\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.exe
 C:\Users\Seba\Desktop\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.pdb
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\MahApps.Metro.dll
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\Resources\Icons.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\ServiExpress.exe.config
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\ServiExpress.exe
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\ServiExpress.pdb
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\BLL.dll
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\ControlzEx.dll
-C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\MahApps.Metro.dll
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\Oracle.DataAccess.dll
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\DAL.dll
@@ -163,7 +164,6 @@ C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\MahA
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\DAL.pdb
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\DAL.dll.config
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.csprojAssemblyReference.cache
-C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\Resources\Icons.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\Resources\IconsNonShared.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\EliminarAutomovil.g.cs
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\EliminarCliente.g.cs
@@ -182,6 +182,7 @@ C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\Modu
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroAutomovil.g.cs
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroClientes.g.cs
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroEmpleado.g.cs
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroPedido.g.cs
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroProducto.g.cs
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroProveedor.g.cs
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroServicio.g.cs
@@ -207,6 +208,7 @@ C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\Modu
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroAutomovil.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroClientes.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroEmpleado.baml
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroPedido.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroProducto.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroProveedor.baml
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\RegistroServicio.baml
@@ -218,3 +220,4 @@ C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\Serv
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.csproj.CopyComplete
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.exe
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.pdb
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\Oracle.ManagedDataAccess.dll

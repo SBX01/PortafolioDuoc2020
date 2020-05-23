@@ -21,3 +21,4 @@ C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.csproj.Co
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.dll
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\obj\Debug\BLL.pdb
+C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\BLL\bin\Debug\Oracle.ManagedDataAccess.dll

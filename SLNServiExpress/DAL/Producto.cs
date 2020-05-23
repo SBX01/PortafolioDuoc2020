@@ -1,6 +1,9 @@
 ﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics.PerformanceData;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -143,6 +146,37 @@ namespace DAL
         {
             List<Producto> lista = new List<Producto>();
 
+
+            conexion.Conectar(); // se conecta a la base de datos
+            cmd = new OracleCommand("FN_LISTARPRODUCTOS", conexion.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            OracleParameter output = cmd.Parameters.Add("L_CURSOR", OracleDbType.RefCursor);
+            output.Direction = ParameterDirection.ReturnValue;
+
+            cmd.ExecuteNonQuery();
+
+            OracleDataReader reader = ((OracleRefCursor)output.Value).GetDataReader();
+            while (reader.Read())
+            {
+                Producto producto = new Producto();
+                producto.Id_producto = long.Parse(reader.GetValue(0).ToString());
+                producto.Precio_Compra = int.Parse(reader.GetValue(1).ToString());
+                producto.Stock_produc = int.Parse(reader.GetValue(2).ToString());
+                producto.StockCritico = int.Parse(reader.GetValue(3).ToString());
+                producto.Descripcion = reader.GetString(4);
+                producto.PrecioVenta = int.Parse(reader.GetValue(5).ToString());
+                producto.Id_tipo = int.Parse(reader.GetValue(6).ToString());
+
+                producto.FechaVencimiento =DateTime.Parse(reader.GetValue(7).ToString());
+
+               
+
+                lista.Add(producto);
+            }
+            conexion.desconectar(); // se desconecta a la base de datos
+            Console.WriteLine("DAL: Listado Productos");
             return lista;
         }
 

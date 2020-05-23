@@ -19,6 +19,18 @@ namespace BLL
         public Cargos CARGO_EMPL { get; set; }
         public int ID_USUARIO { get; set; }
 
+        public string nombreCompleto
+        {
+            get
+            {
+                return NOMBRE_EMPL + " " + APELLIDO_EMPL;
+            }
+            set
+            {
+                value = NOMBRE_EMPL + " " + APELLIDO_EMPL;
+            }   
+        }
+
         public EmpleadoBLL()
         {
 
@@ -80,5 +92,5 @@ namespace BLL
         }
     }
 
-    public enum Cargos { Cajero, Mecanico, Bodeguero, Atencion }
+    public enum Cargos { Cajero, Mecanico, Bodeguero, Atencion, Soporte }
 }

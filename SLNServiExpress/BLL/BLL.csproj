@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteBLL.cs" />
+    <Compile Include="DetallePedidoBLL.cs" />
     <Compile Include="EmpleadoBLL.cs" />
+    <Compile Include="PedidoBLL.cs" />
     <Compile Include="ProductoBLL.cs" />
     <Compile Include="ProveedorBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />

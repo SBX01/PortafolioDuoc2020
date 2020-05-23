@@ -171,7 +171,7 @@ namespace ServiExpress
             //se cargan el comboBox con los datos de enum Rubros de proveedorBLL
             var rubros = (Rubros[])Enum.GetValues(typeof(Rubros));
             cmbrubro.ItemsSource = rubros;
-            cmbrubro.SelectedIndex = 1;
+            cmbrubro.SelectedIndex = 0;
             //cargar datos de provedores en la dataGrid
             dgProveedor.ItemsSource = prov.listarTodos();
             dgProveedor.IsReadOnly = true;

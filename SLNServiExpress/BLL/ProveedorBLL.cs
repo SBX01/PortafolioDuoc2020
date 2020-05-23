@@ -12,13 +12,15 @@ namespace BLL
     public class ProveedorBLL
     {
         Validacion val = new Validacion();
+
         #region Propiedades
+
         string _rut;
         string _nombre;
         string _apellido;
         string _correo;
         int _telefono;
-
+       
 
 
         public Rubros Rubro { get; set; }
@@ -36,7 +38,15 @@ namespace BLL
                     
                     if (val.validarRut(value))
                     {
-                        _rut = value;
+                        if(value.Length <= 9)
+                        {
+                            _rut = value;
+                        }
+                        else
+                        {
+                            throw new Exception("El Rut excede el límite, digite el rut sin guion ni puntos.");
+                        }
+                       
                     }
                     else
                     {
@@ -140,6 +150,19 @@ namespace BLL
                 }
             }
         }
+
+        public string nombreCompleto 
+        {
+            get
+            {
+                return Nombre + " " + Apellido;
+            }
+            set
+            {
+                value = Nombre + " " + Apellido;
+            }
+        }
+
         #endregion
         public ProveedorBLL(){}
 
@@ -150,29 +173,13 @@ namespace BLL
             this.Apellido = nuevo.Apellido;
             this.Correo = nuevo.Correo;
             this.Tel =nuevo.Telefono;
-            switch (nuevo.Rubro)
+            if (Enum.IsDefined(typeof(Rubros), nuevo.Rubro))
             {
-                case "Automotores":
-                    this.Rubro = Rubros.Automotores;
-                    break;
-                case "Combustibles":
-                    this.Rubro = Rubros.Combustibles;
-                    break;
-                case "Lubricantes":
-                    this.Rubro = Rubros.Lubricantes;
-                    break;
-                case "Suministro_Oficina":
-                    this.Rubro = Rubros.Suministro_Oficina;
-                    break;
-                case "Informatica":
-                    this.Rubro = Rubros.Informatica;
-                    break;
-                case "Servicios_básicos":
-                    this.Rubro = Rubros.Servicios_básicos;
-                    break;
-                case "Repuestos_vehiculos":
-                    this.Rubro = Rubros.Repuestos_vehiculos;
-                    break;
+                this.Rubro = (Rubros)Enum.Parse(typeof(Rubros), nuevo.Rubro);
+            }
+            else
+            {
+                this.Rubro = Rubros.Otro;
             }
         }
 
@@ -217,30 +224,15 @@ namespace BLL
                 encontado.Apellido = aBsucar.Apellido;
                 encontado.Correo = aBsucar.Correo;
                 encontado.Tel = aBsucar.Telefono;
-                switch (aBsucar.Rubro)
+                if (Enum.IsDefined(typeof(Rubros), aBsucar.Rubro))
                 {
-                    case "Automotores":
-                        encontado.Rubro = Rubros.Automotores;
-                        break;
-                    case "Combustibles":
-                        encontado.Rubro = Rubros.Combustibles;
-                        break;
-                    case "Lubricantes":
-                        encontado.Rubro = Rubros.Lubricantes;
-                        break;
-                    case "Suministro_Oficina":
-                        encontado.Rubro = Rubros.Suministro_Oficina;
-                        break;
-                    case "Informatica":
-                        encontado.Rubro = Rubros.Informatica;
-                        break;
-                    case "Servicios_básicos":
-                        encontado.Rubro = Rubros.Servicios_básicos;
-                        break;
-                    case "Repuestos_vehiculos":
-                        encontado.Rubro = Rubros.Repuestos_vehiculos;
-                        break;
+                    encontado.Rubro = (Rubros)Enum.Parse(typeof(Rubros), aBsucar.Rubro);
                 }
+                else
+                {
+                    encontado.Rubro = Rubros.Otro;
+                }
+
 
                 return encontado;
             }
@@ -299,13 +291,25 @@ namespace BLL
 
     }
     public enum Rubros 
-    { 
-        Automotores, 
-        Combustibles, 
-        Lubricantes, 
-        Suministro_Oficina,
-        Informatica, 
-        Servicios_básicos,
-        Repuestos_vehiculos
+    {
+        Lubricantes,
+        Nehumáticos,
+        Baterías,
+        Selladores,
+        Adesivos,
+        Alternador,
+        Embregues,
+        Carroceria,
+        Filtro,
+        Frenos,
+        Distribución,
+        Motor,
+        Suspensión,
+        Catalizador,
+        Sensores,
+        Refrigeración,
+        Calefacción,
+        Eletricidad,
+        Otro
     }
 }

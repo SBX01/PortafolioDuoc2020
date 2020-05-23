@@ -52,5 +52,12 @@ namespace ServiExpress
             this.Close();
             log.ShowDialog();
         }
+
+        private void btnhacerpedido_Click(object sender, RoutedEventArgs e)
+        {
+            RegistroPedido ped = new RegistroPedido();
+            this.Close();
+            ped.Show();
+        }
     }
 }

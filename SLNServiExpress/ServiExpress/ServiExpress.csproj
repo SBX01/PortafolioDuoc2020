@@ -125,6 +125,9 @@
     <Compile Include="RegistroEmpleado.xaml.cs">
       <DependentUpon>RegistroEmpleado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegistroPedido.xaml.cs">
+      <DependentUpon>RegistroPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistroProducto.xaml.cs">
       <DependentUpon>RegistroProducto.xaml</DependentUpon>
     </Compile>
@@ -210,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegistroEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -344,6 +351,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\mas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\editar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
