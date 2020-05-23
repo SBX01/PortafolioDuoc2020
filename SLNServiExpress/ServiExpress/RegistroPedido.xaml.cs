@@ -27,10 +27,11 @@ namespace ServiExpress
         DetallePedidoBLL pedidoActual = new DetallePedidoBLL();
         PedidoBLL pedido = new PedidoBLL();
         bool agregarDetalle = false;
+        int idPedido;
         public RegistroPedido()
         {
             InitializeComponent();
-           
+            dgDetalleProducto.IsReadOnly = true;
         }
 
 
@@ -93,11 +94,13 @@ namespace ServiExpress
             {
                 pedido = new PedidoBLL();
                 pedido.Fecha = DateTime.Now;
-                pedido.RutEmpleado = cboEmpleado.SelectedItem.ToString();
+                pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                 pedido.Descripcion = tbDescripcion.Text;
-                pedido.RutProveedor = cboProveedor.SelectedItem.ToString();
+                pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
                 pedido.Agregar();
+                dgDetalleProducto.ItemsSource = new PedidoBLL().listar();
                 await this.ShowMessageAsync("Informacion", "El Pedido ha sido creado! \n ahora puede agregar productos a su pedido", style: MessageDialogStyle.Affirmative);
+
             }
 
             catch (Exception ex)
@@ -150,7 +153,12 @@ namespace ServiExpress
             cboProveedor.SelectedValuePath = "Rut";
             cboProveedor.SelectedIndex = 0;
 
-            cboEmpleado.ItemsSource = new EmpleadoBLL().listarTodos();
+
+            List<EmpleadoBLL> listadoEmpleados = new EmpleadoBLL().listarTodos();
+            var listaBodegueros = (from emp in listadoEmpleados
+                                   where emp.CARGO_EMPL == Cargos.Bodeguero
+                                   select emp).ToList();
+            cboEmpleado.ItemsSource = listaBodegueros;
             cboEmpleado.DisplayMemberPath = "nombreCompleto";
             cboEmpleado.SelectedValuePath = "RUT_EMPL";
             cboEmpleado.SelectedIndex = 0;
@@ -199,6 +207,82 @@ namespace ServiExpress
             SaludoUsuario main = new SaludoUsuario();
             this.Close();
             main.Show();
+        }
+
+        private async void dgDetalle_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DetallePedidoBLL detalle = new DetallePedidoBLL();
+                detalle = (DetallePedidoBLL)dgDetalleProducto.SelectedItem;
+                switch (await this.ShowMessageAsync("Atencion", "¿Quiere exportar Datos del Pedido N°: " + pedido.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
+                {
+                    case MessageDialogResult.Affirmative:
+                        idPedido = detalle.IdPedido;
+                        cboProductos.SelectedItem = detalle.IdProducto;
+                        cboEstado.SelectedItem = detalle.Estado;
+                        txtCantidadDetalle.Text = detalle.Cantidad.ToString();
+                        txtComentarios.Text = detalle.Comentario;
+                        await this.ShowMessageAsync("Informacion", "Datos Cargados.");
+
+                        break;
+
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Informacion", "Accion cancelada.");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Error", "Lo sentimos ha ocurrido un error. \n Error: " + ex.Message, style: MessageDialogStyle.Affirmative);
+
+            }
+        }
+
+        private async void dgDetalleProducto_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                PedidoBLL pedido = new PedidoBLL();
+                pedido = (PedidoBLL)dgDetalleProducto.SelectedItem;
+                switch (await this.ShowMessageAsync("Atencion", "¿Quiere exportar Datos del Pedido N°: " + pedido.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
+                {
+                    case MessageDialogResult.Affirmative:
+
+                        idPedido = pedido.IdPedido;
+                        cboEmpleado.SelectedValue = pedido.RutEmpleado;
+                        cboProveedor.SelectedValue = pedido.RutProveedor;
+                        tbDescripcion.Text = pedido.Descripcion;
+                        await this.ShowMessageAsync("Informacion", "Datos Cargados.");
+
+                        break;
+
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Informacion", "Accion cancelada.");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Error", "Lo sentimos ha ocurrido un error. \n Error: " + ex.Message, style: MessageDialogStyle.Affirmative);
+
+            }
+        }
+
+        private async void btneditpedi_Click(object sender, RoutedEventArgs e)
+        {
+            //editar
+            try
+            {
+               
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Error", "Lo sentimos ha ocurrido un error. \n Error: " + ex.Message, style: MessageDialogStyle.Affirmative);
+            }
         }
     }
 }

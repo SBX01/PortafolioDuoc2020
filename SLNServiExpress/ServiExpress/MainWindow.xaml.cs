@@ -44,7 +44,13 @@ namespace ServiExpress
         {
             InitializeComponent();
 
-            Data.NombreUser = "";
+            Data.NombreUser = string.Empty;
+            Data.EsAdmin = false;
+            Data.EstaLogeado = false;
+            Data.IdUserActivo = 0;
+            Data.RolUserActivo = string.Empty;
+            Data.CargoEmpleadoLogeado = string.Empty;
+
         }
 
 
@@ -88,20 +94,7 @@ namespace ServiExpress
                             Limpiar();
                             break;
                         default: // si es "emp"(empleado) o "adm"(administrador) entrará aca donde abre la ventana
-                            if (result.Equals("adm"))
-                            {
-                                Data.EsAdmin = true;
-                            }
-                            else
-                            {
-                                Data.EsAdmin = false;
-                            }
-                            Data.EstaLogeado = true;
-                            Data.NombreUser = username;
-                            Console.WriteLine("Nombre: "+Data.NombreUser);
-                            SaludoUsuario saludo = new SaludoUsuario();
-                            this.Close();
-                            saludo.ShowDialog();
+                            IniciarVentana(username, result);
                             break;
 
                     }
@@ -134,20 +127,7 @@ namespace ServiExpress
                             Limpiar();
                             break;
                         default:
-                            if (result.Equals("adm"))
-                            {
-                                Data.EsAdmin = true;
-                            }
-                            else
-                            {
-                                Data.EsAdmin = false;
-                            }
-                            Data.EstaLogeado = true;
-                            Data.NombreUser = username;
-                            Console.WriteLine("Nombre: " + Data.NombreUser);
-                            SaludoUsuario saludo = new SaludoUsuario();
-                            this.Close();
-                            saludo.ShowDialog();
+                            IniciarVentana(username, result);
                             break;
 
                     }
@@ -160,6 +140,40 @@ namespace ServiExpress
 
             }
             Limpiar();
+        }
+
+        private void IniciarVentana(string username, string result)
+        {
+            if (result.Equals("adm"))
+            {
+                Data.EsAdmin = true;
+                Data.NombreUser = "Admin " + username;
+                Data.RolUserActivo = result;
+            }
+            else
+            {
+                List<EmpleadoBLL> listaEmp = new EmpleadoBLL().listarTodos();
+                List<UsuarioBLL> listaUs = new UsuarioBLL().DatosUsuario();
+                var idUsuario = (from us in listaUs
+                                 where us.nombreUsuario == username
+                                 select us.idUsuario).FirstOrDefault();
+                Data.IdUserActivo = idUsuario;
+                Console.WriteLine("Id User: " + idUsuario);
+
+                var nombre = (from emp in listaEmp
+                              where emp.ID_USUARIO == Data.IdUserActivo
+                              select emp.nombreCompleto).FirstOrDefault();
+                Console.WriteLine("Nombre: " + nombre);
+                Data.NombreUser = nombre;
+                Data.EsAdmin = false;
+                Data.RolUserActivo = result;
+            }
+            Data.EstaLogeado = true;
+
+            Console.WriteLine("Nombre: " + Data.NombreUser);
+            SaludoUsuario saludo = new SaludoUsuario();
+            this.Close();
+            saludo.ShowDialog();
         }
 
         private void Limpiar()

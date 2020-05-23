@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiExpress.LoginService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,9 @@ namespace ServiExpress
         public static bool EstaLogeado { get; set; }
         public static bool EsAdmin { get; set; }
         public static string NombreUser { get; set; }
+        public static string RolUserActivo { get; set; }
+        public static int IdUserActivo { get; set; }
+        public static string CargoEmpleadoLogeado { get; set; }
+
     }
 }

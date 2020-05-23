@@ -50,13 +50,13 @@ namespace BLL
                     this.CARGO_EMPL = Cargos.Cajero;
                     break;
                 case "Mecanico":
-                    this.CARGO_EMPL = Cargos.Cajero;
+                    this.CARGO_EMPL = Cargos.Mecanico;
                     break;
                 case "Bodeguero":
-                    this.CARGO_EMPL = Cargos.Cajero;
+                    this.CARGO_EMPL = Cargos.Bodeguero;
                     break;
                 case "Atencion":
-                    this.CARGO_EMPL = Cargos.Cajero;
+                    this.CARGO_EMPL = Cargos.Atencion;
                     break;
             }
            
@@ -92,5 +92,5 @@ namespace BLL
         }
     }
 
-    public enum Cargos { Cajero, Mecanico, Bodeguero, Atencion, Soporte }
+    public enum Cargos { Cajero, Mecanico, Bodeguero, Atencion}
 }

@@ -49,7 +49,7 @@
         <Label Content=" Eliminar Pedido  " HorizontalAlignment="Left" Margin="356,562,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="212" FontSize="20" RenderTransformOrigin="0.28,2.392"/>
         <Label Content=" Listar Pedido  " HorizontalAlignment="Left" Margin="534,562,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="214" FontSize="20"/>
         <Label Content=" Chequear Recepcion  " HorizontalAlignment="Left" Margin="688,561,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="40" Width="214" FontSize="20"/>
-        <Button x:Name="btneditpedi" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="234,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37">
+        <Button x:Name="btneditpedi" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="234,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37" Click="btneditpedi_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -135,7 +135,7 @@
             <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="108,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
             <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="63" Margin="108,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
             <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="108,187,0,0" VerticalAlignment="Top" Width="137"/>
-            <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="300" Background="#FFBFBFBF"/>
+            <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="300" Background="#FFBFBFBF" MouseDoubleClick="dgDetalle_MouseDoubleClick"/>
         </Grid>
         <Button x:Name="btnEditarDetalle" Content="" HorizontalAlignment="Left" Margin="901,402,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.293,0.45" BorderBrush="{x:Null}" Foreground="#FFE05608" Height="50" Click="btnEditarDetalle_Click">
             <Button.Background>
@@ -145,7 +145,7 @@
 
 
 
-        <DataGrid x:Name="dgDetalleProducto" HorizontalAlignment="Left" Height="239" Margin="305,231,0,0" VerticalAlignment="Top" Width="646" Visibility="Hidden"/>
+        <DataGrid x:Name="dgDetalleProducto" HorizontalAlignment="Left" Height="239" Margin="305,231,0,0" VerticalAlignment="Top" Width="646" Visibility="Hidden" MouseDoubleClick="dgDetalleProducto_MouseDoubleClick"/>
         <CheckBox x:Name="checkAgregar" Content="Agregar detalle" HorizontalAlignment="Right" Margin="0,184,0,0" VerticalAlignment="Top" FontSize="20" Width="212" TextOptions.TextFormattingMode="Display" FontWeight="Bold" Foreground="White" BorderThickness="5" Height="32" BorderBrush="#FFF1902E" Click="checkAgregar_Click"/>
     </Grid>
 </Controls:MetroWindow>

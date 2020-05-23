@@ -31,22 +31,41 @@ namespace ServiExpress
             }
         }
 
-        private void BtnRegistrarClientes_Click(object sender, RoutedEventArgs e)
+        private async void BtnRegistrarClientes_Click(object sender, RoutedEventArgs e)
         {
-            //preguntar
+            //si un empleado con cargo cajero quiere agregar cliente
+            if (Data.CargoEmpleadoLogeado.Equals("Cajero") | Data.EsAdmin)
+            {
                 RegistroClientes registro = new RegistroClientes();
                 this.Close();
                 registro.ShowDialog();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error", "Usted no dispone de los permisos necesarios para acceder.", style: MessageDialogStyle.Affirmative);
+
+            }
+
 
 
         }
 
-        private void BtnRegistroAuto_Click(object sender, RoutedEventArgs e)
+        private async void BtnRegistroAuto_Click(object sender, RoutedEventArgs e)
         {
-            //preguntar
-            RegistroAutomovil reg = new RegistroAutomovil();
-            this.Close();
-            reg.ShowDialog();
+            // si un mecánico quiere agregar un vehiculo a su cliente
+            if (Data.CargoEmpleadoLogeado.Equals("Mecanico") | Data.EsAdmin)
+            {
+                RegistroAutomovil reg = new RegistroAutomovil();
+                this.Close();
+                reg.ShowDialog();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error", "Usted no dispone de los permisos necesarios para acceder.", style: MessageDialogStyle.Affirmative);
+
+            }
+
+
         }
 
         private async void BtnRegistroEmpleado_Click(object sender, RoutedEventArgs e)
@@ -64,26 +83,51 @@ namespace ServiExpress
            
         }
 
-        private void BtnRegistroServicio_Click(object sender, RoutedEventArgs e)
+        private async void BtnRegistroServicio_Click(object sender, RoutedEventArgs e)
         {
-            //preguntar
-            RegistroServicio serv = new RegistroServicio();
-            this.Close();
-            serv.ShowDialog();
+            if (Data.EsAdmin)
+            {
+                RegistroServicio serv = new RegistroServicio();
+                this.Close();
+                serv.ShowDialog();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error", "Usted no dispone de los permisos necesarios para acceder.", style: MessageDialogStyle.Affirmative);
+            }
+
         }
 
-        private void BtnRegistroProveedor_Click(object sender, RoutedEventArgs e)
+        private async void BtnRegistroProveedor_Click(object sender, RoutedEventArgs e)
         {
-            RegistroProveedor prov = new RegistroProveedor();
-            this.Close();
-            prov.ShowDialog();
+            if (Data.CargoEmpleadoLogeado.Equals("Bodeguero") | Data.EsAdmin)
+            {
+                RegistroProveedor prov = new RegistroProveedor();
+                this.Close();
+                prov.ShowDialog();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error", "Usted no dispone de los permisos necesarios para acceder.", style: MessageDialogStyle.Affirmative);
+
+            }
+
         }
 
-        private void BtnRegistroProductos_Click(object sender, RoutedEventArgs e)
+        private async void BtnRegistroProductos_Click(object sender, RoutedEventArgs e)
         {
-            RegistroProducto prod = new RegistroProducto();
-            this.Close();
-            prod.ShowDialog();
+
+            if (Data.CargoEmpleadoLogeado.Equals("Bodeguero") | Data.CargoEmpleadoLogeado.Equals("Atencion") | Data.EsAdmin)
+            {
+                RegistroProducto prod = new RegistroProducto();
+                this.Close();
+                prod.ShowDialog();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error", "Usted no dispone de los permisos necesarios para acceder.", style: MessageDialogStyle.Affirmative);
+
+            }
         }
 
         private void btncerrar_Click(object sender, RoutedEventArgs e)

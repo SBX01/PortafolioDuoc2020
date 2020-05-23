@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Windows.Navigation;
+using BLL;
 
 namespace ServiExpress
 {
@@ -36,7 +37,7 @@ namespace ServiExpress
 
         private void Btninfoedi_Click(object sender, RoutedEventArgs e)
         {
-
+            // ventana editar usuario
         }
 
         private void Btnatras_Click(object sender, RoutedEventArgs e)
@@ -58,6 +59,71 @@ namespace ServiExpress
             RegistroPedido ped = new RegistroPedido();
             this.Close();
             ped.Show();
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            dgDatos.IsReadOnly = true;
+
+            ListarSegunCargo();
+        }
+
+        private void ListarSegunCargo()
+        {
+            switch (Data.RolUserActivo)
+            {
+                case "adm":
+                    // si es Administrador se listarán los usuarios registrados
+                    List<UsuarioBLL> listaUsuarios = new UsuarioBLL().DatosUsuario();
+                    var resultadoUser = (from users in listaUsuarios
+                                         select new { users.idUsuario, users.nombreUsuario }).ToList();
+                    dgDatos.ItemsSource = resultadoUser;
+                    break;
+                case "emp":
+                    // si es Un empleado se listarán segun su cargo horas reservadas, o pedidos hechos
+                    List<EmpleadoBLL> listaEmpleado = new EmpleadoBLL().listarTodos();
+                    var resultadoEmp = (from emp in listaEmpleado
+                                        where emp.nombreCompleto == Data.NombreUser
+                                        select emp.CARGO_EMPL).FirstOrDefault();
+
+                    switch (resultadoEmp)
+                    {
+                        case Cargos.Atencion://si es atención se listarán todas las horas reservadas.
+
+                            //list<reservahorabll> listareserva = new reservahorabll().listartodos();
+                            //dgDatos.ItemsSource = listareserva;
+
+
+                            break;
+                        case Cargos.Mecanico: // si es mecánico se listarán sus horas agendadas.
+
+                            //List<ServicioBLL> listareservaMecanico = new ServicioBLL().listartodos();
+                            //List<EmpleadoBLL> empleados = new EmpleadoBLL().listarTodos();
+                            //var reservaMecanico = (from servcio in listareservaMecanico
+                            //                       join meca in empleados on servcio.RutEmpleado equals meca.RUT_EMPL
+                            //                       where servcio.RutEmpleado == meca.RUT_EMPL
+                            //                       select servcio).ToList();
+
+
+                            //dgDatos.ItemsSource = reservaMecanico;
+
+                            break;
+
+                        case Cargos.Bodeguero: // si es bodeguero  listaran los pedidos.
+
+                            dgDatos.ItemsSource = new PedidoBLL().listar();
+                            break;
+
+                        case Cargos.Cajero: //  si es cajero se listarán los productos.
+                            dgDatos.ItemsSource = new ProductoBLL().ListarTodo();
+                            break;
+                    }
+                    Data.CargoEmpleadoLogeado = resultadoEmp.ToString();
+                    break;
+                  
+            }
+
+           
         }
     }
 }
