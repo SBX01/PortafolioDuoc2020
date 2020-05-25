@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo serviExpress.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
@@ -360,6 +363,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\serviexpress-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="serviexpress-logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo serviExpress.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

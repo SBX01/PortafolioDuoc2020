@@ -27,65 +27,118 @@ namespace ServiExpress
         DetallePedidoBLL pedidoActual = new DetallePedidoBLL();
         PedidoBLL pedido = new PedidoBLL();
         bool agregarDetalle = false;
-        int idPedido;
+        int idPedido = 0;
         public RegistroPedido()
         {
             InitializeComponent();
             dgDetalleProducto.IsReadOnly = true;
+            dgDetalle.IsReadOnly = true;
         }
 
 
-        private void btnAddRow_Click(object sender, RoutedEventArgs e)
+        private async void btnAddRow_Click(object sender, RoutedEventArgs e)
         {
+            DetallePedidoBLL detalleNuevo = new DetallePedidoBLL();
+            if (idPedido.Equals(0))
+            {
+                throw new Exception("Seleccione un pedido antes de agregar un detalle");
+            }
             try
             {
+                detalleNuevo.IdPedido = idPedido;
+                detalleNuevo.IdProducto =long.Parse(cboProductos.SelectedValue.ToString()) ;
+                detalleNuevo.RutEmpleado = cboEmpleado.SelectedValue.ToString();
+                detalleNuevo.Cantidad = int.Parse(txtCantidadDetalle.Text);
+                detalleNuevo.Estado = (EstadoPedido)cboEstado.SelectedValue;
+                detalleNuevo.Comentario = txtComentarios.Text;
+                detalleNuevo.agregar();
+                
+                await this.ShowMessageAsync("Información","El detalle ha sido registrado");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                await this.ShowMessageAsync("Información", "Error: " + ex.Message);
             }
+            limpiar();
+            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
         }
 
-        private void btnDeleteRow_Click(object sender, RoutedEventArgs e)
+        private async void btnDeleteRow_Click(object sender, RoutedEventArgs e)
         {
+            if (idPedido.Equals(0))
+            {
+                throw new Exception("Seleccione un pedido antes de agregar un detalle");
+            }
             try
             {
-               
+                long idProducto = long.Parse(cboProductos.SelectedValue.ToString());
+                switch (await this.ShowMessageAsync("Información","¿Está seguro que desea Eliminar el detalle?",MessageDialogStyle.AffirmativeAndNegative))
+                {
+
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Información", "Acción cancelada.");
+                        break;
+                    case MessageDialogResult.Affirmative:
+                        pedidoActual.eliminar(cboEmpleado.SelectedValue.ToString(), idProducto, idPedido);
+                        
+                        await this.ShowMessageAsync("Información", "El detalle ha sido eliminado.");
+                        break;
+
+                }
+                
             }
             catch (Exception ex)
-            { 
-                MessageBox.Show("Error: "+ ex.Message);
+            {
+                await this.ShowMessageAsync("Información", "Error: " + ex.Message);
             }
-            
 
+            limpiar();
+            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
         }
 
         public void dgproduc_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            try
-            {
-               
-            }
-            
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
+           
         }
 
-        private void btnEditarDetalle_Click(object sender, RoutedEventArgs e)
+        private async void btnEditarDetalle_Click(object sender, RoutedEventArgs e)
         {
+            if (idPedido.Equals(0))
+            {
+                throw new Exception("Seleccione un pedido antes de agregar un detalle");
+            }
+            DetallePedidoBLL editar = new DetallePedidoBLL();
             try
             {
+                switch (await this.ShowMessageAsync("Información", "¿Está segure que desea modificar este detalle?",MessageDialogStyle.AffirmativeAndNegative))
+                {
 
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Información", "Acción cancelada.");
+                        break;
+                    case MessageDialogResult.Affirmative:
+                        editar.IdPedido = idPedido;
+                        editar.IdProducto = long.Parse(cboProductos.SelectedValue.ToString());
+                        editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
+                        editar.Cantidad = int.Parse(txtCantidadDetalle.Text);
+                        editar.Estado = (EstadoPedido)cboEstado.SelectedValue;
+                        editar.Comentario = txtComentarios.Text;
+
+                        editar.modificar();
+                        await this.ShowMessageAsync("Información", "El detalle ha sido modificado");
+                        break;
+
+                }
+                
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                await this.ShowMessageAsync("Información", "Error: " + ex.Message);
             }
+            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
+            limpiar();
         }
 
         private async void btnagregarped_Click(object sender, RoutedEventArgs e)
@@ -107,6 +160,7 @@ namespace ServiExpress
             {
                 await this.ShowMessageAsync("Error", "Lo sentimos ha ocurrido un error. \n Error: " +ex.Message, style: MessageDialogStyle.Affirmative);
             }
+            limpiar();
         }
 
         void iniciar(bool existePedido)
@@ -142,11 +196,13 @@ namespace ServiExpress
                     iniciar(false);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine("Excepcion producida :C ... Error: " + ex.Message);
             }
+
+            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
 
             cboProveedor.ItemsSource = new ProveedorBLL().listarTodos();
             cboProveedor.DisplayMemberPath = "nombreCompleto";
@@ -183,11 +239,18 @@ namespace ServiExpress
                 agregarDetalle = false;
                 iniciar(agregarDetalle);
 
+                cboProveedor.IsEnabled = false;
+                cboEmpleado.IsEnabled = false;
+                tbDescripcion.IsEnabled = false;
             }
             if (checkAgregar.IsChecked == false)
             {
                 agregarDetalle = true;
                 iniciar(agregarDetalle);
+
+                cboProveedor.IsEnabled = true;
+                cboEmpleado.IsEnabled = true;
+                tbDescripcion.IsEnabled = true;
             }
 
             Console.WriteLine(agregarDetalle);
@@ -214,13 +277,13 @@ namespace ServiExpress
             try
             {
                 DetallePedidoBLL detalle = new DetallePedidoBLL();
-                detalle = (DetallePedidoBLL)dgDetalleProducto.SelectedItem;
-                switch (await this.ShowMessageAsync("Atencion", "¿Quiere exportar Datos del Pedido N°: " + pedido.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
+                detalle = (DetallePedidoBLL)dgDetalle.SelectedItem;
+                switch (await this.ShowMessageAsync("Atencion", "¿Quiere exportar este detalle del Pedido N°: " + detalle.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
                 {
                     case MessageDialogResult.Affirmative:
                         idPedido = detalle.IdPedido;
-                        cboProductos.SelectedItem = detalle.IdProducto;
-                        cboEstado.SelectedItem = detalle.Estado;
+                        cboProductos.SelectedValue = detalle.IdProducto;
+                        cboEstado.SelectedValue = detalle.Estado;
                         txtCantidadDetalle.Text = detalle.Cantidad.ToString();
                         txtComentarios.Text = detalle.Comentario;
                         await this.ShowMessageAsync("Informacion", "Datos Cargados.");
@@ -242,6 +305,7 @@ namespace ServiExpress
 
         private async void dgDetalleProducto_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            // se selecciona un pedido desde la tabla haciendo doble click
             try
             {
                 PedidoBLL pedido = new PedidoBLL();
@@ -273,16 +337,95 @@ namespace ServiExpress
 
         private async void btneditpedi_Click(object sender, RoutedEventArgs e)
         {
-            //editar
+            //editar, se toman los datos y se modifican
             try
             {
-               
+                PedidoBLL editar = new PedidoBLL();
+                editar.IdPedido = idPedido;
+                editar.Fecha = DateTime.Now;
+                editar.Descripcion = tbDescripcion.Text;
+                editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
+                editar.RutProveedor = cboProveedor.SelectedValue.ToString();
+                switch (await this.ShowMessageAsync("Atencion", "¿Está seguro que desea modificar el Pedido N°: " + editar.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
+                {
+                    case MessageDialogResult.Affirmative:
+
+                        editar.Modificar();
+                        await this.ShowMessageAsync("Informacion", "El Pedido ha sido modificado", style: MessageDialogStyle.Affirmative);
+
+                        break;
+
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Informacion", "Accion cancelada.");
+                        break;
+                }
+                
+                dgDetalleProducto.ItemsSource = new PedidoBLL().listar();
+                
+
+
             }
             catch (Exception ex)
             {
 
                 await this.ShowMessageAsync("Error", "Lo sentimos ha ocurrido un error. \n Error: " + ex.Message, style: MessageDialogStyle.Affirmative);
             }
+            limpiar();
+        }
+
+        private async void btnelimped_Click(object sender, RoutedEventArgs e)
+        {
+            PedidoBLL eliminar = new PedidoBLL();
+            try
+            {
+                switch (await this.ShowMessageAsync("Atencion", "El pedido a eliminar es el pedido N°" + idPedido + ". \n Haga doble click en otro pedido, en la tabla de pedidos para selecionarlo. \n ¿Desea Eliminar este pedido?", MessageDialogStyle.AffirmativeAndNegative))
+                {
+                    // si la respuesta es positiva pasa al affirmative si no se cancela y termina la accion
+                    case MessageDialogResult.Affirmative:
+                        switch (await this.ShowMessageAsync("Atencion", "¿Está seguro que desea eliminar el pedido N°"+ idPedido +"? \n Esta acción no se puede revertir", MessageDialogStyle.AffirmativeAndNegative))
+                        {
+                            // si la respuesta es positiva pasa al affirmative si no se cancela y termina la accion
+                            case MessageDialogResult.Negative:
+                                await this.ShowMessageAsync("Cancelado", "Acción cancelada.", style: MessageDialogStyle.Affirmative);
+
+                                break;
+                            case MessageDialogResult.Affirmative:
+                                // aqui se elimina el pedido y se vuelve a listar.
+                                eliminar.Eliminar(idPedido);
+                                await this.ShowMessageAsync("Atención", "El pedido ha sido eliminado.", style: MessageDialogStyle.Affirmative);
+                                dgDetalleProducto.ItemsSource = eliminar.listar();
+                                tbDescripcion.Text = string.Empty;
+                                break;
+
+
+                        }
+                        break;
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Cancelado", "Acción cancelada.", style: MessageDialogStyle.Affirmative);
+                        break;
+                }
+                            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Error", "Lo sentimos ha ocurrido un error. \n Error: " + ex.Message, style: MessageDialogStyle.Affirmative);
+            }
+
+            limpiar();
+        }
+
+        void limpiar()
+        {
+            cboEmpleado.SelectedIndex = 0;
+            cboEstado.SelectedIndex = 0;
+            cboProductos.SelectedIndex = 0;
+            cboProveedor.SelectedIndex = 0;
+
+            tbDescripcion.Text = string.Empty;
+            txtCantidadDetalle.Text = string.Empty;
+            txtComentarios.Text = string.Empty;
         }
     }
+
+    
 }

@@ -220,4 +220,3 @@ C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\Serv
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.csproj.CopyComplete
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.exe
 C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\ServiExpress.pdb
-C:\Users\Seba\Desktop\GIT Portafolio\SLNServiExpress\ServiExpress\bin\Debug\Oracle.ManagedDataAccess.dll

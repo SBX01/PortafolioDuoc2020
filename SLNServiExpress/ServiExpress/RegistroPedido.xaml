@@ -63,7 +63,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnelimped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="404,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249"  >
+        <Button x:Name="btnelimped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="404,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249" Click="btnelimped_Click"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -116,12 +116,12 @@
                 <ImageBrush ImageSource="imagenes/list.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnAddRow" Content="" ToolTip="Agregar Fila" HorizontalAlignment="Left" Margin="901,265,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FF6FE81C" Height="50" Click="btnAddRow_Click">
+        <Button x:Name="btnAddRow" Content=""  HorizontalAlignment="Left" Margin="901,265,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FF6FE81C" Height="50" Click="btnAddRow_Click" OpacityMask="#FF21FB21">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/mas.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDeleteRow" Content="" ToolTip="Eliminar Fila" HorizontalAlignment="Left" Margin="902,332,-5,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FFEA2323" Height="50" Click="btnDeleteRow_Click">
+        <Button x:Name="btnDeleteRow"  ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="902,332,-5,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FFEA2323" Height="50" Click="btnDeleteRow_Click" OpacityMask="Red">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/delete.png"/>
             </Button.Background>
@@ -135,9 +135,9 @@
             <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="108,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
             <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="63" Margin="108,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
             <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="108,187,0,0" VerticalAlignment="Top" Width="137"/>
-            <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="300" Background="#FFBFBFBF" MouseDoubleClick="dgDetalle_MouseDoubleClick"/>
+            <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="300" Background="#FFF1EDED" MouseDoubleClick="dgDetalle_MouseDoubleClick"/>
         </Grid>
-        <Button x:Name="btnEditarDetalle" Content="" HorizontalAlignment="Left" Margin="901,402,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.293,0.45" BorderBrush="{x:Null}" Foreground="#FFE05608" Height="50" Click="btnEditarDetalle_Click">
+        <Button x:Name="btnEditarDetalle" ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="901,402,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.293,0.45" BorderBrush="{x:Null}" Foreground="#FFE05608" Height="50" Click="btnEditarDetalle_Click" OpacityMask="#FFFF881F">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/editar.png"/>
             </Button.Background>

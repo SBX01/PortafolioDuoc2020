@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/editar.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo%20serviexpress.ico")]
 
 
