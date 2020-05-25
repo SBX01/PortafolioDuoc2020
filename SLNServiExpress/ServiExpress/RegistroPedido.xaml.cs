@@ -61,7 +61,7 @@ namespace ServiExpress
                 await this.ShowMessageAsync("Información", "Error: " + ex.Message);
             }
             limpiar();
-            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
+            ListarDetalleProducto();
         }
 
         private async void btnDeleteRow_Click(object sender, RoutedEventArgs e)
@@ -94,7 +94,7 @@ namespace ServiExpress
             }
 
             limpiar();
-            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
+            ListarDetalleProducto();
         }
 
         public void dgproduc_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -137,7 +137,7 @@ namespace ServiExpress
             {
                 await this.ShowMessageAsync("Información", "Error: " + ex.Message);
             }
-            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
+            ListarDetalleProducto();
             limpiar();
         }
 
@@ -187,7 +187,7 @@ namespace ServiExpress
             {
                 List<PedidoBLL> listar = pedido.listar();
                 dgDetalleProducto.ItemsSource = listar;
-                if (dgDetalleProducto.ItemsSource!= null)
+                if (dgDetalleProducto.ItemsSource != null)
                 {
                     iniciar(true);
                 }
@@ -202,7 +202,7 @@ namespace ServiExpress
                 Console.WriteLine("Excepcion producida :C ... Error: " + ex.Message);
             }
 
-            dgDetalle.ItemsSource = new DetallePedidoBLL().listar();
+            ListarDetalleProducto();
 
             cboProveedor.ItemsSource = new ProveedorBLL().listarTodos();
             cboProveedor.DisplayMemberPath = "nombreCompleto";
@@ -220,7 +220,7 @@ namespace ServiExpress
             cboEmpleado.SelectedIndex = 0;
 
             cboProductos.ItemsSource = new ProductoBLL().ListarTodo();
-            cboProductos.DisplayMemberPath = "Descripcion" ;
+            cboProductos.DisplayMemberPath = "Descripcion";
             cboProductos.SelectedValuePath = "Id_producto";
             cboProductos.SelectedIndex = 0;
 
@@ -230,6 +230,14 @@ namespace ServiExpress
 
         }
 
+        private void ListarDetalleProducto()
+        {
+            List<DetallePedidoBLL> listaDetallepedido = new DetallePedidoBLL().listar();
+            var listaDetalle = (from dt in listaDetallepedido
+                                where dt.IdPedido == idPedido
+                                select dt).ToList();
+            dgDetalle.ItemsSource = listaDetalle;
+        }
 
         private void checkAgregar_Click(object sender, RoutedEventArgs e)
         {
@@ -318,6 +326,7 @@ namespace ServiExpress
                         cboEmpleado.SelectedValue = pedido.RutEmpleado;
                         cboProveedor.SelectedValue = pedido.RutProveedor;
                         tbDescripcion.Text = pedido.Descripcion;
+                        ListarDetalleProducto();
                         await this.ShowMessageAsync("Informacion", "Datos Cargados.");
 
                         break;
