@@ -17,19 +17,19 @@
         <Label Content=" Registro  De Pedido " HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="456" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
         <Button  x:Name="btncerrar"    Content="Cerrar Sesiòn" Background="#51d1f6" HorizontalAlignment="Left" Margin="760,21,0,0" VerticalAlignment="Top" Width="169" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Click="btncerrar_Click" />
 
-        <Label Content="Seleccionar  Empleado  " HorizontalAlignment="Left" Margin="22,63,0,0" VerticalAlignment="Top" Height="46" Width="258" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
+        <Label Content="Empleado  " HorizontalAlignment="Left" Margin="22,63,0,0" VerticalAlignment="Top" Height="46" Width="258" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
         <Label Content="Seleccionar  Proveedor " HorizontalAlignment="Left" Margin="280,63,0,0" VerticalAlignment="Top" Height="46" Width="257" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
 
 
         <ComboBox x:Name="cboEmpleado" HorizontalAlignment="Left" Margin="57,114,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" />
-        <ComboBox x:Name="cboProveedor" HorizontalAlignment="Left" Margin="307,114,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" />
+        <ComboBox x:Name="cboProveedor" HorizontalAlignment="Left" Margin="307,114,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" SelectionChanged="cboProveedor_SelectionChanged" />
 
         <Label Content="Descripcion Pedido" HorizontalAlignment="Left" Margin="24,195,0,0" VerticalAlignment="Top" Height="46" Width="256" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
         <TextBlock x:Name="f" HorizontalAlignment="Left" Margin="32,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="182" Width="210" Background="White" ><InlineUIContainer>
                 <TextBox x:Name="tbDescripcion" Height="182" TextWrapping="Wrap" Width="211"/>
             </InlineUIContainer></TextBlock>
 
-        <Label Content="Detalle Producto" HorizontalAlignment="Left" Margin="308,195,0,0" VerticalAlignment="Top" Height="36" Width="416" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
+        <Label x:Name="lbListaDetalle" Content="Lista Detalle" HorizontalAlignment="Left" Margin="308,195,0,0" VerticalAlignment="Top" Height="36" Width="416" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
 
         <Button x:Name="btnagregarped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="88,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.531,0.836" Click="btnagregarped_Click">
             <Button.RenderTransform>
@@ -89,7 +89,7 @@
                 <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnlistarped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="574,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5"  >
+        <Button x:Name="btnlistarped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="574,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="btnlistarped_Click"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -116,36 +116,36 @@
                 <ImageBrush ImageSource="imagenes/list.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnAddRow" Content=""  HorizontalAlignment="Left" Margin="901,265,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FF6FE81C" Height="50" Click="btnAddRow_Click" OpacityMask="#FF21FB21">
-            <Button.Background>
-                <ImageBrush ImageSource="Imagenes/mas.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="btnDeleteRow"  ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="902,332,-5,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FFEA2323" Height="50" Click="btnDeleteRow_Click" OpacityMask="Red">
-            <Button.Background>
-                <ImageBrush ImageSource="Imagenes/delete.png"/>
-            </Button.Background>
-        </Button>
-        <Grid x:Name="GridPedido" HorizontalAlignment="Left" Height="229" Margin="305,241,0,0" VerticalAlignment="Top" Width="579" Background="White">
+        <Grid x:Name="GridPedido" HorizontalAlignment="Left" Height="229" Margin="305,241,0,0" VerticalAlignment="Top" Width="657" Background="White" OpacityMask="#FFC5E1F1">
             <Label Content="Producto" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top"/>
             <Label Content="Cantidad" HorizontalAlignment="Left" Margin="24,59,0,0" VerticalAlignment="Top"/>
             <Label Content="Comentario" HorizontalAlignment="Left" Margin="24,110,0,0" VerticalAlignment="Top"/>
             <Label Content="Estado" HorizontalAlignment="Left" Margin="24,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.59"/>
-            <ComboBox x:Name="cboProductos" HorizontalAlignment="Left" Margin="108,14,0,0" VerticalAlignment="Top" Width="137"/>
-            <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="108,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
+            <ComboBox x:Name="cboProductos" HorizontalAlignment="Left" Margin="99,14,0,0" VerticalAlignment="Top" Width="159"/>
+            <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="99,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
             <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="63" Margin="108,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
-            <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="108,187,0,0" VerticalAlignment="Top" Width="137"/>
-            <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="300" Background="#FFF1EDED" MouseDoubleClick="dgDetalle_MouseDoubleClick"/>
+            <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="99,187,0,0" VerticalAlignment="Top" Width="159"/>
+            <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="313" Background="#FFF1EDED" MouseDoubleClick="dgDetalle_MouseDoubleClick"/>
+            <Button x:Name="btnAddRow" ToolTip="Agregar Detalle"  HorizontalAlignment="Left" Margin="596,19,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FF6FE81C" Height="50" Click="btnAddRow_Click" OpacityMask="#FF21FB21">
+                <Button.Background>
+                    <ImageBrush ImageSource="Imagenes/mas.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnDeleteRow"  ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="597,86,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FFEA2323" Height="50" Click="btnDeleteRow_Click" OpacityMask="Red">
+                <Button.Background>
+                    <ImageBrush ImageSource="Imagenes/delete.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnEditarDetalle" ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="596,156,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.293,0.45" BorderBrush="{x:Null}" Foreground="#FFE05608" Height="50" Click="btnEditarDetalle_Click" OpacityMask="#FFFF881F">
+                <Button.Background>
+                    <ImageBrush ImageSource="Imagenes/editar.png"/>
+                </Button.Background>
+            </Button>
         </Grid>
-        <Button x:Name="btnEditarDetalle" ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="901,402,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.293,0.45" BorderBrush="{x:Null}" Foreground="#FFE05608" Height="50" Click="btnEditarDetalle_Click" OpacityMask="#FFFF881F">
-            <Button.Background>
-                <ImageBrush ImageSource="Imagenes/editar.png"/>
-            </Button.Background>
-        </Button>
 
 
 
-        <DataGrid x:Name="dgDetalleProducto" HorizontalAlignment="Left" Height="239" Margin="305,231,0,0" VerticalAlignment="Top" Width="646" Visibility="Hidden" MouseDoubleClick="dgDetalleProducto_MouseDoubleClick"/>
-        <CheckBox x:Name="checkAgregar" Content="Agregar detalle" HorizontalAlignment="Right" Margin="0,184,0,0" VerticalAlignment="Top" FontSize="20" Width="212" TextOptions.TextFormattingMode="Display" FontWeight="Bold" Foreground="White" BorderThickness="5" Height="32" BorderBrush="#FFF1902E" Click="checkAgregar_Click"/>
+        <DataGrid x:Name="dgDetalleProducto" HorizontalAlignment="Left" Height="239" Margin="305,231,0,0" VerticalAlignment="Top" Width="657" Visibility="Hidden" MouseDoubleClick="dgDetalleProducto_MouseDoubleClick"/>
+        <CheckBox x:Name="checkAgregar" Content="Activar detalle" HorizontalAlignment="Right" Margin="0,184,0,0" VerticalAlignment="Top" FontSize="20" Width="212" TextOptions.TextFormattingMode="Display" FontWeight="Bold" Foreground="White" BorderThickness="5" Height="32" BorderBrush="#FFF1902E" Click="checkAgregar_Click"/>
     </Grid>
 </Controls:MetroWindow>

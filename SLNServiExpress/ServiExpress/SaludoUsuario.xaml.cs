@@ -76,7 +76,7 @@ namespace ServiExpress
                     // si es Administrador se listarán los usuarios registrados
                     List<UsuarioBLL> listaUsuarios = new UsuarioBLL().DatosUsuario();
                     var resultadoUser = (from users in listaUsuarios
-                                         select new { users.idUsuario, users.nombreUsuario }).ToList();
+                                         select new { users.idUsuario, users.nombreUsuario, RolUsuario = users.GetRolUsuario(users.nombreUsuario) }).ToList();
                     dgDatos.ItemsSource = resultadoUser;
                     break;
                 case "emp":

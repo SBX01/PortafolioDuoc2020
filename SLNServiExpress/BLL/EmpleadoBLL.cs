@@ -44,22 +44,15 @@ namespace BLL
             this.DIRECCION_EMPL = emp.DIRECCION_EMPL;
             this.TELEFONO_EMPL = emp.TELEFONO_EMPL;
             this.CORREO_EMP = emp.CORREO_EMP;
-            switch (emp.CARGO_EMPL)
+            if (Enum.IsDefined(typeof(Cargos), emp.CARGO_EMPL))
             {
-                case "Cajero":
-                    this.CARGO_EMPL = Cargos.Cajero;
-                    break;
-                case "Mecanico":
-                    this.CARGO_EMPL = Cargos.Mecanico;
-                    break;
-                case "Bodeguero":
-                    this.CARGO_EMPL = Cargos.Bodeguero;
-                    break;
-                case "Atencion":
-                    this.CARGO_EMPL = Cargos.Atencion;
-                    break;
+                this.CARGO_EMPL = (Cargos)Enum.Parse(typeof(Cargos), emp.CARGO_EMPL);
             }
-           
+            else
+            {
+                this.CARGO_EMPL = Cargos.Desconocido;
+            }
+
         }
 
         public void Agregar()
@@ -92,5 +85,5 @@ namespace BLL
         }
     }
 
-    public enum Cargos { Cajero, Mecanico, Bodeguero, Atencion}
+    public enum Cargos { Cajero, Mecanico, Bodeguero, Atencion, Administrador,Desconocido}
 }

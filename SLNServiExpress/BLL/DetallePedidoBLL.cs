@@ -11,8 +11,10 @@ namespace BLL
     {
         public DetallePedidoBLL()
         {
-
+            
         }
+           
+
 
         public DetallePedidoBLL(DetallePedido nuevo)
         {
@@ -94,6 +96,8 @@ namespace BLL
 
         #endregion
 
+
+
         public void agregar()
         {
             DetallePedido nuevo = new DetallePedido();
@@ -110,7 +114,10 @@ namespace BLL
         }
         public void modificar()
         {
+
             DetallePedido editar = new DetallePedido();
+
+
             editar.CANTIDAD = this.Cantidad;
             editar.ESTADO = this.Estado.ToString();
             editar.ID_PRODUCTO = this.IdProducto;
@@ -118,16 +125,17 @@ namespace BLL
             editar.ID_PEDIDO = this.IdPedido;
             editar.COMENTARIO = this.Comentario;
             editar.modificar();
-            Console.WriteLine("BLL: Modificar Detalle Pedido");
+            Console.WriteLine("BLL: modificar Detalle Pedido ");
         }
         public void eliminar(string rutEmpEliminar, long idProducEliminar, int idPedidoEliminar)
         {
             DetallePedido eliminar = new DetallePedido();
-            eliminar.eliminar( rutEmpEliminar, idProducEliminar,  idPedidoEliminar);
-            Console.WriteLine("BLL: Eliminar Detalle Pedido");
+
+            eliminar.eliminar(rutEmpEliminar, idProducEliminar, idPedidoEliminar);
         }
         public List<DetallePedidoBLL> listar()
         {
+            // lista todos los pedidos
             List<DetallePedidoBLL> listaRetorno = new List<DetallePedidoBLL>();
             List<DetallePedido> lista = new DetallePedido().listarTodo();
             foreach (var detalle in lista)
@@ -143,6 +151,11 @@ namespace BLL
 
     public enum EstadoPedido
     {
-        Pendiente, Aceptada, Facturada, Despachada, Rechazada
+        Pendiente, // nuevo pedido
+        Aceptado, // el proveedor acepta
+        Despachado, // proveedor envia pedido
+        Rechazado,// proveedor rechaza
+        Cancelado, // empleado rechaza
+        Finalizado // pedido llegó y se chequeó
     }
 }

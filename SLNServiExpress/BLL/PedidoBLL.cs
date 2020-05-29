@@ -134,8 +134,9 @@ namespace BLL
 
         }
 
-        public void Agregar()
+        public void Agregar(List<DetallePedidoBLL> listaDetalle)
         {
+            // Datos pedido
             Pedido nuevo = new Pedido();
             nuevo.IdPedido = this.IdPedido;
             nuevo.Fecha = this.Fecha;
@@ -143,9 +144,16 @@ namespace BLL
             nuevo.RutEmpleado = this.RutEmpleado;
             nuevo.RutProveedor = this.RutProveedor;
             nuevo.agregar();
+
+            // Datos detalle pedido
+            foreach (var detalle in listaDetalle)
+            {
+                detalle.IdPedido = nuevoId();
+                detalle.agregar();
+            } 
             Console.WriteLine("BLL: Agregar pedido.");
         }
-        public void Modificar()
+        public void Modificar(List<DetallePedidoBLL> listaDetalle)
         {
             Pedido editar = new Pedido();
             editar.IdPedido = this.IdPedido;
@@ -154,9 +162,14 @@ namespace BLL
             editar.RutEmpleado = this.RutEmpleado;
             editar.RutProveedor = this.RutProveedor;
             editar.modificar();
+            foreach (var detalle in listaDetalle)
+            {
+                detalle.IdPedido = editar.IdPedido;
+                detalle.agregar();
+            }
             Console.WriteLine("BLL: Editar pedido.");
         }
-        public void Eliminar(int nroPedido)
+        public void EliminarPedido(int nroPedido)
         {
             
             List<Pedido> lista = Pedido.listar();
@@ -167,6 +180,7 @@ namespace BLL
             Console.WriteLine("BLL: Eliminar pedido.");
         }
 
+
         public List<PedidoBLL> listar()
         {
             List<PedidoBLL> listaRetorno = new List<PedidoBLL>();
@@ -176,6 +190,14 @@ namespace BLL
                 listaRetorno.Add(new PedidoBLL(pedido));
             }
             return listaRetorno;
+        }
+
+        public int nuevoId()
+        {
+            List<Pedido> lista = Pedido.listar();
+            IdPedido = (from pedidonuevo in lista
+                        select pedidonuevo.IdPedido).Max();
+            return IdPedido;
         }
     }
 }

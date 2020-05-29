@@ -149,6 +149,11 @@ namespace ServiExpress
                 Data.EsAdmin = true;
                 Data.NombreUser = "Admin " + username;
                 Data.RolUserActivo = result;
+                List<UsuarioBLL> listaUs = new UsuarioBLL().DatosUsuario();
+                var idUsuario = (from us in listaUs
+                                 where us.nombreUsuario == username
+                                 select us.idUsuario).FirstOrDefault();
+                Data.IdUserActivo = idUsuario;
             }
             else
             {
