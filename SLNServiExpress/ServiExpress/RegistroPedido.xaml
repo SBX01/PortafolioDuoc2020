@@ -117,14 +117,12 @@
             </Button.Background>
         </Button>
         <Grid x:Name="GridPedido" HorizontalAlignment="Left" Height="229" Margin="305,241,0,0" VerticalAlignment="Top" Width="657" Background="White" OpacityMask="#FFC5E1F1">
-            <Label Content="Producto" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top"/>
-            <Label Content="Cantidad" HorizontalAlignment="Left" Margin="24,59,0,0" VerticalAlignment="Top"/>
-            <Label Content="Comentario" HorizontalAlignment="Left" Margin="24,110,0,0" VerticalAlignment="Top"/>
-            <Label Content="Estado" HorizontalAlignment="Left" Margin="24,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.59"/>
-            <ComboBox x:Name="cboProductos" HorizontalAlignment="Left" Margin="99,14,0,0" VerticalAlignment="Top" Width="159"/>
-            <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="99,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
-            <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="63" Margin="108,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
-            <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="99,187,0,0" VerticalAlignment="Top" Width="159"/>
+            <Label Content="Producto" HorizontalAlignment="Left" Margin="24,27,0,0" VerticalAlignment="Top"/>
+            <Label Content="Cantidad" HorizontalAlignment="Left" Margin="24,86,0,0" VerticalAlignment="Top"/>
+            <Label Content="Estado" HorizontalAlignment="Left" Margin="24,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.59"/>
+            <ComboBox x:Name="cboProductos" HorizontalAlignment="Left" Margin="99,31,0,0" VerticalAlignment="Top" Width="159"/>
+            <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="99,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
+            <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="99,147,0,0" VerticalAlignment="Top" Width="159"/>
             <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="313" Background="#FFF1EDED" MouseDoubleClick="dgDetalle_MouseDoubleClick"/>
             <Button x:Name="btnAddRow" ToolTip="Agregar Detalle"  HorizontalAlignment="Left" Margin="596,19,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FF6FE81C" Height="50" Click="btnAddRow_Click" OpacityMask="#FF21FB21">
                 <Button.Background>

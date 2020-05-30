@@ -46,7 +46,7 @@ namespace ServiExpress
                     detalleNuevo.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                     detalleNuevo.Cantidad = int.Parse(txtCantidadDetalle.Text);
                     detalleNuevo.Estado = (EstadoPedido)cboEstado.SelectedValue;
-                    detalleNuevo.Comentario = txtComentarios.Text;
+                    detalleNuevo.Comentario = " ";
                     ListaDetallePedidos.Add(detalleNuevo);
                 }
                 else
@@ -58,12 +58,12 @@ namespace ServiExpress
                         detalleNuevo.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                         detalleNuevo.Cantidad = int.Parse(txtCantidadDetalle.Text);
                         detalleNuevo.Estado = (EstadoPedido)cboEstado.SelectedValue;
-                        detalleNuevo.Comentario = txtComentarios.Text;
+                        detalleNuevo.Comentario = " ";
                         ListaDetallePedidos.Add(detalleNuevo);
                     }
                     else
                     {
-                        string comentario = txtComentarios.Text;
+                        string comentario = " ";
                         detalleNuevo.IdPedido = idPedido;
                         detalleNuevo.IdProducto = long.Parse(cboProductos.SelectedValue.ToString());
                         detalleNuevo.RutEmpleado = pedidoActual.RutEmpleado;
@@ -159,7 +159,7 @@ namespace ServiExpress
                             editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                             editar.Cantidad = int.Parse(txtCantidadDetalle.Text);
                             editar.Estado = (EstadoPedido)cboEstado.SelectedValue;
-                            editar.Comentario = txtComentarios.Text;
+                            editar.Comentario = " ";
 
                             ListaDetallePedidos.RemoveAt(indice);
                             ListaDetallePedidos.Insert(indice, editar);
@@ -167,7 +167,7 @@ namespace ServiExpress
                         }
                         else
                         {
-                            string comentario = txtComentarios.Text;
+                            string comentario = " ";
                             editar.IdPedido = idPedido;
                             editar.IdProducto = long.Parse(cboProductos.SelectedValue.ToString());
                             editar.RutEmpleado = rutEmpleado;
@@ -214,7 +214,7 @@ namespace ServiExpress
                     pedido = new PedidoBLL();
                     pedido.Fecha = DateTime.Now;
                     pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
-                    pedido.Descripcion = tbDescripcion.Text;
+                    pedido.Descripcion = tbDescripcion.Text + " ";
                     pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
                     pedido.Agregar(ListaDetallePedidos);
                 }
@@ -253,9 +253,15 @@ namespace ServiExpress
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            IniciarVentana();
+
+        }
+
+        private void IniciarVentana()
+        {
             try
             {
-              
+
 
                 cboProveedor.ItemsSource = new ProveedorBLL().listarTodos();
                 cboProveedor.DisplayMemberPath = "nombreCompleto";
@@ -264,10 +270,21 @@ namespace ServiExpress
 
 
                 List<EmpleadoBLL> listadoEmpleados = new EmpleadoBLL().listarTodos();
-                var listaBodegueros = (from emp in listadoEmpleados
-                                       where (emp.CARGO_EMPL == Cargos.Bodeguero || emp.CARGO_EMPL == Cargos.Administrador) & emp.ID_USUARIO == Data.IdUserActivo
-                                       select emp).ToList();
-                cboEmpleado.ItemsSource = listaBodegueros;
+                if (Data.EsAdmin)
+                {
+                    var listaBodegueros = (from emp in listadoEmpleados
+                                           where (emp.CARGO_EMPL == Cargos.Bodeguero || emp.CARGO_EMPL == Cargos.Administrador) & emp.ID_USUARIO == Data.IdUserActivo
+                                           select emp).ToList();
+                    cboEmpleado.ItemsSource = listaBodegueros;
+                }
+                else
+                {
+                    var listaBodegueros = (from emp in listadoEmpleados
+                                           where (emp.CARGO_EMPL == Cargos.Bodeguero) & emp.ID_USUARIO == Data.IdUserActivo
+                                           select emp).ToList();
+                    cboEmpleado.ItemsSource = listaBodegueros;
+                }
+
                 cboEmpleado.DisplayMemberPath = "nombreCompleto";
                 cboEmpleado.SelectedValuePath = "RUT_EMPL";
                 cboEmpleado.SelectedIndex = 0;
@@ -295,9 +312,6 @@ namespace ServiExpress
 
                 Console.WriteLine("Excepcion producida :C ... Error: " + ex.Message);
             }
-
-            
-
         }
 
         private void ListarDetalleProducto(int idpedidofk,string rutEmpleado)
@@ -366,7 +380,7 @@ namespace ServiExpress
                         cboProductos.SelectedValue = pedidoActual.IdProducto;
                         cboEstado.SelectedValue = pedidoActual.Estado;
                         txtCantidadDetalle.Text = pedidoActual.Cantidad.ToString();
-                        txtComentarios.Text = pedidoActual.Comentario;
+                        // Comentario irá en el check
                         await this.ShowMessageAsync("Informacion", "Datos Cargados.");
 
                         break;
@@ -439,7 +453,7 @@ namespace ServiExpress
                 {
                     editar.IdPedido = idPedido;
                     editar.Fecha = DateTime.Now;
-                    editar.Descripcion = tbDescripcion.Text + " (Administrador)";
+                    editar.Descripcion = tbDescripcion.Text + "(Modificado por " + Data.NombreUser + ")";
                     editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                     editar.RutProveedor = cboProveedor.SelectedValue.ToString();
                 }
@@ -447,7 +461,7 @@ namespace ServiExpress
                 {
                     editar.IdPedido = idPedido;
                     editar.Fecha = DateTime.Now;
-                    editar.Descripcion = tbDescripcion.Text;
+                    editar.Descripcion = tbDescripcion.Text + "(Modificado por "+ Data.NombreUser +")";
                     editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                     editar.RutProveedor = cboProveedor.SelectedValue.ToString();
                 }
@@ -538,7 +552,7 @@ namespace ServiExpress
             cboEstado.SelectedIndex = 0;
 
             txtCantidadDetalle.Text = string.Empty;
-            txtComentarios.Text = string.Empty;
+            
         }
 
         private void cboProveedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -564,7 +578,8 @@ namespace ServiExpress
             else
             {
                 var listaSegunProveedor = (from pedido in listaPedidos
-                                           where pedido.RutProveedor == aBuscar & pedido.RutEmpleado == cboEmpleado.SelectedValue.ToString()
+                                           
+                                           where pedido.RutProveedor == aBuscar & pedido.RutEmpleado == Data.RutEmpleadoActivo
                                            select pedido).ToList();
                 dgDetalleProducto.ItemsSource = null;
                 dgDetalleProducto.ItemsSource = listaSegunProveedor;

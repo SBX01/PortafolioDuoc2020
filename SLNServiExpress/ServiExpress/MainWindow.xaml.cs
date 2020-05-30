@@ -146,6 +146,7 @@ namespace ServiExpress
         {
             if (result.Equals("adm"))
             {
+                List<EmpleadoBLL> listaEmp = new EmpleadoBLL().listarTodos();
                 Data.EsAdmin = true;
                 Data.NombreUser = "Admin " + username;
                 Data.RolUserActivo = result;
@@ -154,6 +155,10 @@ namespace ServiExpress
                                  where us.nombreUsuario == username
                                  select us.idUsuario).FirstOrDefault();
                 Data.IdUserActivo = idUsuario;
+                var rutEmp = (from emp in listaEmp
+                              where emp.ID_USUARIO == Data.IdUserActivo
+                              select emp.RUT_EMPL).FirstOrDefault();
+                Data.RutEmpleadoActivo = rutEmp;
             }
             else
             {
@@ -168,6 +173,11 @@ namespace ServiExpress
                 var nombre = (from emp in listaEmp
                               where emp.ID_USUARIO == Data.IdUserActivo
                               select emp.nombreCompleto).FirstOrDefault();
+
+                var rutEmp = (from emp in listaEmp
+                              where emp.ID_USUARIO == Data.IdUserActivo
+                              select emp.RUT_EMPL).FirstOrDefault();
+                Data.RutEmpleadoActivo = rutEmp;
                 Console.WriteLine("Nombre: " + nombre);
                 Data.NombreUser = nombre;
                 Data.EsAdmin = false;
