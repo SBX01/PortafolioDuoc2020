@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Windows.Navigation;
 using BLL;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace ServiExpress
 {
@@ -45,6 +46,7 @@ namespace ServiExpress
             MainWindow log = new MainWindow();
             this.Close();
             log.ShowDialog();
+            Data.EstaLogeado = false;
         }
 
         private void Btncerrar_Click(object sender, RoutedEventArgs e)
@@ -52,6 +54,7 @@ namespace ServiExpress
             MainWindow log = new MainWindow();
             this.Close();
             log.ShowDialog();
+            Data.EstaLogeado = false;
         }
 
         private void btnhacerpedido_Click(object sender, RoutedEventArgs e)
@@ -124,6 +127,22 @@ namespace ServiExpress
             }
 
            
+        }
+
+        private async void btnmoduadm_Click(object sender, RoutedEventArgs e)
+        {
+            ModuloFinanzas ventanaFin = new ModuloFinanzas();
+            // si el usuario es administrador o cajero puede entrar
+            if (Data.EsAdmin || Data.CargoEmpleadoLogeado == Cargos.Cajero.ToString())
+            {
+               
+                this.Close();
+                ventanaFin.Show();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Atencion", "No tiene los permisos para acceder.");
+            }
         }
     }
 }

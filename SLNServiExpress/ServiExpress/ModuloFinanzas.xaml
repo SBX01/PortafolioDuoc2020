@@ -1,0 +1,41 @@
+﻿<Controls:MetroWindow x:Class="ServiExpress.ModuloFinanzas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiExpress"
+        mc:Ignorable="d"
+                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="SERVIEXPRESS"  Background="#002456" Height="612.514" Width="874.278">
+    <Grid>
+        <Label Content="Administracion" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="246" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="728,494,0,0" VerticalAlignment="Top" Width="48" Height="38" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"   >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform X="0.898" Y="-0.1"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Boleta" HorizontalAlignment="Left" Margin="194,173,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="127" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36" RenderTransformOrigin="0.376,0.55"/>
+        <Label Content="Factura" HorizontalAlignment="Left" Margin="526,173,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="136" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+        <Button x:Name="btnBoleta" ToolTip="Registro Boleta" HorizontalAlignment="Left" Margin="162,258,0,0" VerticalAlignment="Top" Width="176" Height="174" BorderBrush="#FF002456" Click="btnBoleta_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/Boleta.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnFactura" ToolTip="Registro Factura" HorizontalAlignment="Left" Margin="504,258,0,0" VerticalAlignment="Top" Width="176" Height="174" RenderTransformOrigin="0.515,0.476" BorderBrush="#FF002456" Click="btnFactura_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/factura.png"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>
+

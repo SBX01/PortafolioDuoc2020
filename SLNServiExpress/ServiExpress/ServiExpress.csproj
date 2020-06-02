@@ -116,8 +116,14 @@
     <Compile Include="ListarServicio.xaml.cs">
       <DependentUpon>ListarServicio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModuloFinanzas.xaml.cs">
+      <DependentUpon>ModuloFinanzas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModuloRegistros.xaml.cs">
       <DependentUpon>ModuloRegistros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarBoleta.xaml.cs">
+      <DependentUpon>RegistrarBoleta.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistroAutomovil.xaml.cs">
       <DependentUpon>RegistroAutomovil.xaml</DependentUpon>
@@ -127,6 +133,9 @@
     </Compile>
     <Compile Include="RegistroEmpleado.xaml.cs">
       <DependentUpon>RegistroEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroFactura.xaml.cs">
+      <DependentUpon>RegistroFactura.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistroPedido.xaml.cs">
       <DependentUpon>RegistroPedido.xaml</DependentUpon>
@@ -203,7 +212,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModuloFinanzas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ModuloRegistros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrarBoleta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -216,6 +233,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegistroEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroFactura.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -372,6 +393,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Logo serviExpress.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Boleta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\factura.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

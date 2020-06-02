@@ -46,9 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoletaBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
+    <Compile Include="DetalleBoletaBLL.cs" />
     <Compile Include="DetallePedidoBLL.cs" />
+    <Compile Include="Detalle_FacBLL.cs" />
     <Compile Include="EmpleadoBLL.cs" />
+    <Compile Include="FacturaBLL.cs" />
     <Compile Include="PedidoBLL.cs" />
     <Compile Include="ProductoBLL.cs" />
     <Compile Include="ProveedorBLL.cs" />

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo%20serviexpress.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/factura.png")]
 
 
