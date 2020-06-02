@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Seba\Desktop\APP Desktop IT2\GIT Portafolio\SLNServiExpress\ServiExpress\obj\Debug\
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\obj\Debug\
 ServiExpress
 none
 false
 DEBUG;TRACE
-C:\Users\Seba\Desktop\APP Desktop IT2\GIT Portafolio\SLNServiExpress\ServiExpress\App.xaml
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\App.xaml
 27756935797
 
-31-1686878534
-22-841786983
+32-1620325446
+22397005945
 EliminarAutomovil.xaml;EliminarCliente.xaml;EliminarEmpleado.xaml;EliminarProducto.xaml;EliminarProveedor.xaml;EliminarServicio.xaml;ListarAutomoviles.xaml;ListarClientes.xaml;ListarEmpleado.xaml;ListarProducto.xaml;ListarProveedor.xaml;ListarServicio.xaml;MainWindow.xaml;ModuloFinanzas.xaml;ModuloRegistros.xaml;RegistrarBoleta.xaml;RegistroAutomovil.xaml;RegistroClientes.xaml;RegistroEmpleado.xaml;RegistroFactura.xaml;RegistroPedido.xaml;RegistroProducto.xaml;RegistroProveedor.xaml;RegistroServicio.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;SaludoUsuario.xaml;
 
-False
+True
 

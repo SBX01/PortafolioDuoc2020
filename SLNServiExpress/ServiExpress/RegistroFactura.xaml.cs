@@ -27,6 +27,7 @@ namespace ServiExpress
         public RegistroFactura()
         {
             InitializeComponent();
+            cmboreserv0.Visibility = Visibility.Hidden;
         }
 
 
@@ -106,6 +107,23 @@ namespace ServiExpress
             // carga de comboBox tipo de pago
             var estados = (pago[])Enum.GetValues(typeof(pago));
             cmbopago.ItemsSource = estados;
+        }
+
+        private void txtneto_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                double neto = int.Parse(txtneto.Text);
+                double iva = Math.Round(neto * 0.19);
+                double total = neto + iva;
+                txtiva.Text = iva.ToString();
+                txttotal.Text = total.ToString();
+            }
+            catch (Exception ex)
+            {
+
+              
+            }
         }
     }
 }

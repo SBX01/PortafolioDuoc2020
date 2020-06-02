@@ -129,7 +129,7 @@ namespace ServiExpress
 
                 boletaActual.Agregar();
                 //dgDetalleboleta.ItemsSource = new BoletaBLL().listar(); // funcionalidad no lista
-                await this.ShowMessageAsync("Informacion", "El Pedido ha sido creado! \n ahora puede agregar productos a su boleta", style: MessageDialogStyle.Affirmative);
+                await this.ShowMessageAsync("Informacion", "La Boleta ha sido creada! \n ahora puede agregar detalle a su boleta", style: MessageDialogStyle.Affirmative);
 
             }
             catch (Exception ex)

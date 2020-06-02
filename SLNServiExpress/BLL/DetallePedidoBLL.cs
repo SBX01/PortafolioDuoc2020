@@ -45,7 +45,15 @@ namespace BLL
             }
             set
             {
-                cantidad = value;
+                if (value < 1)
+                {
+                    throw new Exception("La cantidad no puede ser menor a 0.");
+                }
+                else
+                {
+                    cantidad = value;
+                }
+               
             }
         }
         public EstadoPedido Estado { get; set; }
