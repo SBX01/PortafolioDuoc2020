@@ -13,8 +13,6 @@ namespace BLL
         {
             
         }
-           
-
 
         public DetallePedidoBLL(DetallePedido nuevo)
         {

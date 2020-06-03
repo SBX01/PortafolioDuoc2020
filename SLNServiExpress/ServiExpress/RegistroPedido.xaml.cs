@@ -144,7 +144,7 @@ namespace ServiExpress
                 {
                    // throw new Exception("Seleccione un pedido antes de agregar un detalle");
                 }
-                switch (await this.ShowMessageAsync("Información", "¿Está segure que desea modificar este detalle?",MessageDialogStyle.AffirmativeAndNegative))
+                switch (await this.ShowMessageAsync("Información", "¿Está seguro que desea modificar este detalle?",MessageDialogStyle.AffirmativeAndNegative))
                 {
 
                     case MessageDialogResult.Negative:
