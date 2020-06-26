@@ -21,9 +21,12 @@ namespace ServiExpress
     /// </summary>
     public partial class RegistroProducto : MetroWindow
     {
+        public bool AgregarProv { get; set; }
+
         public RegistroProducto()
         {
             InitializeComponent();
+            AgregarProv = false;
         }
 
         private void Btneditprodu_Click(object sender, RoutedEventArgs e)
@@ -47,9 +50,21 @@ namespace ServiExpress
 
         private void Btnatras_Click(object sender, RoutedEventArgs e)
         {
-            ModuloRegistros mod = new ModuloRegistros();
-            this.Close();
-            mod.ShowDialog();
+            volver(AgregarProv);
+        }
+
+        void volver(bool desdeProvedoor)
+        {
+            if (desdeProvedoor)
+            {
+                this.Close();
+            }
+            else
+            {
+                ModuloRegistros mod = new ModuloRegistros();
+                this.Close();
+                mod.ShowDialog();
+            }
         }
     }
 }

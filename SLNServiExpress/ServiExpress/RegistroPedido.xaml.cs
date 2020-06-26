@@ -22,6 +22,7 @@ namespace ServiExpress
         bool agregarDetalle = false;
         int idPedido = 0;
         string rutEmpleado;
+        int totalPedido = 0;
 
         public RegistroPedido()
         {
@@ -29,6 +30,7 @@ namespace ServiExpress
             dgDetalleProducto.IsReadOnly = true;
             dgDetalle.IsReadOnly = true;
             cboEstado.IsEnabled = false;
+            txtPrecio.IsEnabled = false;
         }
 
 
@@ -47,6 +49,8 @@ namespace ServiExpress
                     detalleNuevo.Cantidad = int.Parse(txtCantidadDetalle.Text);
                     detalleNuevo.Estado = (EstadoPedido)cboEstado.SelectedValue;
                     detalleNuevo.Comentario = " ";
+                    totalPedido = totalPedido + int.Parse(txtPrecio.Text);
+                    txtTotalPedido.Text = totalPedido.ToString();
                     ListaDetallePedidos.Add(detalleNuevo);
                 }
                 else
@@ -59,6 +63,8 @@ namespace ServiExpress
                         detalleNuevo.Cantidad = int.Parse(txtCantidadDetalle.Text);
                         detalleNuevo.Estado = (EstadoPedido)cboEstado.SelectedValue;
                         detalleNuevo.Comentario = " ";
+                        totalPedido = totalPedido + int.Parse(txtPrecio.Text);
+                        txtTotalPedido.Text = totalPedido.ToString();
                         ListaDetallePedidos.Add(detalleNuevo);
                     }
                     else
@@ -69,8 +75,11 @@ namespace ServiExpress
                         detalleNuevo.RutEmpleado = pedidoActual.RutEmpleado;
                         detalleNuevo.Cantidad = int.Parse(txtCantidadDetalle.Text);
                         detalleNuevo.Estado = (EstadoPedido)cboEstado.SelectedValue;
-                        detalleNuevo.Comentario = comentario + " (Editado por Administrador)";
+                        detalleNuevo.Comentario = comentario;
+                        totalPedido = totalPedido + int.Parse(txtPrecio.Text);
+                        txtTotalPedido.Text = totalPedido.ToString();
                         ListaDetallePedidos.Add(detalleNuevo);
+
                     }
                 }
                
@@ -110,6 +119,8 @@ namespace ServiExpress
                         if (rutEmpleado == cboEmpleado.SelectedValue.ToString())
                         {
                             ListaDetallePedidos.Remove(pedidoActual);
+                            totalPedido = totalPedido - int.Parse(txtPrecio.Text);
+                            txtTotalPedido.Text = totalPedido.ToString();
                             pedidoActual.eliminar(pedidoActual.RutEmpleado, pedidoActual.IdProducto, pedidoActual.IdPedido);
                         }
                         
@@ -136,7 +147,7 @@ namespace ServiExpress
 
         private async void btnEditarDetalle_Click(object sender, RoutedEventArgs e)
         {
-           
+           // se puede modificar un pedido una vez hecho?
             DetallePedidoBLL editar = new DetallePedidoBLL();
             try
             {
@@ -163,7 +174,10 @@ namespace ServiExpress
 
                             ListaDetallePedidos.RemoveAt(indice);
                             ListaDetallePedidos.Insert(indice, editar);
+                            
+
                             editar.modificar();
+
                         }
                         else
                         {
@@ -173,10 +187,14 @@ namespace ServiExpress
                             editar.RutEmpleado = rutEmpleado;
                             editar.Cantidad = int.Parse(txtCantidadDetalle.Text);
                             editar.Estado = (EstadoPedido)cboEstado.SelectedValue;
-                            editar.Comentario = comentario + " (Editado por Administrador)";
+                            editar.Comentario = comentario;
 
                             ListaDetallePedidos.RemoveAt(indice);
                             ListaDetallePedidos.Insert(indice, editar);
+
+                            totalPedido = totalPedido - int.Parse(txtPrecio.Text);
+                            txtTotalPedido.Text = totalPedido.ToString();
+                                // detalle compra
                             editar.modificar();
                         }
                         
@@ -205,8 +223,9 @@ namespace ServiExpress
                     pedido = new PedidoBLL();
                     pedido.Fecha = DateTime.Now;
                     pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
-                    pedido.Descripcion = tbDescripcion.Text + " (Administrador)";
+                    pedido.Descripcion = "Pedido realizado por " + Data.NombreUser;
                     pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
+                    // detalle compra
                     pedido.Agregar(ListaDetallePedidos);
                 }
                 else
@@ -214,11 +233,12 @@ namespace ServiExpress
                     pedido = new PedidoBLL();
                     pedido.Fecha = DateTime.Now;
                     pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
-                    pedido.Descripcion = tbDescripcion.Text + " ";
+                    pedido.Descripcion = "Pedido realizado por " + Data.NombreUser;
                     pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
+                    // detalle compra
                     pedido.Agregar(ListaDetallePedidos);
                 }
-               
+               // agregar Total de pedido
                 ListarPedidos();
                 await this.ShowMessageAsync("Informacion", "El Pedido ha sido creado!", style: MessageDialogStyle.Affirmative);
 
@@ -344,7 +364,6 @@ namespace ServiExpress
                 lbListaDetalle.Content = "Lista detalle";
                 cboProveedor.IsEnabled = true;
                 //cboEmpleado.IsEnabled = true;
-                tbDescripcion.IsEnabled = true;
             }
 
         }
@@ -414,7 +433,6 @@ namespace ServiExpress
                             idPedido = pedido.IdPedido;
                             cboEmpleado.SelectedValue = pedido.RutEmpleado;
                             cboProveedor.SelectedValue = pedido.RutProveedor;
-                            tbDescripcion.Text = pedido.Descripcion;
                             ListarDetalleProducto(idPedido, pedido.RutEmpleado);
                         }
                         else
@@ -422,7 +440,6 @@ namespace ServiExpress
                             idPedido = pedido.IdPedido;
                             rutEmpleado = pedido.RutEmpleado;
                             cboProveedor.SelectedValue = pedido.RutProveedor;
-                            tbDescripcion.Text = pedido.Descripcion;
                             ListarDetalleProducto(idPedido, pedido.RutEmpleado);
                         }
                         
@@ -453,7 +470,7 @@ namespace ServiExpress
                 {
                     editar.IdPedido = idPedido;
                     editar.Fecha = DateTime.Now;
-                    editar.Descripcion = tbDescripcion.Text + "(Modificado por " + Data.NombreUser + ")";
+                    editar.Descripcion = "Pedido modificado por "+ Data.NombreUser;
                     editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                     editar.RutProveedor = cboProveedor.SelectedValue.ToString();
                 }
@@ -461,7 +478,7 @@ namespace ServiExpress
                 {
                     editar.IdPedido = idPedido;
                     editar.Fecha = DateTime.Now;
-                    editar.Descripcion = tbDescripcion.Text + "(Modificado por "+ Data.NombreUser +")";
+                    editar.Descripcion = "Pedido modificado por " + Data.NombreUser;
                     editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
                     editar.RutProveedor = cboProveedor.SelectedValue.ToString();
                 }
@@ -469,7 +486,7 @@ namespace ServiExpress
                 switch (await this.ShowMessageAsync("Atencion", "¿Está seguro que desea modificar el Pedido N°: " + editar.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
                 {
                     case MessageDialogResult.Affirmative:
-
+                        // detalle compra
                         editar.Modificar(ListaDetallePedidos);
                         await this.ShowMessageAsync("Informacion", "El Pedido ha sido modificado", style: MessageDialogStyle.Affirmative);
 
@@ -513,10 +530,13 @@ namespace ServiExpress
                                 break;
                             case MessageDialogResult.Affirmative:
                                 // aqui se elimina el pedido y se vuelve a listar.
+
+                                // detalle compra
                                 eliminar.EliminarPedido(idPedido);
                                 await this.ShowMessageAsync("Atención", "El pedido ha sido eliminado.", style: MessageDialogStyle.Affirmative);
                                 ListarPedidos();
-                                tbDescripcion.Text = string.Empty;
+                                txtTotalPedido.Text = string.Empty;
+                            
                                 break;
 
 
@@ -542,7 +562,7 @@ namespace ServiExpress
         {
             cboEmpleado.SelectedIndex = 0;
             cboProductos.SelectedIndex = 0;
-            tbDescripcion.Text = string.Empty;
+            txtTotalPedido.Text = string.Empty;
 
         }
         void limpiarDetalle()
@@ -612,6 +632,53 @@ namespace ServiExpress
             limpiarPedido();
             limpiarDetalle();
             Console.WriteLine("Todo limpio ,Elementos lista: " + ListaDetallePedidos.Count);
+        }
+
+        private void cboProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            long buscado = (long)cboProductos.SelectedValue;
+            List<ProductoBLL> listado = new ProductoBLL().ListarTodo();
+            int precio = (from pr in listado
+                          where pr.Id_producto == buscado
+                          select pr.Precio_Compra).FirstOrDefault();
+            txtPrecio.Text = precio.ToString();
+        }
+
+        private void txtCantidadDetalle_KeyUp(object sender, KeyEventArgs e)
+        {
+            long buscado = (long)cboProductos.SelectedValue;
+            List<ProductoBLL> listado = new ProductoBLL().ListarTodo();
+            int precio = (from pr in listado
+                          where pr.Id_producto == buscado
+                          select pr.Precio_Compra).FirstOrDefault();
+            txtPrecio.Text = precio.ToString();
+            try
+            {
+                int montoTotal = int.Parse(txtPrecio.Text);
+                int cantidad = int.Parse(txtCantidadDetalle.Text);
+                if(cantidad > 0)
+                {
+                    montoTotal = montoTotal * cantidad;
+                    txtPrecio.Text = montoTotal.ToString();
+                }
+                else
+                {
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+               
+            }
+        }
+
+        private void btnchequear_Click(object sender, RoutedEventArgs e)
+        {
+            CheckPedido check = new CheckPedido();
+            this.Close();
+            check.Show();
         }
     }
 

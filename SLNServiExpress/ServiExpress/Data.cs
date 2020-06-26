@@ -16,6 +16,7 @@ namespace ServiExpress
         public static int IdUserActivo { get; set; }
         public static string CargoEmpleadoLogeado { get; set; }
         public static string RutEmpleadoActivo { get; set; }
+        public static long IdProductoSeleccionado { get; set; }
 
     }
 }

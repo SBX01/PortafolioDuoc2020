@@ -81,15 +81,28 @@ namespace BLL
             Console.WriteLine("BLL: Modificar");
         }
 
-        public void Eliminar()
+        public void Eliminar(long id)
         {
-
+            Producto eliminar = new Producto();
+            eliminar.EliminarProducto(id);
         }
 
         public List<ProductoBLL> ListarTodo()
         {
             List<ProductoBLL> listaRetorno = new List<ProductoBLL>();
             List<Producto> lista = new Producto().ListarProductos();
+
+            foreach (var producto in lista)
+            {
+                listaRetorno.Add(new ProductoBLL(producto));
+            }
+            return listaRetorno;
+        }
+
+        public List<ProductoBLL> ListarSegunProv( string rut)
+        {
+            List<ProductoBLL> listaRetorno = new List<ProductoBLL>();
+            List<Producto> lista = new Producto().listarSegunProveedor(rut);
 
             foreach (var producto in lista)
             {

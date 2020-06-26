@@ -111,5 +111,11 @@
         <Label Content=" Registro&#xA; De Productos" HorizontalAlignment="Left" Margin="405,336,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
         <Label Content=" Registro&#xA; De Automovil" HorizontalAlignment="Left" Margin="461,234,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" RenderTransformOrigin="-0.342,-0.962" FontFamily="Segoe UI Historic" FontStyle="Normal" FontWeight="Bold"/>
         <Button x:Name="btncerrar"  Content="Cerrar Sesiòn" Background="#51d1f6" HorizontalAlignment="Left" Margin="533,13,0,0" VerticalAlignment="Top" Width="169" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Height="37" Click="btncerrar_Click"/>
+        <Button x:Name="btnatras" Content="" HorizontalAlignment="Left" Margin="646,420,0,0" VerticalAlignment="Top" Width="56" Height="51" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="2.877,3.977" Click="Btnatras_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/atras.png"/>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Controls:MetroWindow>

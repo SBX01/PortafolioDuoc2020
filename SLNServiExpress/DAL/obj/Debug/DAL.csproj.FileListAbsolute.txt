@@ -27,3 +27,13 @@ C:\Users\Seba\Desktop\APP Desktop IT2\GIT Portafolio\SLNServiExpress\DAL\obj\Deb
 C:\Users\Seba\Desktop\APP Desktop IT2\GIT Portafolio\SLNServiExpress\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Seba\Desktop\APP Desktop IT2\GIT Portafolio\SLNServiExpress\DAL\obj\Debug\DAL.dll
 C:\Users\Seba\Desktop\APP Desktop IT2\GIT Portafolio\SLNServiExpress\DAL\obj\Debug\DAL.pdb
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\bin\Debug\DAL.dll.config
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\bin\Debug\DAL.dll
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\bin\Debug\DAL.pdb
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\obj\Debug\DAL.dll
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\DAL\obj\Debug\DAL.pdb

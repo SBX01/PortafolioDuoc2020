@@ -145,5 +145,11 @@ namespace ServiExpress
             main.ShowDialog();
         }
 
+        private void Btnatras_Click(object sender, RoutedEventArgs e)
+        {
+            SaludoUsuario main = new SaludoUsuario();
+            this.Close();
+            main.Show();
+        }
     }
 }

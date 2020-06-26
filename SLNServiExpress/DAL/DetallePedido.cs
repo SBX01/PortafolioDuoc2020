@@ -55,7 +55,7 @@ namespace DAL
             cmd.Parameters.Add("RUTEMP", OracleDbType.Varchar2, ParameterDirection.Input).Value = this.RUT_EMPL;
             cmd.Parameters.Add("CANTIDADUNIDADES", OracleDbType.Int32, ParameterDirection.Input).Value = this.CANTIDAD;
             cmd.Parameters.Add("ESTADO", OracleDbType.Varchar2, ParameterDirection.Input).Value = this.ESTADO;
-            cmd.Parameters.Add("COMENTARIO", OracleDbType.Varchar2, ParameterDirection.Input).Value = this.COMENTARIO; ;
+            cmd.Parameters.Add("COMENTARIO", OracleDbType.Varchar2, ParameterDirection.Input).Value = this.COMENTARIO;
 
             cmd.ExecuteNonQuery();
             Console.WriteLine("DAL: Se modificó Pedido");

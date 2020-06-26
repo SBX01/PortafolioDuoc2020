@@ -24,16 +24,22 @@
                 <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Label Content="Boleta" HorizontalAlignment="Left" Margin="194,173,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="127" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36" RenderTransformOrigin="0.376,0.55"/>
-        <Label Content="Factura" HorizontalAlignment="Left" Margin="526,173,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="136" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
-        <Button x:Name="btnBoleta" ToolTip="Registro Boleta" HorizontalAlignment="Left" Margin="162,258,0,0" VerticalAlignment="Top" Width="176" Height="174" BorderBrush="#FF002456" Click="btnBoleta_Click">
+        <Label Content="Boleta" HorizontalAlignment="Left" Margin="105,142,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="127" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36" RenderTransformOrigin="0.376,0.55"/>
+        <Label Content="Factura" HorizontalAlignment="Left" Margin="365,142,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="136" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+        <Button x:Name="btnBoleta" ToolTip="Registro Boleta" HorizontalAlignment="Left" Margin="73,227,0,0" VerticalAlignment="Top" Width="176" Height="174" BorderBrush="#FF002456" Click="btnBoleta_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Boleta.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnFactura" ToolTip="Registro Factura" HorizontalAlignment="Left" Margin="504,258,0,0" VerticalAlignment="Top" Width="176" Height="174" RenderTransformOrigin="0.515,0.476" BorderBrush="#FF002456" Click="btnFactura_Click">
+        <Button x:Name="btnFactura" ToolTip="Registro Factura" HorizontalAlignment="Left" Margin="343,227,0,0" VerticalAlignment="Top" Width="175" Height="175" RenderTransformOrigin="0.515,0.476" BorderBrush="#FF002456" Click="btnFactura_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/factura.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Informes" HorizontalAlignment="Left" Margin="601,142,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="156" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+        <Button x:Name="btnInforme"  HorizontalAlignment="Left" Margin="590,226,0,0" VerticalAlignment="Top" Width="175" Click="btnInforme_Click" BorderBrush="{x:Null}" Height="175">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/BtnInformes.png"/>
             </Button.Background>
         </Button>
     </Grid>

@@ -109,7 +109,7 @@ namespace ServiExpress
             catch (Exception ex) // si hay problemas de coneccion con la web service entra aca
             {
 
-                Console.WriteLine("No conecado en webService" + ex.Message);
+                Console.WriteLine("No conectado en webService" + ex.Message);
                 // intenta conectarse desde la base de datos
                 if (user.TryLogin(username, password))
                 {
@@ -148,7 +148,7 @@ namespace ServiExpress
             {
                 List<EmpleadoBLL> listaEmp = new EmpleadoBLL().listarTodos();
                 Data.EsAdmin = true;
-                Data.NombreUser = "Admin " + username;
+               
                 Data.RolUserActivo = result;
                 List<UsuarioBLL> listaUs = new UsuarioBLL().DatosUsuario();
                 var idUsuario = (from us in listaUs
@@ -158,6 +158,10 @@ namespace ServiExpress
                 var rutEmp = (from emp in listaEmp
                               where emp.ID_USUARIO == Data.IdUserActivo
                               select emp.RUT_EMPL).FirstOrDefault();
+                var nombre = (from emp in listaEmp
+                              where emp.ID_USUARIO == Data.IdUserActivo
+                              select emp.nombreCompleto).FirstOrDefault();
+                Data.NombreUser = nombre;
                 Data.RutEmpleadoActivo = rutEmp;
             }
             else

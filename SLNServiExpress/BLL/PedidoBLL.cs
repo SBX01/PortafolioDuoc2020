@@ -199,5 +199,13 @@ namespace BLL
                         select pedidonuevo.IdPedido).Max();
             return IdPedido;
         }
+
+        public List<int> listarid(string rutEmpleado)
+        {
+            List<int> listaRetorno = new List<int>();
+            listaRetorno = new Pedido().listarid(rutEmpleado);
+            return listaRetorno;
+        }
+
     }
 }

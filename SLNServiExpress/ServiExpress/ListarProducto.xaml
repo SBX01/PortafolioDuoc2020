@@ -8,17 +8,16 @@
        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="SERVIEXPRESS" Background="#002456" Height="743.426" Width="923.883">
+        Title="SERVIEXPRESS" Background="#002456" Height="743.426" Width="923.883" Loaded="MetroWindow_Loaded">
     <Grid Margin="0,0,-8,-2">
         <Label Content=" Listar Producto " HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="456" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
-        <Label x:Name="lblprov" Content=" Seleccionar Proveedor                     :" HorizontalAlignment="Left" Margin="0,142,0,0" VerticalAlignment="Top" Height="41" Width="269" Foreground="GhostWhite" FontWeight="Bold" FontSize="22"/>
-        <ComboBox x:Name="cmbprovd" HorizontalAlignment="Left" Margin="274,150,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" />
+        <Label x:Name="lblprov" Content=" Seleccionar Proveedor                     :" HorizontalAlignment="Left" Margin="54,77,0,0" VerticalAlignment="Top" Height="41" Width="269" Foreground="GhostWhite" FontWeight="Bold" FontSize="22"/>
+        <ComboBox x:Name="cmbprovd" HorizontalAlignment="Left" Margin="328,85,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" SelectionChanged="cmbprovd_SelectionChanged" />
 
-        <Label x:Name="lblfam" Content=" Seleccionar Familia                     :" HorizontalAlignment="Left" Margin="470,142,0,0" VerticalAlignment="Top" Height="41" Width="242" Foreground="GhostWhite" FontWeight="Bold" FontSize="22"/>
-        <ComboBox x:Name="cmbfamilem" HorizontalAlignment="Left" Margin="695,150,0,0" VerticalAlignment="Top" Width="191" RenderTransformOrigin="0.581,0.964" Height="25" />
-        <Button x:Name="btnbuscarprod" Content="Buscar" Background="#51d1f6" HorizontalAlignment="Left" Margin="728,211,0,0" VerticalAlignment="Top" Width="137" RenderTransformOrigin="-0.046,1.189" FontWeight="Bold" FontSize="20"/>
-        <Button x:Name="btnlistarprod"  Content="Listar Producto" Background="#51d1f6" HorizontalAlignment="Left" Margin="292,263,0,0" VerticalAlignment="Top" Width="263" RenderTransformOrigin="0.153,-0.056" FontSize="20"/>
-        <DataGrid x:Name="dtgempleado" HorizontalAlignment="Left" Height="294" Margin="54,324,0,0" VerticalAlignment="Top" Width="749"/>
+        <Label x:Name="lblfam" Content=" Seleccionar Tipo" HorizontalAlignment="Left" Margin="75,142,0,0" VerticalAlignment="Top" Height="41" Width="242" Foreground="GhostWhite" FontWeight="Bold" FontSize="22"/>
+        <ComboBox x:Name="cmbfamilem" HorizontalAlignment="Left" Margin="328,150,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" SelectionChanged="cmbfamilem_SelectionChanged" />
+        <Button x:Name="btnlistarprod"  Content="Listar Productos" Background="#51d1f6" HorizontalAlignment="Left" Margin="292,263,0,0" VerticalAlignment="Top" Width="263" RenderTransformOrigin="0.153,-0.056" FontSize="20" Click="btnlistarprod_Click"/>
+        <DataGrid x:Name="dtgempleado" HorizontalAlignment="Left" Height="294" Margin="54,324,0,0" VerticalAlignment="Top" Width="749" MouseDoubleClick="dtgempleado_MouseDoubleClick"/>
         <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="820,631,0,0" VerticalAlignment="Top" Width="48" Height="49" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="Btnatras_Click" >
             <Button.RenderTransform>
                 <TransformGroup>

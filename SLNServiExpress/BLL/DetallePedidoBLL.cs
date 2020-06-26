@@ -159,9 +159,7 @@ namespace BLL
     {
         Pendiente, // nuevo pedido
         Aceptado, // el proveedor acepta
-        Despachado, // proveedor envia pedido
         Rechazado,// proveedor rechaza
-        Cancelado, // empleado rechaza
         Finalizado // pedido llegó y se chequeó
     }
 }

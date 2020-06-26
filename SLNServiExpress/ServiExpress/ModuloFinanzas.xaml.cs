@@ -45,5 +45,12 @@ namespace ServiExpress
             this.Close();
             main.Show();
         }
+
+        private void btnInforme_Click(object sender, RoutedEventArgs e)
+        {
+            Informes inf = new Informes();
+            this.Close();
+            inf.Show();
+        }
     }
 }

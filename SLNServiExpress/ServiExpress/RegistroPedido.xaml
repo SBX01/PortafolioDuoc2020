@@ -24,14 +24,14 @@
         <ComboBox x:Name="cboEmpleado" HorizontalAlignment="Left" Margin="57,114,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" />
         <ComboBox x:Name="cboProveedor" HorizontalAlignment="Left" Margin="307,114,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" SelectionChanged="cboProveedor_SelectionChanged" />
 
-        <Label Content="Descripcion Pedido" HorizontalAlignment="Left" Margin="24,195,0,0" VerticalAlignment="Top" Height="46" Width="256" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
+        <Label Content="Total Pedido" HorizontalAlignment="Left" Margin="24,195,0,0" VerticalAlignment="Top" Height="46" Width="256" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
         <TextBlock x:Name="f" HorizontalAlignment="Left" Margin="32,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="182" Width="210" Background="White" ><InlineUIContainer>
-                <TextBox x:Name="tbDescripcion" Height="182" TextWrapping="Wrap" Width="211"/>
+                <TextBox x:Name="txtTotalPedido" Height="182" TextWrapping="Wrap" Width="211" IsEnabled="False"/>
             </InlineUIContainer></TextBlock>
 
         <Label x:Name="lbListaDetalle" Content="Lista Detalle" HorizontalAlignment="Left" Margin="308,195,0,0" VerticalAlignment="Top" Height="36" Width="416" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.479,0.263"/>
 
-        <Button x:Name="btnagregarped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="88,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.531,0.836" Click="btnagregarped_Click">
+        <Button x:Name="btnagregarped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="88,562,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.531,0.836" Click="btnagregarped_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -44,12 +44,12 @@
                 <ImageBrush ImageSource="imagenes/agregar.png"/>
             </Button.Background>
         </Button>
-        <Label Content=" Agregar Pedido  " HorizontalAlignment="Left" Margin="22,562,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="214" FontSize="20"/>
-        <Label Content=" Editar Pedido  " HorizontalAlignment="Left" Margin="196,562,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="214" FontSize="20" RenderTransformOrigin="1.385,-0.297"/>
-        <Label Content=" Eliminar Pedido  " HorizontalAlignment="Left" Margin="356,562,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="212" FontSize="20" RenderTransformOrigin="0.28,2.392"/>
-        <Label Content=" Listar Pedido  " HorizontalAlignment="Left" Margin="534,562,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="214" FontSize="20"/>
-        <Label Content=" Chequear Recepcion  " HorizontalAlignment="Left" Margin="688,561,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="40" Width="214" FontSize="20"/>
-        <Button x:Name="btneditpedi" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="234,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37" Click="btneditpedi_Click">
+        <Label Content=" Agregar Pedido  " HorizontalAlignment="Left" Margin="22,624,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="214" FontSize="20"/>
+        <Label Content=" Editar Pedido  " HorizontalAlignment="Left" Margin="196,624,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="214" FontSize="20" RenderTransformOrigin="1.385,-0.297"/>
+        <Label Content=" Eliminar Pedido  " HorizontalAlignment="Left" Margin="356,624,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="212" FontSize="20" RenderTransformOrigin="0.28,2.392"/>
+        <Label Content=" Listar Pedido  " HorizontalAlignment="Left" Margin="534,624,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="214" FontSize="20"/>
+        <Label Content=" Chequear Recepcion  " HorizontalAlignment="Left" Margin="688,623,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="40" Width="214" FontSize="20"/>
+        <Button x:Name="btneditpedi" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="234,562,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37" Click="btneditpedi_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -63,7 +63,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnelimped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="404,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249" Click="btnelimped_Click"  >
+        <Button x:Name="btnelimped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="404,562,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249" Click="btnelimped_Click"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -76,7 +76,7 @@
                 <ImageBrush ImageSource="imagenes/eliminar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="868,618,0,0" VerticalAlignment="Top" Width="50" Height="43" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"  >
+        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="896,611,0,0" VerticalAlignment="Top" Width="50" Height="43" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -89,7 +89,7 @@
                 <ImageBrush ImageSource="imagenes/atras.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnlistarped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="574,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="btnlistarped_Click"  >
+        <Button x:Name="btnlistarped" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="574,562,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="btnlistarped_Click"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -103,7 +103,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnchequear" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="760,500,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" >
+        <Button x:Name="btnchequear" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="760,562,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="btnchequear_Click" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -117,12 +117,12 @@
             </Button.Background>
         </Button>
         <Grid x:Name="GridPedido" HorizontalAlignment="Left" Height="229" Margin="305,241,0,0" VerticalAlignment="Top" Width="657" Background="White" OpacityMask="#FFC5E1F1">
-            <Label Content="Producto" HorizontalAlignment="Left" Margin="24,27,0,0" VerticalAlignment="Top"/>
-            <Label Content="Cantidad" HorizontalAlignment="Left" Margin="24,86,0,0" VerticalAlignment="Top"/>
-            <Label Content="Estado" HorizontalAlignment="Left" Margin="24,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.59"/>
-            <ComboBox x:Name="cboProductos" HorizontalAlignment="Left" Margin="99,31,0,0" VerticalAlignment="Top" Width="159"/>
-            <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="99,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
-            <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="99,147,0,0" VerticalAlignment="Top" Width="159"/>
+            <Label Content="Producto" HorizontalAlignment="Left" Margin="24,19,0,0" VerticalAlignment="Top"/>
+            <Label Content="Cantidad" HorizontalAlignment="Left" Margin="24,75,0,0" VerticalAlignment="Top"/>
+            <Label Content="Estado" HorizontalAlignment="Left" Margin="24,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.59"/>
+            <ComboBox x:Name="cboProductos" HorizontalAlignment="Left" Margin="99,23,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="cboProductos_SelectionChanged"/>
+            <TextBox x:Name="txtCantidadDetalle" HorizontalAlignment="Left" Height="23" Margin="99,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" KeyUp="txtCantidadDetalle_KeyUp"/>
+            <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="99,137,0,0" VerticalAlignment="Top" Width="159"/>
             <DataGrid x:Name="dgDetalle" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="313" Background="#FFF1EDED" MouseDoubleClick="dgDetalle_MouseDoubleClick"/>
             <Button x:Name="btnAddRow" ToolTip="Agregar Detalle"  HorizontalAlignment="Left" Margin="596,19,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FF6FE81C" Height="50" Click="btnAddRow_Click" OpacityMask="#FF21FB21">
                 <Button.Background>
@@ -139,6 +139,8 @@
                     <ImageBrush ImageSource="Imagenes/editar.png"/>
                 </Button.Background>
             </Button>
+            <Label Content="Precio" HorizontalAlignment="Left" Margin="24,184,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="99,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
         </Grid>
 
 

@@ -25,6 +25,7 @@ namespace ServiExpress
     public partial class RegistroProveedor : MetroWindow
     {
         ProveedorBLL prov = new ProveedorBLL();
+        public bool agregoProduc = false;
         public RegistroProveedor()
         {
             InitializeComponent();
@@ -83,9 +84,7 @@ namespace ServiExpress
 
         private void Btnlistarprov_Click(object sender, RoutedEventArgs e)
         {
-            ListarProveedor list = new ListarProveedor();
-            this.Close();
-            list.ShowDialog();
+            Cargar();
         }
 
         private void Btnatras_Click(object sender, RoutedEventArgs e)
@@ -97,6 +96,7 @@ namespace ServiExpress
 
         private async void btnagregarprov_Click(object sender, RoutedEventArgs e)
         {
+           
             try
             {
                 int number;
