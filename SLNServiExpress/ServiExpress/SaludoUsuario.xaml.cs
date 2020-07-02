@@ -43,17 +43,18 @@ namespace ServiExpress
 
         private void Btnatras_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow log = new MainWindow();
+            MainWindow log = MainWindow.Instance;
+            
             this.Close();
-            log.ShowDialog();
+            log.Show();
             Data.EstaLogeado = false;
         }
 
         private void Btncerrar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow log = new MainWindow();
+            MainWindow log = MainWindow.Instance;
             this.Close();
-            log.ShowDialog();
+            log.Show();
             Data.EstaLogeado = false;
         }
 

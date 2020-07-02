@@ -16,7 +16,7 @@
         <PasswordBox x:Name="pbcontra" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark=" Ingrese Contraseña "  Margin="56,207,0,0" VerticalAlignment="Top" Width="265" Height="25" RenderTransformOrigin="0.515,1.422"/>
         <Button x:Name="btningresar" Background="#51d1f6" Content="Entrar" HorizontalAlignment="Left" Margin="132,270,0,0" VerticalAlignment="Top" Width="100" Height="26" RenderTransformOrigin="0.511,1.707" Click="Btningresar_Click"/>
         <Label Content="¿No estas Registrado?" HorizontalAlignment="Left" Margin="109,320,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" Height="24" Width="141"/>
-        <Button x:Name="btnregistro" Background="#51d1f6" Content="Registrarse" HorizontalAlignment="Left" Margin="146,370,0,0" VerticalAlignment="Top" Width="86" Height="27" Click="Btnregistro_Click" />
+        <Button x:Name="btnregistro" Background="#51d1f6" Content="Registrarse" HorizontalAlignment="Left" Margin="132,370,0,0" VerticalAlignment="Top" Width="100" Height="32" Click="Btnregistro_Click" />
 
     </Grid>
 </Controls:MetroWindow>

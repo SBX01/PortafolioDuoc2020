@@ -370,7 +370,7 @@ namespace ServiExpress
 
         private void btncerrar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow inicio = new MainWindow();
+            MainWindow inicio = MainWindow.Instance;
             this.Close();
             Data.EstaLogeado = false;
             Data.NombreUser = string.Empty;

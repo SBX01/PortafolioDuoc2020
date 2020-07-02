@@ -34,13 +34,20 @@ namespace ServiExpress
          * tiene que estar funcionando el proyecto de web para que funcione el login,
          * si no desplegará el mensaje de "NO CONECTADO"
          */
-
+        private readonly static MainWindow instancia = new MainWindow();
         UsuarioBLL user = new UsuarioBLL();
 
         LoginService.LoginServiceClient login = new LoginService.LoginServiceClient(); // se crea la instancia 
 
+        public static MainWindow Instance
+        {
+            get
+            {
+                return instancia;
+            }
+        }
 
-        public MainWindow()
+        private MainWindow()
         {
             InitializeComponent();
 

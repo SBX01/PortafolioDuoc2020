@@ -12,14 +12,23 @@ namespace DAL
 {
     public class Conexion
     {
-        const string conString = "User Id=serviexpress;Password=seba;Data Source=localhost:1521/xe;";
+        private readonly static Conexion instancia = new Conexion();
+        const string conString = "User Id=serviexpress;Password=adminjuanpedro;Data Source=localhost:1521/xe;";
         //string conString = ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString;
 
         public OracleConnection con = null;
-        public Conexion()
+        private Conexion()
         {
             con = new OracleConnection(conString);
         }
+        public static Conexion Instance
+        {
+            get
+            {
+                return instancia;
+            }
+        }
+
 
         public void Conectar()
         {

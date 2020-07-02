@@ -12,7 +12,7 @@ namespace DAL
 {
     public class Usuario
     {
-        public Conexion conexion = new Conexion();
+        public Conexion conexion = Conexion.Instance;
         OracleCommand cmd = null;
 
         public int idUsuario { get; set; }

@@ -384,3 +384,5 @@ C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\obj\Debug\CheckPedido.
 C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\obj\Debug\CheckPedido.baml
 C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\obj\Debug\Informes.g.cs
 C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\obj\Debug\Informes.baml
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\obj\Debug\Bienvenida.g.cs
+C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\obj\Debug\Bienvenida.baml

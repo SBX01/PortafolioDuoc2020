@@ -11,7 +11,7 @@ namespace DAL
 {
     public class TipoProducto
     {
-        Conexion con = new Conexion();
+        public Conexion con = Conexion.Instance;
         OracleCommand cmd = null;
         public int ProductoId { get; set; }
         public string Nombre { get; set; }

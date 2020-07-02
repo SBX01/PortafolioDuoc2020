@@ -14,7 +14,7 @@ namespace DAL
 
     public class Proveedor
     {
-        public Conexion conexion = new Conexion();
+        public Conexion conexion = Conexion.Instance;
         OracleCommand cmd = null;
 
         public string RutProveedor { get; set; }

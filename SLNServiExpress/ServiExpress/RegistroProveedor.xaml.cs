@@ -136,7 +136,7 @@ namespace ServiExpress
 
         private void btncerrar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            MainWindow main = MainWindow.Instance;
             this.Close();
             main.ShowDialog();
         }

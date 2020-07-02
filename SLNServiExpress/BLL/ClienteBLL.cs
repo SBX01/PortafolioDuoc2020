@@ -9,7 +9,6 @@ namespace BLL
 {
     public class ClienteBLL
     {
-        Conexion conexion = new Conexion();
 
         public string Rut { get; set; }
 
