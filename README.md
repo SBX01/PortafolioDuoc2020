@@ -23,5 +23,4 @@ Importante
 - El módulo de facturas y boletas aún no funcionan correctamente.
 - El módulo de facturas y boletas no válidan datos,es decir en campos como cantidad o neto se puede ingresar numeros negativos
 y se guardarán.
-- El módulo de pedidos tiene un pequeño error, lista todos los productos, esto hay que corregirlo ya que,
-los prodructos se deberían listar segun el proveedor.
+
