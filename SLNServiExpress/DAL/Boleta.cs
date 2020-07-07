@@ -11,7 +11,7 @@ namespace DAL
 {
     public class Boleta
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
 
 
         OracleCommand cmd = null;
@@ -23,7 +23,7 @@ namespace DAL
 
         public int TotalBoleta { get; set; }
 
-        public String TipoPago { get; set; }
+        public string TipoPago { get; set; }
 
         public Boleta()
         {
@@ -38,7 +38,7 @@ namespace DAL
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("FECHABOLETA", OracleDbType.Date, ParameterDirection.Input).Value = Fechaboleta;
-            cmd.Parameters.Add("TOTALBOLETA", OracleDbType.Int64, ParameterDirection.Input).Value = TotalBoleta;
+            cmd.Parameters.Add("TOTALBOLETA", OracleDbType.Int32, ParameterDirection.Input).Value = TotalBoleta;
             cmd.Parameters.Add("TIPOPAGO", OracleDbType.Varchar2, ParameterDirection.Input).Value = TipoPago;
 
             cmd.ExecuteNonQuery();
@@ -54,9 +54,9 @@ namespace DAL
             cmd = new OracleCommand("SP_MODIFICARBOLETA", conexion.con);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("IDBOLETA", OracleDbType.Int64, ParameterDirection.Input).Value = IdBoleta;
+            cmd.Parameters.Add("IDBOLETA", OracleDbType.Int32, ParameterDirection.Input).Value = IdBoleta;
             cmd.Parameters.Add("FECHABOLETA", OracleDbType.Date, ParameterDirection.Input).Value = Fechaboleta;
-            cmd.Parameters.Add("TOTALBOLETA", OracleDbType.Int64, ParameterDirection.Input).Value = TotalBoleta;
+            cmd.Parameters.Add("TOTALBOLETA", OracleDbType.Int32, ParameterDirection.Input).Value = TotalBoleta;
             cmd.Parameters.Add("TIPOPAGO", OracleDbType.Varchar2, ParameterDirection.Input).Value = TipoPago; ;
 
             cmd.ExecuteNonQuery();

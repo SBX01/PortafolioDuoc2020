@@ -12,30 +12,35 @@ namespace DAL
 {
     public class Conexion
     {
-        private readonly static Conexion instancia = new Conexion();
+        //private readonly static Conexion instancia = new Conexion();
         const string conString = "User Id=serviexpress;Password=adminjuanpedro;Data Source=localhost:1521/xe;";
         //string conString = ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString;
 
         public OracleConnection con = null;
-        private Conexion()
+        public Conexion()
         {
             con = new OracleConnection(conString);
         }
-        public static Conexion Instance
-        {
-            get
-            {
-                return instancia;
-            }
-        }
+        //public static Conexion Instance
+        //{
+        //    get
+        //    {
+        //        return instancia;
+        //    }
+        //}
 
 
         public void Conectar()
         {
-            
-            con = new OracleConnection(conString);
-            con.Open();
-            Console.WriteLine("DAL: conectar");
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error BLL: " + ex.Message);
+            }
+           
         }
         public void desconectar()
         {

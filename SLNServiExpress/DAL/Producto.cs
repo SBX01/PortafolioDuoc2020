@@ -12,7 +12,7 @@ namespace DAL
 {
     public class Producto
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
         OracleCommand cmd = null;
 
         #region Propiedades

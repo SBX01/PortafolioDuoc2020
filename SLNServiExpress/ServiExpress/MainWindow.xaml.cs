@@ -28,26 +28,12 @@ namespace ServiExpress
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-
-        /* 
-         * El web service esta en ServiExpress/Connected Services/LoginService
-         * tiene que estar funcionando el proyecto de web para que funcione el login,
-         * si no desplegará el mensaje de "NO CONECTADO"
-         */
-        private readonly static MainWindow instancia = new MainWindow();
         UsuarioBLL user = new UsuarioBLL();
 
-        LoginService.LoginServiceClient login = new LoginService.LoginServiceClient(); // se crea la instancia 
+        //LoginService.LoginServiceClient login = new LoginService.LoginServiceClient(); // se crea la instancia 
 
-        public static MainWindow Instance
-        {
-            get
-            {
-                return instancia;
-            }
-        }
 
-        private MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
 
@@ -57,7 +43,6 @@ namespace ServiExpress
             Data.IdUserActivo = 0;
             Data.RolUserActivo = string.Empty;
             Data.CargoEmpleadoLogeado = string.Empty;
-
         }
 
 
@@ -66,7 +51,7 @@ namespace ServiExpress
             Data.EstaLogeado = false;
             RegistroEmpleado    registrar = new RegistroEmpleado();
             this.Close();
-            registrar.ShowDialog();
+            registrar.Show();
 
         }
 
@@ -76,6 +61,7 @@ namespace ServiExpress
  
             string username = txtusuario.Text;
             string password = pbcontra.Password;
+            /*
             try
             {   // Se guardan las variables de nombre de usuario y la pass
 
@@ -115,8 +101,8 @@ namespace ServiExpress
             }
             catch (Exception ex) // si hay problemas de coneccion con la web service entra aca
             {
-
-                Console.WriteLine("No conectado en webService" + ex.Message);
+            */
+             //   Console.WriteLine("No conectado en webService" + ex.Message);
                 // intenta conectarse desde la base de datos
                 if (user.TryLogin(username, password))
                 {
@@ -145,7 +131,7 @@ namespace ServiExpress
                     await this.ShowMessageAsync("Lo sentimos!", "El usuario ingresado no existe.", style: MessageDialogStyle.Affirmative);
                 }
 
-            }
+           // }
             Limpiar();
         }
 
@@ -199,7 +185,7 @@ namespace ServiExpress
             Console.WriteLine("Nombre: " + Data.NombreUser);
             SaludoUsuario saludo = new SaludoUsuario();
             this.Close();
-            saludo.ShowDialog();
+            saludo.Show();
         }
 
         private void Limpiar()

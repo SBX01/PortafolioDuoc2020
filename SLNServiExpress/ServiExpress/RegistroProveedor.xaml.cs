@@ -100,21 +100,22 @@ namespace ServiExpress
             try
             {
                 int number;
-                prov.Rut = txtrutprov.Text;
-                prov.Nombre = txtnombreprov.Text;
-                prov.Apellido = txtapellidosprov.Text;
-                prov.Correo = txtCorreo.Text;
+                ProveedorBLL nuevo = new ProveedorBLL();
+                nuevo.Rut = txtrutprov.Text;
+                nuevo.Nombre = txtnombreprov.Text;
+                nuevo.Apellido = txtapellidosprov.Text;
+                nuevo.Correo = txtCorreo.Text;
                 if (int.TryParse(txttelefonprov.Text, out number))
                 {
-                    prov.Tel = number;
+                    nuevo.Tel = number;
                 }
                 else
                 {
                     throw new Exception("El numero de telefono no corresponde");
                 }
-               
-                prov.Rubro = (Rubros)cmbrubro.SelectedIndex;
-                prov.Agregar();
+
+                nuevo.Rubro = (Rubros)cmbrubro.SelectedItem;
+                nuevo.Agregar();
                 Cargar();
                 Limpiar();
                 await this.ShowMessageAsync("Informacion", "El Proveedor ha sido registrado.", style: MessageDialogStyle.Affirmative);
@@ -136,7 +137,7 @@ namespace ServiExpress
 
         private void btncerrar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = MainWindow.Instance;
+            MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
         }

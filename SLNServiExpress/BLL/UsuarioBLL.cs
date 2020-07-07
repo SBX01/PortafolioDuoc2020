@@ -33,10 +33,33 @@ namespace BLL
         public void Agregar(string nombreUsuario, string password ,Rol rol)
         {
             string rolUsuario = rol.ToString();
-            usuario.conexion.Conectar();
-            usuario.AgregarUsuario(nombreUsuario, password, rolUsuario);
-            usuario.conexion.desconectar();
-            Console.WriteLine("BLL: agregar");
+            if(password.Length > 5)
+            {
+                usuario.AgregarUsuario(nombreUsuario, password, rolUsuario);
+                Console.WriteLine("BLL: agregar");
+            }
+            else
+            {
+                throw new Exception("La contraseña es demasiado corta.");
+            }
+
+
+        }
+
+        public void modificar(string nombreUsuario, string password,string nuevoUser)
+        {
+
+            if (password.Length > 5)
+            {
+                usuario.modificar(nombreUsuario, password, nuevoUser);
+                Console.WriteLine("BLL: modificar");
+            }
+            else
+            {
+                throw new Exception("La contraseña es demasiado corta.");
+            }
+
+
         }
 
         public bool TryLogin(string nombreUsuario, string password)
@@ -57,7 +80,6 @@ namespace BLL
 
         public string GetRolUsuario(string nombreUsuario)
         {
-            usuario.conexion.Conectar();
             string result = usuario.rolUsuario(nombreUsuario) ;
             switch (result)
             {

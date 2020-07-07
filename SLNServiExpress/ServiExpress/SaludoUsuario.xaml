@@ -11,7 +11,7 @@
         Title="SERVIEXPRESS" Background="#002456" Height="567.609" Width="1040.849" Loaded="MetroWindow_Loaded">
     <Grid>
         <Button  x:Name="btncerrar"    Content="Cerrar Sesiòn" Background="#51d1f6" HorizontalAlignment="Left" Margin="760,21,0,0" VerticalAlignment="Top" Width="169" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Click="Btncerrar_Click"/>
-        <Label x:Name="lblbienvenido" Content="Bienvenido Usuario               " HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="34" Width="652" FontSize="22"/>
+        <Label x:Name="lblbienvenido" Content="Bienvenido Usuario               " HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="49" Width="652" FontSize="22"/>
         <DataGrid x:Name="dgDatos" HorizontalAlignment="Left" Height="299" Margin="159,109,0,0" VerticalAlignment="Top" Width="608"/>
         <Button  x:Name="btninfoedi"    Content="Editar informacion" Background="#51d1f6" HorizontalAlignment="Left" Margin="34,456,0,0" VerticalAlignment="Top" Width="195" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Click="Btninfoedi_Click"/>
         <Button  x:Name="btnmodulore"    Content="Modulo Registros" Background="#51d1f6" HorizontalAlignment="Left" Margin="267,456,0,0" VerticalAlignment="Top" Width="195" FontWeight="Normal" FontSize="18" RenderTransformOrigin="0.485,0.286" FontFamily="Sitka Display" Click="Btnmodulore_Click"/>

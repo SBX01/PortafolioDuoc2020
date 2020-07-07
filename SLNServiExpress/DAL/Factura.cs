@@ -11,7 +11,7 @@ namespace DAL
 {
     public class Factura
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
         OracleCommand cmd = null;
 
 

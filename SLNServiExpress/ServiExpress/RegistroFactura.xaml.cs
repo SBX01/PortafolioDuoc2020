@@ -27,7 +27,6 @@ namespace ServiExpress
         public RegistroFactura()
         {
             InitializeComponent();
-            cmboreserv0.Visibility = Visibility.Hidden;
         }
 
 

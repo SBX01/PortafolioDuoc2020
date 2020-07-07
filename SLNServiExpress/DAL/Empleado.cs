@@ -12,7 +12,7 @@ namespace DAL
 {
     public class Empleado
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
         OracleCommand cmd = null; 
 
         public string RUT_EMPL { get; set; }

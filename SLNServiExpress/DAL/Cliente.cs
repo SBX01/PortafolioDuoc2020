@@ -11,7 +11,7 @@ namespace DAL
 {
     public class Cliente
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
         OracleCommand cmd = null;
 
         public string rutCliente { get; set; }

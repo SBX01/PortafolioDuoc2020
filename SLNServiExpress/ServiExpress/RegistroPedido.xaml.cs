@@ -21,7 +21,7 @@ namespace ServiExpress
         PedidoBLL pedido = new PedidoBLL();
         bool agregarDetalle = false;
         int idPedido = 0;
-        string rutEmpleado;
+        string rutEmpleado = Data.RutEmpleadoActivo;
         int totalPedido = 0;
 
         public RegistroPedido()
@@ -129,7 +129,8 @@ namespace ServiExpress
                         break;
 
                 }
-                
+                dgDetalle.ItemsSource = null;
+                dgDetalle.ItemsSource = ListaDetallePedidos;
             }
             catch (Exception ex)
             {
@@ -218,30 +219,37 @@ namespace ServiExpress
         {
             try
             {
-                if (Data.EsAdmin)
+                if(ListaDetallePedidos.Count != 0)
                 {
-                    pedido = new PedidoBLL();
-                    pedido.Fecha = DateTime.Now;
-                    pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
-                    pedido.Descripcion = "Pedido realizado por " + Data.NombreUser;
-                    pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
-                    // detalle compra
-                    pedido.Agregar(ListaDetallePedidos);
+                    if (Data.EsAdmin)
+                    {
+                        pedido = new PedidoBLL();
+                        pedido.Fecha = DateTime.Now;
+                        pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
+                        pedido.Descripcion = "Pedido realizado por " + Data.NombreUser;
+                        pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
+                        // detalle compra
+                        pedido.Agregar(ListaDetallePedidos);
+                    }
+                    else
+                    {
+                        pedido = new PedidoBLL();
+                        pedido.Fecha = DateTime.Now;
+                        pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
+                        pedido.Descripcion = "Pedido realizado por " + Data.NombreUser;
+                        pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
+                        // detalle compra
+                        pedido.Agregar(ListaDetallePedidos);
+                    }
+                    // agregar Total de pedido
+                    
+                    await this.ShowMessageAsync("Informacion", "El Pedido ha sido creado!", style: MessageDialogStyle.Affirmative);
                 }
                 else
                 {
-                    pedido = new PedidoBLL();
-                    pedido.Fecha = DateTime.Now;
-                    pedido.RutEmpleado = cboEmpleado.SelectedValue.ToString();
-                    pedido.Descripcion = "Pedido realizado por " + Data.NombreUser;
-                    pedido.RutProveedor = cboProveedor.SelectedValue.ToString();
-                    // detalle compra
-                    pedido.Agregar(ListaDetallePedidos);
+                    await this.ShowMessageAsync("Informacion", "El detalle del Pedido está vacio.", style: MessageDialogStyle.Affirmative);
                 }
-               // agregar Total de pedido
                 ListarPedidos();
-                await this.ShowMessageAsync("Informacion", "El Pedido ha sido creado!", style: MessageDialogStyle.Affirmative);
-
             }
 
             catch (Exception ex)
@@ -370,11 +378,11 @@ namespace ServiExpress
 
         private void btncerrar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow inicio = MainWindow.Instance;
-            this.Close();
+            MainWindow inicio = new MainWindow();
             Data.EstaLogeado = false;
             Data.NombreUser = string.Empty;
             inicio.Show();
+            this.Close();
         }
 
         private void Btnatras_Click(object sender, RoutedEventArgs e)
@@ -466,36 +474,44 @@ namespace ServiExpress
             try
             {
                 PedidoBLL editar = new PedidoBLL();
-                if (Data.EsAdmin)
+                if(ListaDetallePedidos.Count != 0)
                 {
-                    editar.IdPedido = idPedido;
-                    editar.Fecha = DateTime.Now;
-                    editar.Descripcion = "Pedido modificado por "+ Data.NombreUser;
-                    editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
-                    editar.RutProveedor = cboProveedor.SelectedValue.ToString();
+                    if (Data.EsAdmin)
+                    {
+                        editar.IdPedido = idPedido;
+                        editar.Fecha = DateTime.Now;
+                        editar.Descripcion = "Pedido modificado por " + Data.NombreUser;
+                        editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
+                        editar.RutProveedor = cboProveedor.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        editar.IdPedido = idPedido;
+                        editar.Fecha = DateTime.Now;
+                        editar.Descripcion = "Pedido modificado por " + Data.NombreUser;
+                        editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
+                        editar.RutProveedor = cboProveedor.SelectedValue.ToString();
+                    }
+
+                    switch (await this.ShowMessageAsync("Atencion", "¿Está seguro que desea modificar el Pedido N°: " + editar.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
+                    {
+                        case MessageDialogResult.Affirmative:
+                            // detalle compra
+                            editar.Modificar(ListaDetallePedidos);
+                            await this.ShowMessageAsync("Informacion", "El Pedido ha sido modificado", style: MessageDialogStyle.Affirmative);
+
+                            break;
+
+                        case MessageDialogResult.Negative:
+                            await this.ShowMessageAsync("Informacion", "Accion cancelada.");
+                            break;
+                    }
                 }
                 else
                 {
-                    editar.IdPedido = idPedido;
-                    editar.Fecha = DateTime.Now;
-                    editar.Descripcion = "Pedido modificado por " + Data.NombreUser;
-                    editar.RutEmpleado = cboEmpleado.SelectedValue.ToString();
-                    editar.RutProveedor = cboProveedor.SelectedValue.ToString();
+                    await this.ShowMessageAsync("Informacion", "El detalle se encuetra vacio.");
                 }
-                
-                switch (await this.ShowMessageAsync("Atencion", "¿Está seguro que desea modificar el Pedido N°: " + editar.IdPedido + " ?", MessageDialogStyle.AffirmativeAndNegative))
-                {
-                    case MessageDialogResult.Affirmative:
-                        // detalle compra
-                        editar.Modificar(ListaDetallePedidos);
-                        await this.ShowMessageAsync("Informacion", "El Pedido ha sido modificado", style: MessageDialogStyle.Affirmative);
-
-                        break;
-
-                    case MessageDialogResult.Negative:
-                        await this.ShowMessageAsync("Informacion", "Accion cancelada.");
-                        break;
-                }
+               
 
                 ListarPedidos();
 

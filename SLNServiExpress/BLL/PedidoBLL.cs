@@ -165,7 +165,9 @@ namespace BLL
             foreach (var detalle in listaDetalle)
             {
                 detalle.IdPedido = editar.IdPedido;
+                detalle.eliminar(editar.RutEmpleado,detalle.IdProducto,detalle.IdPedido);
                 detalle.agregar();
+                detalle.modificar();
             }
             Console.WriteLine("BLL: Editar pedido.");
         }

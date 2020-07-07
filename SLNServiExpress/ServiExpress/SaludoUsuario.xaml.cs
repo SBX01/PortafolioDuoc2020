@@ -39,12 +39,14 @@ namespace ServiExpress
         private void Btninfoedi_Click(object sender, RoutedEventArgs e)
         {
             // ventana editar usuario
+            EditarUser edit = new EditarUser();
+            edit.ShowDialog();
         }
 
         private void Btnatras_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow log = MainWindow.Instance;
-            
+            MainWindow log = new MainWindow();
+
             this.Close();
             log.Show();
             Data.EstaLogeado = false;
@@ -52,17 +54,25 @@ namespace ServiExpress
 
         private void Btncerrar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow log = MainWindow.Instance;
+            MainWindow log = new MainWindow();
             this.Close();
             log.Show();
             Data.EstaLogeado = false;
         }
 
-        private void btnhacerpedido_Click(object sender, RoutedEventArgs e)
+        private async void btnhacerpedido_Click(object sender, RoutedEventArgs e)
         {
-            RegistroPedido ped = new RegistroPedido();
-            this.Close();
-            ped.Show();
+            if(Data.CargoEmpleadoLogeado == Cargos.Bodeguero.ToString())
+            {
+                RegistroPedido ped = new RegistroPedido();
+                this.Close();
+                ped.Show();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Atencion", "No tiene los permisos para acceder.");
+            }
+           
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)

@@ -55,9 +55,11 @@ namespace ServiExpress
             // si un mecánico quiere agregar un vehiculo a su cliente
             if (Data.CargoEmpleadoLogeado.Equals("Mecanico") | Data.EsAdmin)
             {
-                RegistroAutomovil reg = new RegistroAutomovil();
-                this.Close();
-                reg.ShowDialog();
+                await this.ShowMessageAsync("Lo sentimos", "En mantenimiento.", style: MessageDialogStyle.Affirmative);
+
+                //RegistroAutomovil reg = new RegistroAutomovil();
+                //this.Close();
+                //reg.Show();
             }
             else
             {
@@ -87,9 +89,10 @@ namespace ServiExpress
         {
             if (Data.EsAdmin)
             {
-                RegistroServicio serv = new RegistroServicio();
-                this.Close();
-                serv.ShowDialog();
+                await this.ShowMessageAsync("Lo sentimos", "Funcionalidad en mantenimiento.", style: MessageDialogStyle.Affirmative);
+                //RegistroServicio serv = new RegistroServicio();
+                //this.Close();
+                //serv.ShowDialog();
             }
             else
             {
@@ -119,9 +122,10 @@ namespace ServiExpress
 
             if (Data.CargoEmpleadoLogeado.Equals("Bodeguero") | Data.CargoEmpleadoLogeado.Equals("Atencion") | Data.EsAdmin)
             {
-                RegistroProducto prod = new RegistroProducto();
-                this.Close();
-                prod.ShowDialog();
+                await this.ShowMessageAsync("Lo sentimos", "En mantenimiento.", style: MessageDialogStyle.Affirmative);
+                //RegistroProducto prod = new RegistroProducto();
+                //this.Close();
+                //prod.ShowDialog();
             }
             else
             {
@@ -140,7 +144,7 @@ namespace ServiExpress
         {
             await this.ShowMessageAsync("Iniciar Sesion", "Ingrese a su cuenta", style: MessageDialogStyle.Affirmative);
             Data.EstaLogeado = false;
-            MainWindow main = MainWindow.Instance;
+            MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
         }

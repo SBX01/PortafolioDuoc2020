@@ -10,12 +10,11 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="SERVIEXPRESS"  Background="#002456" Height="714" Width="819" Loaded="MetroWindow_Loaded">
     <Grid>
-        <CheckBox x:Name="checkAgregar" Content="Agregar detalle" HorizontalAlignment="Right" Margin="0,233,213,0" VerticalAlignment="Top" FontSize="20" Width="212" TextOptions.TextFormattingMode="Display" FontWeight="Bold" Foreground="White" BorderThickness="5" Height="32" BorderBrush="#FFF1902E" Click="checkAgregar_Click" Visibility="Hidden" />
         <Label Content=" Registro  De Boleta " HorizontalAlignment="Left" Margin="228,10,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="456" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
         <Label x:Name="lblfech" Content="Fecha Boleta                :" HorizontalAlignment="Left" Margin="32,72,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" FontWeight="Bold" Height="36" Width="188" FontSize="22"/>
-        <Label Content="Tipo Pago               :" HorizontalAlignment="Left" Margin="26,119,0,0" VerticalAlignment="Top" Height="46" Width="190" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.479,0.263"/>
-        <Label x:Name="lblto" Content="Total Boleta      :" HorizontalAlignment="Left" Margin="24,158,0,0" VerticalAlignment="Top" Height="41" Width="196" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
-        <TextBox x:Name="txttotalbol" HorizontalAlignment="Left" Height="23" Margin="180,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <Label Content="Tipo Pago               :" HorizontalAlignment="Left" Margin="30,119,0,0" VerticalAlignment="Top" Height="46" Width="190" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.479,0.263"/>
+        <Label x:Name="lblto" Content="Total Boleta      :" HorizontalAlignment="Left" Margin="24,163,0,0" VerticalAlignment="Top" Height="41" Width="196" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
+        <TextBox x:Name="txttotalbol" HorizontalAlignment="Left" Height="23" Margin="180,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
         <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="733,616,0,0" VerticalAlignment="Top" Width="48" Height="38" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"   >
             <Button.RenderTransform>
                 <TransformGroup>
@@ -30,17 +29,8 @@
             </Button.Background>
         </Button>
 
-        <DatePicker  x:Name="fechaboleta" Margin="180,79,481,0" VerticalAlignment="Top" RenderTransformOrigin="-0.017,0.943"/>
-        <ComboBox x:Name="cmbopago" HorizontalAlignment="Left" Margin="180,123,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.581,0.964" Height="25" />
-        <Grid x:Name="GridBoleta" HorizontalAlignment="Left" Height="228" Margin="40,288,0,0" VerticalAlignment="Top" Width="644" Background="White">
-            <Label Content="Cantidad" HorizontalAlignment="Left" Margin="24,59,0,0" VerticalAlignment="Top"/>
-
-            <Label Content="Valor" HorizontalAlignment="Left" Margin="24,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.59" Width="58"/>
-
-            <TextBox x:Name="txtCantidadServicio" HorizontalAlignment="Left" Height="23" Margin="108,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
-            <DataGrid x:Name="dgDetalleboleta" HorizontalAlignment="Left" Height="209" Margin="269,10,0,0" VerticalAlignment="Top" Width="351" Background="#FFF1EDED" MouseDoubleClick="dgDetalle_MouseDoubleClick"  />
-            <TextBox x:Name="txtvalor" HorizontalAlignment="Left" Height="23" Margin="108,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
-        </Grid>
+        <DatePicker  x:Name="fechaboleta" Margin="180,79,478,0" VerticalAlignment="Top" RenderTransformOrigin="-0.017,0.943"/>
+        <ComboBox x:Name="cmbopago" HorizontalAlignment="Left" Margin="182,128,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.581,0.964" Height="25" />
 
         <Label  Content="Detalle de la Boleta                         :" HorizontalAlignment="Left" Margin="40,236,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="220" FontSize="22"/>
         <Label Content=" Agregar Boleta  " HorizontalAlignment="Left" Margin="14,622,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="41" Width="186" FontSize="22"/>
@@ -69,21 +59,6 @@
             </Button.RenderTransform>
             <Button.Background>
                 <ImageBrush ImageSource="imagenes/agregar.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="btnAddRow" Content=""  HorizontalAlignment="Left" Margin="711,302,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FF6FE81C" Height="50" Click="btnAddRow_Click" OpacityMask="#FF21FB21" RenderTransformOrigin="-3.04,2.26">
-            <Button.Background>
-                <ImageBrush ImageSource="Imagenes/mas.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="btnDeleteRow"  ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="711,372,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Foreground="#FFEA2323" Height="50" Click="btnDeleteRow_Click" OpacityMask="Red">
-            <Button.Background>
-                <ImageBrush ImageSource="Imagenes/delete.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="btnEditarDetalle" ToolTip="Asegurese de hacer doble click antes de modificar para asegurar que el detalle es el mismo." HorizontalAlignment="Left" Margin="711,452,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.293,0.45" BorderBrush="{x:Null}" Foreground="#FFE05608" Height="50" Click="btnEditarDetalle_Click" OpacityMask="#FFFF881F">
-            <Button.Background>
-                <ImageBrush ImageSource="Imagenes/editar.png"/>
             </Button.Background>
         </Button>
         <Label Content=" Editar Boleta  " HorizontalAlignment="Left" Margin="210,624,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="212" FontSize="22" RenderTransformOrigin="1.385,-0.297"/>
@@ -115,7 +90,7 @@
                 <ImageBrush ImageSource="imagenes/list.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <DataGrid x:Name="dgBoleta" HorizontalAlignment="Left" Height="138" Margin="399,79,0,0" VerticalAlignment="Top" Width="220"/>
+        <DataGrid x:Name="dgBoleta" HorizontalAlignment="Left" Height="245" Margin="40,282,0,0" VerticalAlignment="Top" Width="678"/>
     </Grid>
 </Controls:MetroWindow>
 

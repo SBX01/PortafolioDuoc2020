@@ -40,8 +40,7 @@
                 <ImageBrush ImageSource="Imagenes/aceptar.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnRechazar" ToolTip="Rechazar Producto
-                " HorizontalAlignment="Left" Margin="813,302,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="btnRechazar_Click">
+        <Button x:Name="btnRechazar" ToolTip="Rechazar Producto. " HorizontalAlignment="Left" Margin="813,302,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="btnRechazar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/cancelar.png"/>
             </Button.Background>

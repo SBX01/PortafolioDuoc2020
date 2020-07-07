@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DetalleCompra
     {
-        public Conexion con = Conexion.Instance;
+        public Conexion con = new Conexion();
         OracleCommand cmd = null;
         public int Precio { get; set; }
         public string IdProducto { get; set; }

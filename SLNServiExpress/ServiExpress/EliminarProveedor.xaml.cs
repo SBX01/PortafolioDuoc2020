@@ -52,14 +52,21 @@ namespace ServiExpress
 
         private void cborutprov_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string buscado = cborutprov.SelectedItem.ToString();
-            List<ProveedorBLL> lista = proveedor.listarTodos();
-            lista = (from pr in lista
-                     where pr.Rut.Equals(buscado)
-                     select pr).ToList();
+            try
+            {
+                string buscado = cborutprov.SelectedItem.ToString();
+                List<ProveedorBLL> lista = proveedor.listarTodos();
+                lista = (from pr in lista
+                         where pr.Rut.Equals(buscado)
+                         select pr).ToList();
 
-            dgProv.ItemsSource = lista;
-            dgProv.IsReadOnly = true;
+                dgProv.ItemsSource = lista;
+                dgProv.IsReadOnly = true;
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void btnReload_Click(object sender, RoutedEventArgs e)
@@ -104,6 +111,8 @@ namespace ServiExpress
             resultado = (from pr in lista
                          select pr.Rut).ToList();
             cborutprov.ItemsSource = resultado;
+            cborutprov.SelectedIndex = -1;
+  
         }
     }
 }

@@ -31,23 +31,31 @@ namespace ServiExpress
             lbMensajePass.Visibility = Visibility.Hidden;
         }
 
-        private void Btneditemp_Click(object sender, RoutedEventArgs e)
+        private async void Btneditemp_Click(object sender, RoutedEventArgs e)
         {
-
+            await mensajeNofuncionalidad();
         }
 
-        private void Btnelimemp_Click(object sender, RoutedEventArgs e)
+        private async Task mensajeNofuncionalidad()
         {
-            EliminarEmpleado eli  = new EliminarEmpleado();
-            this.Close();
-            eli.ShowDialog();
+            await this.ShowMessageAsync("Lo sentimos", "Funcionalidad en mantenimiento.");
         }
 
-        private void Btnlistaremp_Click(object sender, RoutedEventArgs e)
+        private async void Btnelimemp_Click(object sender, RoutedEventArgs e)
         {
-            ListarEmpleado list = new ListarEmpleado();
-            this.Close();
-            list.ShowDialog();
+            await mensajeNofuncionalidad();
+
+            //EliminarEmpleado eli  = new EliminarEmpleado();
+            //this.Close();
+            //eli.ShowDialog();
+        }
+
+        private async void Btnlistaremp_Click(object sender, RoutedEventArgs e)
+        {
+            await mensajeNofuncionalidad();
+            //ListarEmpleado list = new ListarEmpleado();
+            //this.Close();
+            //list.ShowDialog();
         }
 
         private void Btnatras_Click(object sender, RoutedEventArgs e)
@@ -98,10 +106,10 @@ namespace ServiExpress
             }
         }
 
-        private void Image_GotFocus(object sender, RoutedEventArgs e)
+        private async void Image_GotFocus(object sender, RoutedEventArgs e)
         {
             // buscar con rut
-
+            await mensajeNofuncionalidad();
         }
 
         private void txtconfpasem_KeyUp(object sender, KeyEventArgs e)
@@ -186,6 +194,11 @@ namespace ServiExpress
             var cargos = (Cargos[])Enum.GetValues(typeof(Cargos));
             cmbcargoem.ItemsSource = cargos;
             cmbcargoem.SelectedIndex = 1;
+        }
+
+        private async void btnelimemp_Click_1(object sender, RoutedEventArgs e)
+        {
+            await mensajeNofuncionalidad();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace ServiExpress
     /// <summary>
     /// Lógica de interacción para Informes.xaml
     /// </summary>
-    public partial class Informes : Window
+    public partial class Informes : MetroWindow
     {
         const string link = "https://app.powerbi.com/view?r=eyJrIjoiM2E5OTZiM2ItYmVkOC00NTZiLWI2OWUtZDZlYzQ0MTY2YmY3IiwidCI6IjNmZGVmMDc1LWFkODktNGU2OS05ZmU5LTc0MTcyZWNkYmJmNiJ9";
         public Informes()

@@ -12,7 +12,7 @@ namespace DAL
 {
     public class Usuario
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
         OracleCommand cmd = null;
 
         public int idUsuario { get; set; }
@@ -46,6 +46,51 @@ namespace DAL
             }
             
             
+        }
+        public void modificar(string nombreUsuario, string contrasena, string newuser)
+        {
+            if (string.IsNullOrEmpty(buscarId(newuser)))
+            {
+                conexion.Conectar(); // se conecta a la base de datos
+                cmd = new OracleCommand("EDITARUSER", conexion.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("NOMBREUSUARIO", OracleDbType.Varchar2, ParameterDirection.Input).Value = nombreUsuario;
+                cmd.Parameters.Add("CONTRA", OracleDbType.Varchar2, ParameterDirection.Input).Value = contrasena;
+                cmd.Parameters.Add("newNombre", OracleDbType.Varchar2, ParameterDirection.Input).Value = newuser;
+
+                cmd.ExecuteNonQuery();
+
+                Console.WriteLine("DAL: procedimiento");
+                conexion.desconectar();
+            }
+            else
+            {
+                throw new Exception("El Nombre de usuario ya existe!");
+            }
+
+
+        }
+
+        public void ELIMINAR(string nombreUsuario)
+        {
+            if (string.IsNullOrEmpty(buscarId(nombreUsuario)))
+            {
+                conexion.Conectar(); // se conecta a la base de datos
+                cmd = new OracleCommand("ELIMINARUSER", conexion.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("NOMBREUSUARIO", OracleDbType.Varchar2, ParameterDirection.Input).Value = nombreUsuario;
+
+                cmd.ExecuteNonQuery();
+
+                Console.WriteLine("DAL: procedimiento");
+                conexion.desconectar();
+            }
+            else
+            {
+                throw new Exception("El Nombre de usuario no existe!");
+            }
+
+
         }
 
         public string TryLogin(string nombreUsuario, string contrasena)

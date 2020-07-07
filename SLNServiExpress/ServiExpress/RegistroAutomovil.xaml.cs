@@ -57,7 +57,7 @@ namespace ServiExpress
         {
             await this.ShowMessageAsync("Iniciar Sesion", "Ingrese a su cuenta", style: MessageDialogStyle.Affirmative);
             Data.EstaLogeado = false;
-            MainWindow main = MainWindow.Instance;
+            MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
         }

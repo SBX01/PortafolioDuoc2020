@@ -70,15 +70,23 @@ namespace ServiExpress
             Limpiar();
         }
 
-        private void Btnelimcli_Click(object sender, RoutedEventArgs e)
+        private async void Btnelimcli_Click(object sender, RoutedEventArgs e)
         {
-            EliminarCliente elim = new EliminarCliente();
-            this.Close();
-            elim.ShowDialog();
+            await mensajeNofuncionalidad();
+
+            //EliminarCliente elim = new EliminarCliente();
+            //this.Close();
+            //elim.ShowDialog();
+        }
+
+        private async Task mensajeNofuncionalidad()
+        {
+           await this.ShowMessageAsync("Lo sentimos", "Funcionalidad en mantenimiento.");
         }
 
         private void Btnlistar_Click(object sender, RoutedEventArgs e)
         {
+
             ListarClientes list = new ListarClientes();
             this.Close();
             list.ShowDialog();

@@ -11,15 +11,31 @@ namespace BLL
     public class BoletaBLL
     {
         Boleta boleta = new Boleta();
-        Validacion val = new Validacion();
-
+        private int _total;
 
         public int IdBoleta { get; set; }
 
 
         public DateTime Fechaboleta { get; set; }
 
-        public int TotalBoleta { get; set; }
+        public int TotalBoleta 
+        {
+            get
+            {
+                return _total;
+            }
+            set
+            {
+                if(value > 0)
+                {
+                    _total = value;
+                }
+                else
+                {
+                    throw new Exception("El valor no puede ser negativo");
+                }
+            }
+        }
 
         public Tipopago TipoPago { get; set; }
 

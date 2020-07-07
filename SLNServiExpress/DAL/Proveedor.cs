@@ -14,7 +14,7 @@ namespace DAL
 
     public class Proveedor
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
         OracleCommand cmd = null;
 
         public string RutProveedor { get; set; }
@@ -34,7 +34,7 @@ namespace DAL
         public void AgregarProveedor()
         {
             conexion.Conectar(); // se conecta a la base de datos
-            cmd = new OracleCommand("agregarprov", conexion.con);
+            cmd = new OracleCommand("AGREGARPROV", conexion.con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("RUT", OracleDbType.Varchar2, ParameterDirection.Input).Value = RutProveedor;

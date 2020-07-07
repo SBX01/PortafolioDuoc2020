@@ -1,0 +1,41 @@
+﻿<Controls:MetroWindow x:Class="ServiExpress.EditarUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiExpress"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="SERVIEXPRESS"  Background="#002456" Height="400
+                      " Width="500">
+    <Grid>
+        <Label Content="Edicion de perfil" Margin="118,10,108,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
+        <Button Content="Guardar" Margin="38,0,33,24" Click="Button_Click" Height="27" VerticalAlignment="Bottom" Background="#FF29F9F0" BorderBrush="#FFF7D22B" Foreground="#FF001BC3" FontWeight="Bold"/>
+        <Grid Margin="43,80,37,67" HorizontalAlignment="Center">
+            <Label Content="Usuario nuevo" Margin="14,38,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="34" Width="186" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtnombre" HorizontalAlignment="Left" Height="24" Margin="229,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+            <Label Content="Contraseña nueva" Margin="12,127,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="34" Width="186" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" HorizontalAlignment="Left"/>
+            <PasswordBox x:Name="passUser" HorizontalAlignment="Left" Margin="228,131,0,0" VerticalAlignment="Top" Width="150" Height="22" KeyUp="passUser_KeyUp"/>
+            <Label Content="Confirme contraseña" Margin="14,173,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="34" Width="184" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" HorizontalAlignment="Left"/>
+            <PasswordBox x:Name="passUserConfirmar" HorizontalAlignment="Left" Margin="228,180,0,0" VerticalAlignment="Top" Width="150" Height="22" KeyUp="passUserConfirmar_KeyUp"/>
+            <Label x:Name="lblDetalle" Content="" Margin="226,154,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="24" Width="186" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="14" HorizontalAlignment="Left"/>
+            <Label Content="Contraseña anterior" Margin="12,81,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="34" Width="186" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" HorizontalAlignment="Left"/>
+            <PasswordBox x:Name="passUserOld" HorizontalAlignment="Left" Margin="229,85,0,0" VerticalAlignment="Top" Width="150" Height="22" KeyUp="passUser_KeyUp"/>
+            <Label Content="Usuario Antiguo" Margin="15,-3,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="34" Width="186" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtnombreOld" HorizontalAlignment="Left" Height="24" Margin="229,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        </Grid>
+        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="0,10,0,0" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="Btnatras_Click" HorizontalAlignment="Left" Width="56" Height="50" VerticalAlignment="Top" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="-1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/atras.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>

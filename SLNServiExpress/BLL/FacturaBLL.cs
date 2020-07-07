@@ -10,8 +10,28 @@ namespace BLL
     public class FacturaBLL
     {
         Factura fa = new Factura();
+        public int _neto;
         public DateTime FECHA_FACTURA { get; set; }
-        public int NETO { get; set; }
+        public int NETO 
+        {
+            get 
+            {
+                return _neto;
+            }
+
+            set
+            {
+                if(value > 0)
+                {
+                   _neto =  value;
+                }
+                else
+                {
+                    throw new Exception("El valor debe ser sobre 0.");
+                }
+            }
+            
+        }
         public int IVA { get; set; }
         public int TOTAL { get; set; }
         public string TIPO_PAGO { get; set; }

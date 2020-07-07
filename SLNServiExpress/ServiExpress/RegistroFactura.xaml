@@ -8,16 +8,16 @@
                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="SERVIEXPRESS"  Background="#002456" Height="780" Width="850" Loaded="MetroWindow_Loaded">
-    <Grid>
+        Title="SERVIEXPRESS"  Background="#002456" Height="670.5" Width="850" Loaded="MetroWindow_Loaded">
+    <Grid Margin="0,0,0,-1">
         <Label Content=" Registro  De Factura " HorizontalAlignment="Left" Margin="228,26,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="48" Width="456" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="36"/>
         <Label x:Name="lblcl" Content="" HorizontalAlignment="Left" Margin="19,91,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="190" FontSize="22" Grid.ColumnSpan="2"/>
         <Label x:Name="lblfech" Content="Fecha Factura         :" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" FontWeight="Bold" Height="36" Width="189" FontSize="22"/>
         <Label Content="Tipo Pago               :" HorizontalAlignment="Left" Margin="9,208,0,0" VerticalAlignment="Top" Height="46" Width="190" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.479,0.263"/>
         <Label x:Name="lblnet" Content="Neto     :" HorizontalAlignment="Left" Margin="466,96,0,0" VerticalAlignment="Top" Height="41" Width="195" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
         <Label Content="Seleccionar  Reserva     :" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Height="46" Width="257" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.479,0.263"/>
-        <TextBox x:Name="txtneto" HorizontalAlignment="Left" Height="23" Margin="645,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" KeyUp="txtneto_KeyUp"/>
-        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="759,667,0,0" VerticalAlignment="Top" Width="48" Height="38" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"   >
+        <TextBox x:Name="txtneto" HorizontalAlignment="Left" Height="23" Margin="641,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" KeyUp="txtneto_KeyUp"/>
+        <Button x:Name="Btnatras" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="766,584,0,0" VerticalAlignment="Top" Width="48" Height="38" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.597,1.474" Click="Btnatras_Click"   >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -31,16 +31,16 @@
             </Button.Background>
         </Button>
 
-        <DatePicker  x:Name="fechafac" Margin="278,162,425,0" VerticalAlignment="Top" RenderTransformOrigin="-0.017,0.943"/>
+        <DatePicker  x:Name="fechafac" Margin="278,162,403,0" VerticalAlignment="Top" RenderTransformOrigin="-0.017,0.943"/>
         <ComboBox x:Name="cmbopago" HorizontalAlignment="Left" Margin="278,216,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" SelectionChanged="cmbopago_SelectionChanged" SelectedIndex="0" />
-        <ComboBox x:Name="cmboreserv0" HorizontalAlignment="Left" Margin="24,49,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.581,0.964" Height="25" />
+        <ComboBox x:Name="cmboreserv" HorizontalAlignment="Left" Margin="278,107,0,0" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.581,0.964" Height="25" />
 
 
-        <Label  Content="Detalle de la Factura                         :" HorizontalAlignment="Left" Margin="317,281,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="220" FontSize="22"/>
-        <DataGrid x:Name="dtgfactura" HorizontalAlignment="Left" Height="226" Margin="176,348,0,0" VerticalAlignment="Top" Width="508"/>
-        <Label Content=" Agregar Factura  " HorizontalAlignment="Left" Margin="24,675,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="41" Width="185" FontSize="22"/>
+        <Label  Content="Detalle de la Factura                         :" HorizontalAlignment="Left" Margin="119,254,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFDFDFD" Height="34" Width="220" FontSize="22"/>
+        <DataGrid x:Name="dtgfactura" HorizontalAlignment="Left" Height="186" Margin="126,296,0,0" VerticalAlignment="Top" Width="590"/>
+        <Label Content=" Agregar Factura  " HorizontalAlignment="Left" Margin="32,592,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="42" Width="184" FontSize="22"/>
 
-        <Button x:Name="btneditfac" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="272,599,0,0" VerticalAlignment="Top" Width="75" Height="55" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37" Click="btneditbole_Click"  >
+        <Button x:Name="btneditfac" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="279,516,0,0" VerticalAlignment="Top" Width="75" Height="55" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="-0.215,0.37" Click="btneditbole_Click"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -53,7 +53,7 @@
                 <ImageBrush ImageSource="imagenes/modi.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnagregarfac" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="87,606,0,0" VerticalAlignment="Top" Width="61" Height="58" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="btnagregarproduc_Click">
+        <Button x:Name="btnagregarfac" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="94,524,0,0" VerticalAlignment="Top" Width="61" Height="58" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="btnagregarproduc_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -66,10 +66,10 @@
                 <ImageBrush ImageSource="imagenes/agregar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Label Content=" Editar Factura  " HorizontalAlignment="Left" Margin="228,675,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="213" FontSize="22" RenderTransformOrigin="1.385,-0.297"/>
-        <Label Content=" Eliminar Factura  " HorizontalAlignment="Left" Margin="397,675,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="213" FontSize="22" RenderTransformOrigin="0.28,2.392"/>
-        <Label Content=" Listar Factura  " HorizontalAlignment="Left" Margin="576,675,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="39" Width="213" FontSize="22"/>
-        <Button x:Name="btnelimfactura" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="464,599,0,0" VerticalAlignment="Top" Width="54" Height="56" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249" Click="Btnelimproduc_Click" >
+        <Label Content=" Editar Factura  " HorizontalAlignment="Left" Margin="236,592,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="40" Width="212" FontSize="22" RenderTransformOrigin="1.385,-0.297"/>
+        <Label Content=" Eliminar Factura  " HorizontalAlignment="Left" Margin="404,592,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="40" Width="214" FontSize="22" RenderTransformOrigin="0.28,2.392"/>
+        <Label Content=" Listar Factura  " HorizontalAlignment="Left" Margin="584,592,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="GhostWhite" Height="40" Width="212" FontSize="22"/>
+        <Button x:Name="btnelimfactura" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="472,516,0,0" VerticalAlignment="Top" Width="54" Height="56" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.529,-0.249" Click="Btnelimproduc_Click" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -82,7 +82,7 @@
                 <ImageBrush ImageSource="imagenes/eliminar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnlistarfactura" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="626,592,0,0" VerticalAlignment="Top" Width="54" Height="59" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="Btnlistarproduc_Click" >
+        <Button x:Name="btnlistarfactura" Content="" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" Margin="634,510,0,0" VerticalAlignment="Top" Width="54" Height="58" Foreground="#FFDBE2F7" FontWeight="Bold" FontStyle="Italic"  FontSize="14" RenderTransformOrigin="0.5,0.5" Click="Btnlistarproduc_Click" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -98,8 +98,7 @@
         <Label x:Name="lbliv" Content="Iva     :" HorizontalAlignment="Left" Margin="465,150,0,0" VerticalAlignment="Top" Height="41" Width="196" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
         <Label x:Name="lbltobol" Content="Total factura    :" HorizontalAlignment="Left" Margin="465,207,0,0" VerticalAlignment="Top" Height="41" Width="196" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
 
-        <TextBox x:Name="txtiva" HorizontalAlignment="Left" Height="23" Margin="645,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" IsEnabled="False"/>
-        <TextBox x:Name="txttotal" HorizontalAlignment="Left" Height="23" Margin="644,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" IsEnabled="False"/>
-        <TextBox x:Name="cmboreserv" HorizontalAlignment="Left" Height="23" Margin="278,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtiva" HorizontalAlignment="Left" Height="23" Margin="641,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" IsEnabled="False"/>
+        <TextBox x:Name="txttotal" HorizontalAlignment="Left" Height="23" Margin="642,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" IsEnabled="False"/>
     </Grid>
 </Controls:MetroWindow>

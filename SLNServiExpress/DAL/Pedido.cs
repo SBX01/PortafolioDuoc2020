@@ -12,7 +12,7 @@ namespace DAL
 {
     public class Pedido
     {
-        public Conexion conexion = Conexion.Instance;
+        public Conexion conexion = new Conexion();
         OracleCommand cmd = null;
 
         #region Variables y Propiedades

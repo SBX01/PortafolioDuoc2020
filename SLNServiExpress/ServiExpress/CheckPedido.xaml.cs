@@ -41,7 +41,7 @@ namespace ServiExpress
             try
             {
                 ListarDatos();
-                DesactivarBotones();
+                //DesactivarBotones();
             }
             catch (Exception)
             {
@@ -75,7 +75,7 @@ namespace ServiExpress
             {
                 detalleActual = (DetallePedidoBLL)dgDetalle.SelectedItem;
                 await this.ShowMessageAsync("Atencion", "Ha seleccionado el producto N° " + detalleActual.IdProducto + ".");
-                ActivarBotones();
+                //ActivarBotones();
             }
             catch (Exception)
             {
@@ -124,17 +124,19 @@ namespace ServiExpress
                             detalleActual.modificar();
                             await this.ShowMessageAsync("Informacion", "Detalle mofidicado.");
                             txtComentario.IsEnabled = false;
+                            txtComentario.Text = string.Empty;
+                            ListarDatos();
+                            detalleActual = null;
                             break;
                         case MessageDialogResult.Negative:
                             await this.ShowMessageAsync("Informacion", "Cambios cancelados.");
+                            txtComentario.Text = string.Empty;
                             txtComentario.IsEnabled = false;
                             break;
                     }
 
                 }
-                txtComentario.Text = string.Empty;
-                ListarDatos();
-                detalleActual = null;
+               
             }
             catch (Exception)
             {
@@ -160,7 +162,7 @@ namespace ServiExpress
                         {
 
                             ProductoBLL producto = (from pr in new ProductoBLL().ListarTodo()
-                                                    where pr.Id_producto == detalleActual.IdProducto
+                                                    where pr.Id_producto == d.IdProducto
                                                     select pr).FirstOrDefault();
 
                             d.Estado = EstadoPedido.Finalizado;
@@ -172,7 +174,7 @@ namespace ServiExpress
                         if(detalle.Count  != 0)
                         {
                             await this.ShowMessageAsync("Informacion", "Cambios guardados");
-                            DesactivarBotones();
+                            //DesactivarBotones();
                         }
                         else
                         {
@@ -199,28 +201,38 @@ namespace ServiExpress
         {
             try
             {
-               
-                ProductoBLL producto = (from pr in new ProductoBLL().ListarTodo()
-                                        where pr.Id_producto == detalleActual.IdProducto
-                                        select pr).FirstOrDefault();
-                if(detalleActual.Estado != EstadoPedido.Finalizado)
+                switch (await this.ShowMessageAsync("Informacion", "¿Esta seguro de los cambios?", MessageDialogStyle.AffirmativeAndNegative))
                 {
-                    producto.Stock_produc = producto.Stock_produc + detalleActual.Cantidad;
-                    producto.Modificar();
-                    detalleActual.Estado = EstadoPedido.Finalizado;
-                    detalleActual.modificar();
-                    await this.ShowMessageAsync("Informacion", "Cambios guardados");
+                    case MessageDialogResult.Affirmative:
+                        ProductoBLL producto = (from pr in new ProductoBLL().ListarTodo()
+                                                where pr.Id_producto == detalleActual.IdProducto
+                                                select pr).FirstOrDefault();
+                        if (detalleActual.Estado != EstadoPedido.Finalizado)
+                        {
+                            producto.Stock_produc = producto.Stock_produc + detalleActual.Cantidad;
+                            producto.Modificar();
+                            detalleActual.Estado = EstadoPedido.Finalizado;
+                            detalleActual.modificar();
+                            await this.ShowMessageAsync("Informacion", "Cambios guardados");
+                        }
+                        break;
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Informacion", "Cambios cancelados");
+                        break;
                 }
 
+
                 
+
+                detalleActual = null;
+                ListarDatos();
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Error", ex.Message);
 
             }
-            ListarDatos();
-            detalleActual = null;
+           
         }
 
         private void dgDetalle_MouseEnter(object sender, MouseEventArgs e)
@@ -252,7 +264,7 @@ namespace ServiExpress
                         if (detalle.Count != 0)
                         {
                             await this.ShowMessageAsync("Informacion", "Cambios guardados");
-                            DesactivarBotones();
+                            //DesactivarBotones();
                         }
                         else
                         {
@@ -277,31 +289,44 @@ namespace ServiExpress
         {
             try
             {
-                detalleActual.Estado = EstadoPedido.Rechazado;
-                detalleActual.modificar();
-                await this.ShowMessageAsync("Informacion", "Cambios guardados");
+                switch (await this.ShowMessageAsync("Informacion", "¿Esta seguro de los cambios?", MessageDialogStyle.AffirmativeAndNegative))
+                {
+                    case MessageDialogResult.Affirmative:
+                        detalleActual.Estado = EstadoPedido.Rechazado;
+                        detalleActual.modificar();
+                        await this.ShowMessageAsync("Informacion", "Cambios guardados");
+                        break;
+                    case MessageDialogResult.Negative:
+                        await this.ShowMessageAsync("Informacion", "Cambios cancelados");
+                        break;
+                }
+               
+                ListarDatos();
+
+                detalleActual = null;
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Error", ex.Message);
 
             }
-            ListarDatos();
-
-            detalleActual = null;
+           
         }
+        /*
+         *     Funcionalidades no requeridas         
+         *      revisar bien si realmente es necesario su uso
+         */
+        //void ActivarBotones()
+        //{
+        //    btnAceptar.IsEnabled = true;
+        //    btnCancelar.IsEnabled = true;
+        //}
 
-        void ActivarBotones()
-        {
-            btnAceptar.IsEnabled = true;
-            btnCancelar.IsEnabled = true;
-        }
-
-        void DesactivarBotones()
-        {
-            btnAceptar.IsEnabled = false ;
-            btnCancelar.IsEnabled = false;
-        }
+        //void DesactivarBotones()
+        //{
+        //    btnAceptar.IsEnabled = false ;
+        //    btnCancelar.IsEnabled = false;
+        //}
 
         private void gridAyuda_MouseEnter(object sender, MouseEventArgs e)
         {

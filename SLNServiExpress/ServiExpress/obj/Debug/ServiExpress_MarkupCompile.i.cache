@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Seba\Desktop\IT App\SLNServiExpress\ServiExpress\App.xaml
-301046467367
+31-997775506
 
-35176781161
+35-1630915029
 22397005945
-Bienvenida.xaml;CheckPedido.xaml;EliminarAutomovil.xaml;EliminarCliente.xaml;EliminarEmpleado.xaml;EliminarProducto.xaml;EliminarProveedor.xaml;EliminarServicio.xaml;Informes.xaml;ListarAutomoviles.xaml;ListarClientes.xaml;ListarEmpleado.xaml;ListarProducto.xaml;ListarProveedor.xaml;ListarServicio.xaml;MainWindow.xaml;ModuloFinanzas.xaml;ModuloRegistros.xaml;RegistrarBoleta.xaml;RegistroAutomovil.xaml;RegistroClientes.xaml;RegistroEmpleado.xaml;RegistroFactura.xaml;RegistroPedido.xaml;RegistroProducto.xaml;RegistroProveedor.xaml;RegistroServicio.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;SaludoUsuario.xaml;
+Bienvenida.xaml;CheckPedido.xaml;EditarUser.xaml;EliminarAutomovil.xaml;EliminarCliente.xaml;EliminarEmpleado.xaml;EliminarProducto.xaml;EliminarProveedor.xaml;EliminarServicio.xaml;Informes.xaml;ListarAutomoviles.xaml;ListarClientes.xaml;ListarEmpleado.xaml;ListarProducto.xaml;ListarProveedor.xaml;ListarServicio.xaml;MainWindow.xaml;ModuloFinanzas.xaml;ModuloRegistros.xaml;RegistrarBoleta.xaml;RegistroAutomovil.xaml;RegistroClientes.xaml;RegistroEmpleado.xaml;RegistroFactura.xaml;RegistroPedido.xaml;RegistroProducto.xaml;RegistroProveedor.xaml;RegistroServicio.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;SaludoUsuario.xaml;
 
 True
 
